@@ -1,0 +1,71 @@
+.layout-header {
+    position: fixed;
+    width:100%;
+    height:44px;
+    background:#1b1e24;
+    color:#f2f5f8;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);    
+}
+.layout-header .logo {
+    position: absolute;
+    left:15px;
+    top:12px;
+    font-size:18px;
+}
+
+.layout-header .nav {
+    display: inline-block;
+    margin-left:200px;
+}
+
+.layout-header .nav li {
+    padding:15px;
+    font-size:12px;
+    cursor: pointer;
+}
+
+.layout-header .nav li:focus {
+    outline-color: transparent;
+}
+
+.layout-header .nav li:hover {
+    background:#4e4e4e;
+}
+
+.layout-header .action {
+    float: right;
+}
+
+
+.layout-header .action .option {
+    display: inline-block;
+    padding:15px;    
+}
+
+.layout-header .action .option input {
+    border:0px;
+    border-bottom: 1px solid #f2f5f8;
+    background:transparent;
+    color:#f2f5f8;
+    padding-right:15px;
+}
+.layout-header .action .option input:focus {
+    outline: 0;
+    border-bottom: 1px solid #4e4e4e;
+}
+
+.layout-header .action .option .search {
+    position: relative;
+}
+.layout-header .action .option .search i {
+    position: absolute;
+    right:0;
+    top:2px;
+    cursor: pointer;
+}
+.layout-header .action .option .search i:hover {
+    color:#4e4e4e;
+}
+
+
+

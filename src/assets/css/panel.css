@@ -1,0 +1,75 @@
+.panel {
+    margin:15px 0;
+    color:#4e4e4e;
+    border-radius: 5px;
+    background:#fff;
+    border-top:3px solid #4e4e4e;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.panel.border-green {
+    border-top:3px solid #2E7D32;
+}
+
+.panel.border-lightblue {
+    border-top:3px solid #29B6F6;
+}
+
+.panel.border-blue {
+    border-top:3px solid #1E88E5;
+}
+
+.panel.border-red {
+    border-top:3px solid #E53935;
+}
+
+.panel.border-orange {
+    border-top:3px solid #FB8C00;
+}
+
+.panel.border-yellow {
+    border-top:3px solid #FDD835;
+}
+
+.panel.border-lightgreen {
+    border-top:3px solid #8BC34A;
+}
+
+.panel.border-purple {
+    border-top:3px solid #7E57C2;
+}
+
+.panel.border-white {
+    border-top:3px solid #fff;
+}
+
+.panel .panel-header {
+    padding:10px 15px;
+    position: relative;
+    min-height: 39px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel .panel-header h2 {
+    font-size:16px;
+    margin: 0;
+}
+
+.panel .panel-header small {
+    color:#8b91a0;
+    font-size: 11px;
+}
+
+.panel .panel-header .action {
+    position: absolute;
+    right:15px;
+    top:8px;
+}
+
+.panel .panel-body {
+    padding:10px 15px;
+    overflow: auto;
+}
+.panel .panel-body h2 {
+    font-size:16px;
+}

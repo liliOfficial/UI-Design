@@ -1,0 +1,98 @@
+.input {
+    color:#4e4e4e;
+    border:1px solid #ccc;
+    font-size:12px;
+    padding:6px;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+.input:focus {
+    border:1px solid #4e4e4e;
+    outline: none;    
+}
+
+.btn-group>.input + .btn {
+    margin-left: -3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group>.btn + .input {
+    margin-left: -3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: transparent;
+}
+
+.input-xs {
+    padding:1px 6px;
+    font-size: 11px;
+}
+
+.input-sm {
+    padding:3px 6px;
+}
+
+.input-lg {
+    font-size: 14px;
+    padding:8px;
+}
+
+.input-block {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+  
+.input-block + .input-block {
+    margin-top: 5px;
+}
+
+.input.input-red {
+    border-color: #EF9A9A;
+}
+.input.input-red:focus {
+    border-color: #E53935;
+}
+.input.input-orange {
+    border-color: #FFCC80;
+}
+.input.input-orange:focus {
+    border-color: #FB8C00;
+}
+.input.input-yellow {
+    border-color: #FFF176;
+}
+.input.input-yellow:focus {
+    border-color: #FDD835;
+}
+.input.input-lightgreen {
+    border-color: #C5E1A5;
+}
+.input.input-lightgreen:focus {
+    border-color: #8BC34A;
+}
+.input.input-green {
+    border-color: #A5D6A7;
+}
+.input.input-green:focus {
+    border-color: #43A047;
+}
+.input.input-lightblue {
+    border-color: #81D4FA;
+}
+.input.input-lightblue:focus {
+    border-color: #29B6F6;
+}
+.input.input-blue {
+    border-color: #90CAF9;
+}
+.input.input-blue:focus {
+    border-color: #1E88E5;
+}
+.input.input-purple {
+    border-color: #B39DDB;
+}
+.input.input-purple:focus {
+    border-color: #7E57C2;
+}
