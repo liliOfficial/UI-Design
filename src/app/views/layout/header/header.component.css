@@ -1,5 +1,6 @@
 .layout-header {
     position: fixed;
+    z-index: 10;
     width:100%;
     height:44px;
     background:#1b1e24;
@@ -36,10 +37,11 @@
     float: right;
 }
 
-
 .layout-header .action .option {
     display: inline-block;
-    padding:15px;    
+    padding:15px;
+    cursor: pointer; 
+    position: relative;
 }
 
 .layout-header .action .option input {
@@ -65,6 +67,14 @@
 }
 .layout-header .action .option .search i:hover {
     color:#4e4e4e;
+}
+
+.layout-header .action .option .dropdown {
+    background:red;
+    position: absolute;
+    padding:15px;
+    top:44px;
+    right:0;
 }
 
 

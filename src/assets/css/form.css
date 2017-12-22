@@ -5,19 +5,24 @@
     padding:6px;
     border-radius: 3px;
     transition: all 0.3s;
+    box-sizing: border-box;
 }
 .input:focus {
     border:1px solid #4e4e4e;
     outline: none;    
 }
 
-.btn-group>.input + .btn {
+.input-group {
+    display: inline-block;
+}
+
+.input-group>.input + .btn {
     margin-left: -3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.btn-group>.btn + .input {
+.input-group>.btn + .input {
     margin-left: -3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -31,11 +36,13 @@
 
 .input-sm {
     padding:3px 6px;
+    height: auto;
 }
 
 .input-lg {
     font-size: 14px;
     padding:8px;
+    height: auto;
 }
 
 .input-block {
@@ -95,4 +102,152 @@
 }
 .input.input-purple:focus {
     border-color: #7E57C2;
+}
+
+.input-line-group {
+    position: relative;
+    display:inline-block;
+}
+.input-line-group .input-line + .underline {
+    font-weight: 700;
+    width:100%;
+    padding:6px 1px;
+    position: absolute;
+    left:0;
+    bottom: 0;
+    transition: all 0.3s;
+}
+.input-line-group .input-line  {
+    z-index: 1;
+    position: relative;
+    margin-top:10px;
+    color: #4e4e4e;
+    background: transparent;
+    border:1px solid transparent;
+    border-bottom-color: #ccc;
+    font-size:12px;
+    padding:6px 0;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+.input-line-group .input-line +.underline:after{
+    content: "";
+    background:transparent;
+    position: absolute;
+    display:block;
+    width:0;
+    height:2px;
+    bottom:0;
+    left:50%;
+    transition: all 0.3s;
+}
+.input-line-group .input-line:focus +.underline {
+    padding-bottom: 26px;
+    color:#4e4e4e;
+}
+
+.input-line-group .input-line:not([value=""]) + .underline {
+    padding-bottom: 26px;
+    color:#4e4e4e;
+}
+.input-line-group .input-line:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#4e4e4e;
+}
+.input-line-group .input-line:focus {
+    border-bottom-color: transparent;
+    outline: none;    
+}
+.input-line.input-block {
+    width:100%;
+    display: inline-block;
+}
+.input-line-group .input-line.input-line-red {
+    border-bottom-color: #E53935;
+}
+.input-line-group .input-line.input-line-red +.underline {
+    color:#E53935;
+}
+.input-line-group .input-line.input-line-red:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#E53935;
+}
+.input-line-group .input-line.input-line-orange {
+    border-bottom-color: #FB8C00;
+}
+.input-line-group .input-line.input-line-orange +.underline {
+    color:#FB8C00;
+}
+.input-line-group .input-line.input-line-orange:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#FB8C00;
+}
+.input-line-group .input-line.input-line-yellow {
+    border-bottom-color: #FDD835;
+}
+.input-line-group .input-line.input-line-yellow +.underline {
+    color:#FDD835;
+}
+.input-line-group .input-line.input-line-yellow:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#FDD835;
+}
+.input-line-group .input-line.input-line-lightgreen {
+    border-bottom-color: #8BC34A;
+}
+.input-line-group .input-line.input-line-lightgreen +.underline {
+    color:#8BC34A;
+}
+.input-line-group .input-line.input-line-lightgreen:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#8BC34A;
+}
+.input-line-group .input-line.input-line-green {
+    border-bottom-color: #43A047;
+}
+.input-line-group .input-line.input-line-green +.underline {
+    color:#43A047;
+}
+.input-line-group .input-line.input-line-green:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#43A047;
+}
+.input-line-group .input-line.input-line-lightblue {
+    border-bottom-color: #29B6F6;
+}
+.input-line-group .input-line.input-line-lightblue +.underline {
+    color:#29B6F6;
+}
+.input-line-group .input-line.input-line-lightblue:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#29B6F6;
+}
+.input-line-group .input-line.input-line-blue {
+    border-bottom-color: #1E88E5;
+}
+.input-line-group .input-line.input-line-blue +.underline {
+    color:#1E88E5;
+}
+.input-line-group .input-line.input-line-blue:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#1E88E5;
+}
+.input-line-group .input-line.input-line-purple {
+    border-bottom-color: #7E57C2;
+}
+.input-line-group .input-line.input-line-purple +.underline {
+    color:#7E57C2;
+}
+.input-line-group .input-line.input-line-purple:focus +.underline:after {
+    width:100%;
+    left:0;
+    background:#7E57C2;
 }

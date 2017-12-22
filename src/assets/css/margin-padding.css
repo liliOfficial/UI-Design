@@ -37,6 +37,15 @@
 .ml-15 {
     margin-left: 15px;
 }
+.mb-5 {
+    margin-bottom: 5px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
 .mtb-15 {
     margin-top:15px;
     margin-bottom: 15px;
@@ -80,4 +89,7 @@
 }
 .pr-5 {
     padding-right:5px;
+}
+.pb-5 {
+    padding-bottom: 5px;
 }

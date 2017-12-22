@@ -15,6 +15,7 @@ import { ReportsComponent } from './view/reports/reports/reports.component';
 import { OpportunitiesComponent } from './view/opportunities/opportunities/opportunities.component';
 import { ButtonComponent } from './UI/button/button.component';
 import { InputComponent } from './UI/form/input/input.component';
+import { InputLineComponent } from './UI/form/input-line/input-line.component';
 
 
 
@@ -32,6 +33,7 @@ import { InputComponent } from './UI/form/input/input.component';
     OpportunitiesComponent,
     ButtonComponent,
     InputComponent,
+    InputLineComponent,
 
   ],
   imports: [

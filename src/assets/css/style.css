@@ -113,6 +113,7 @@ button:focus {
     color:#fff;
     background:#4e4e4e;    
     border:1px solid #4e4e4e;
+    vertical-align: inherit;
 }
 
 .btn:hover {
