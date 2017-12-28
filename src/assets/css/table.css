@@ -43,7 +43,9 @@ tr:not(:last-child) {
 .pagination {
     padding: 12px 0;
     position: relative;
-    color: #4e4e4e;   
+    color: #4e4e4e;
+    display: block;
+    overflow: auto;   
 }
 .pagination ul {
     position: absolute;
@@ -58,8 +60,7 @@ tr:not(:last-child) {
     border-radius: 15px;
     margin-left: 2px;
     text-align: center;
-    cursor: pointer;
-    
+    cursor: pointer;    
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
 }
 
@@ -75,13 +76,44 @@ tr:not(:last-child) {
     
 }
 
-.pagination.pagination-green ul li {
+/* .pagination.pagination-green ul li {
     background:#f2f5f8;
     transition: all 0.3s;
+} */
+
+.pagination.pagination-red ul li:hover,.pagination.pagination-red ul li.active {
+    color:#fff;
+    background:#E53935;
 }
 
+.pagination.pagination-orange ul li:hover,.pagination.pagination-orange ul li.active {
+    color:#fff;
+    background:#FB8C00;
+}
+
+.pagination.pagination-yellow ul li:hover,.pagination.pagination-yellow ul li.active {
+    color:#fff;
+    background:#FDD835;
+}
+.pagination.pagination-lightgreen ul li:hover,.pagination.pagination-lightgreen ul li.active {
+    color:#fff;
+    background:#8BC34A;
+}
 .pagination.pagination-green ul li:hover,.pagination.pagination-green ul li.active {
     color:#fff;
-    background:#2E7D32;
+    background:#43A047;
 }
+.pagination.pagination-lightblue ul li:hover,.pagination.pagination-lightblue ul li.active {
+    color:#fff;
+    background:#29B6F6;
+}
+.pagination.pagination-blue ul li:hover,.pagination.pagination-blue ul li.active {
+    color:#fff;
+    background:#1E88E5;
+}
+.pagination.pagination-purple ul li:hover,.pagination.pagination-purple ul li.active {
+    color:#fff;
+    background:#7E57C2;
+}
+
 

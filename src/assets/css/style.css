@@ -106,6 +106,7 @@ button:focus {
  /* button style */
 .btn {
     padding:6px 12px;
+    line-height: 14px;
     border-radius: 3px;
     cursor: pointer;
     font-size: 12px;
@@ -133,13 +134,28 @@ button:focus {
 
 .btn-lg {
     padding:8px 16px;
-    font-size: 14px;    
+    font-size: 14px;
+    line-height: 16px;    
 }
 
 .btn-circle {
     border-radius: 30px;
 }
 
+.btn-icon {
+    width:28px;
+    height:28px;
+    padding: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: inline-table;
+    text-align: center;
+}
+
+.btn-icon .icon {
+    display: table-cell;
+    vertical-align: middle;
+}
 .btn-block {
     display: block;
     width: 100%;
@@ -236,7 +252,8 @@ button:focus {
 }
 
 
-/* table style */
+
+
 
 
 

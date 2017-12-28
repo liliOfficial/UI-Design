@@ -16,11 +16,12 @@
 
 .layout-header .nav {
     display: inline-block;
-    margin-left:200px;
+    margin-left:180px;
 }
 
 .layout-header .nav li {
     padding:15px;
+    line-height: 14px;
     font-size:12px;
     cursor: pointer;
 }
@@ -39,21 +40,22 @@
 
 .layout-header .action .option {
     display: inline-block;
-    padding:15px;
+    padding:14px;
     cursor: pointer; 
     position: relative;
 }
 
 .layout-header .action .option input {
     border:0px;
-    border-bottom: 1px solid #f2f5f8;
+    border-bottom: 1px solid #4e4e4e;
     background:transparent;
     color:#f2f5f8;
     padding-right:15px;
+    transition: all 0.3s;
 }
 .layout-header .action .option input:focus {
     outline: 0;
-    border-bottom: 1px solid #4e4e4e;
+    border-bottom: 1px solid #f2f5f8;
 }
 
 .layout-header .action .option .search {
@@ -62,20 +64,70 @@
 .layout-header .action .option .search i {
     position: absolute;
     right:0;
-    top:2px;
+    bottom:5px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 .layout-header .action .option .search i:hover {
-    color:#4e4e4e;
+    font-size: 16px;
+    bottom:3px;
 }
 
 .layout-header .action .option .dropdown {
-    background:red;
+    background:#fff;
+    color:#4e4e4e;
     position: absolute;
-    padding:15px;
-    top:44px;
+    width:160px;
+    top:40px;
     right:0;
+    padding:5px 0;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    display:none;
 }
+.layout-header .action .option:hover .dropdown {
+    display: block;
+}
+
+.layout-header .action .option .dropdown .dropdown-item {
+    padding:8px 15px;
+}
+.layout-header .action .option .dropdown .dropdown-item:hover {
+    background:#4e4e4e;
+    color:#f2f5f8;
+}
+
+.layout-header .action .option .dropdown:before {
+    content:"";
+    width:0;
+    height:0;
+    display: block;
+    position: absolute;
+    top:-6px;
+    right:12px;
+    border-bottom:6px solid #FFFFFF;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+}
+.layout-header .action .option.language>img {
+    width:20px;
+}
+
+.layout-header .action .option.language .dropdown {
+    position: absolute;
+    top:45px;
+    width:auto;
+}
+
+.layout-header .action .option.language .dropdown:before {
+    right:19px;
+}
+
+.layout-header .action .option.language .dropdown img {
+    display: inline-block;
+    padding-top: 5px;
+    width:20px;
+}
+
 
 
 

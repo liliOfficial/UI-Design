@@ -16,6 +16,9 @@ import { OpportunitiesComponent } from './view/opportunities/opportunities/oppor
 import { ButtonComponent } from './UI/button/button.component';
 import { InputComponent } from './UI/form/input/input.component';
 import { InputLineComponent } from './UI/form/input-line/input-line.component';
+import { SelectComponent } from './UI/form/select/select.component';
+import { SelectLineComponent } from './UI/form/select-line/select-line.component';
+import { DropdownComponent } from './UI/dropdown/dropdown.component';
 
 
 
@@ -34,6 +37,9 @@ import { InputLineComponent } from './UI/form/input-line/input-line.component';
     ButtonComponent,
     InputComponent,
     InputLineComponent,
+    SelectComponent,
+    SelectLineComponent,
+    DropdownComponent,
 
   ],
   imports: [
