@@ -19,6 +19,7 @@ import { InputLineComponent } from './UI/form/input-line/input-line.component';
 import { SelectComponent } from './UI/form/select/select.component';
 import { SelectLineComponent } from './UI/form/select-line/select-line.component';
 import { DropdownComponent } from './UI/dropdown/dropdown.component';
+import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
 
 
 
@@ -40,6 +41,7 @@ import { DropdownComponent } from './UI/dropdown/dropdown.component';
     SelectComponent,
     SelectLineComponent,
     DropdownComponent,
+    DragDropComponent,
 
   ],
   imports: [
