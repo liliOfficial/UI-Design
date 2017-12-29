@@ -1,11 +1,18 @@
-
-
 <h2>Drag and Drop</h2>
-<p>Drag the image back and forth between the two div elements.</p>
-
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+<div class="row">
+  <div class="col-3">
+    <h3>Available Option</h3>
+    <div (drop)="drop($event)" (dragover)="allowDrop($event)" class="dropbox">
+      <div class="drop-option" *ngFor="let option of options" [id]="option.content" draggable="true" (dragstart)="drag($event)">{{option.content}}</div>
+    </div>
+  </div>
+  <div class="col-3">
+    <h3>Option in the Table</h3>
+    <div (drop)="drop($event)" (dragover)="allowDrop($event)" class="dropbox" id="choosen">
+      <div class="drop-option" *ngFor="let choosen of choosens" [id]="choosen.content" draggable="true" (dragstart)="drag($event)">{{choosen.content}}</div>
+    </div>
+  </div>
 </div>
-
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
+<div class="clearfix p-10"></div>
+<button class="btn btn-orange" (click)="submit()"><i class="fa fa-save"></i> Submmit</button>
+<button class="btn" (click)="refresh()"><i class="fa fa-close"></i> Cancel</button>

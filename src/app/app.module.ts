@@ -20,6 +20,8 @@ import { SelectComponent } from './UI/form/select/select.component';
 import { SelectLineComponent } from './UI/form/select-line/select-line.component';
 import { DropdownComponent } from './UI/dropdown/dropdown.component';
 import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
+import { TabComponent } from './UI/tab/tab.component';
+import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.component';
 
 
 
@@ -42,6 +44,8 @@ import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
     SelectLineComponent,
     DropdownComponent,
     DragDropComponent,
+    TabComponent,
+    CheckboxRadioComponent,
 
   ],
   imports: [

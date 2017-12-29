@@ -35,7 +35,9 @@
 }
 
 .layout-header .action {
-    float: right;
+    position: absolute;
+    right:0;
+    top:0;
 }
 
 .layout-header .action .option {

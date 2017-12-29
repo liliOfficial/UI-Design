@@ -1,0 +1,114 @@
+<div class="tab">
+  <ul>
+    <li [class.active]="tab==1" (click)="tab=1">red & orange</li>
+    <li [class.active]="tab==2" (click)="tab=2">yellow & lightgreen</li>
+    <li [class.active]="tab==3" (click)="tab=3">green & lightblue</li>
+    <li [class.active]="tab==4" (click)="tab=4">blue & purple</li>
+  </ul>
+  <div class="tab-body">
+    <div class="row" *ngIf="tab==1">
+      <div class="col-6">
+        <h2 class="text-red">.tab.tab-red</h2>
+        <div class="tab tab-red">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="text-orange">.tab.tab-orange</h2>
+        <div class="tab tab-orange">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="tab==2">
+      <div class="col-6">
+        <h2 class="text-yellow">.tab.tab-yellow</h2>
+        <div class="tab tab-yellow">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="text-lightgreen">.tab.tab-lightgreen</h2>
+        <div class="tab tab-lightgreen">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="tab==3">
+      <div class="col-6">
+        <h2 class="text-green">.tab.tab-green</h2>
+        <div class="tab tab-green">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="text-lightblue">.tab.tab-lightblue</h2>
+        <div class="tab tab-lightblue">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="tab==4">
+      <div class="col-6">
+        <h2 class="text-blue">.tab.tab-blue</h2>
+        <div class="tab tab-blue">
+          <ul>
+            <li class="active">Tab1</li>
+            <li>Tab2</li>
+            <li>Tab3</li>
+            <li>Tab4</li>
+          </ul>
+          <div class="tab-body"></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="text-purple">.tab.tab-purple</h2>
+        <div class="tab tab-purple">
+            <ul>
+              <li class="active">Tab1</li>
+              <li>Tab2</li>
+              <li>Tab3</li>
+              <li>Tab4</li>
+            </ul>
+            <div class="tab-body"></div>            
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

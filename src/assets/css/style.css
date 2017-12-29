@@ -101,6 +101,33 @@ button:focus {
 .text-white {
     color:#fff;
 }
+.text-red {
+    color:#E53935;
+}
+
+.text-orange {
+    color:#FB8C00;
+}
+
+.text-yellow {
+    color:#FDD835;
+}
+
+.text-lightgreen {
+    color:#8BC34A;
+}
+.text-green {
+    color:#43A047;
+}
+.text-lightblue {
+    color:#1eb2f1;
+}
+.text-blue {
+    color:#1E88E5;
+}
+.text-purple {
+    color:#7E57C2;
+}
 
 
  /* button style */
