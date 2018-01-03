@@ -23,6 +23,7 @@ import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
 import { TabComponent } from './UI/tab/tab.component';
 import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.component';
 import { TableListComponent } from './UI/table-list/table-list.component';
+import { SidebarRightComponent } from './UI/sidebar-right/sidebar-right.component';
 
 
 
@@ -48,6 +49,7 @@ import { TableListComponent } from './UI/table-list/table-list.component';
     TabComponent,
     CheckboxRadioComponent,
     TableListComponent,
+    SidebarRightComponent,
 
   ],
   imports: [

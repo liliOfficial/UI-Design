@@ -4,6 +4,7 @@
 @import "./col.css";
 @import "./form.css";
 @import "./popup.css";
+@import "./sidebar.css";
 
 html {
     font-family: sans-serif;
