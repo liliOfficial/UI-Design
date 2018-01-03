@@ -1,0 +1,59 @@
+<ul class="list list-col3" [class.list-setting]="edit">
+  <li *ngFor="let list of lists">
+    <div (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" [id]="list.id" style="cursor:move;">
+      <span class="label">
+        <span *ngIf="list.readonly=='true'" class="read-only">
+          <i class="fa fa-lock"></i>
+        </span>
+        <span *ngIf="list.required=='true'" class="required">*</span>
+        {{list.label}}
+      </span>
+      <span class="content">
+        <span *ngIf="list.content.type=='text'">{{list.content.text}}</span>
+        <select *ngIf="list.content.type=='select'" name="" id="" class="select select-xs">
+          <option value="" *ngFor="let option of list.content.options" [selected]="option==list.content.selected">{{option}}</option>
+        </select>
+      </span>
+    </div>
+    <span class="setting">
+      <span class="delete">
+        <i class="fa fa-trash"></i>
+      </span>
+      <span class="edit" (click)="show=true">
+        <i class="fa fa-wrench"></i>
+      </span>
+    </span>
+  </li>
+</ul>
+<div class="popup popup-transparent" *ngIf="show">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Property Setting</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-red btn-shadow">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon btn-shadow">
+            <i class="icon fa fa-close" (click)="show= false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="row">
+          <div class="col-3 text-right">Label</div>
+          <div class="col-9">
+            <span class="checkbox checkbox-yellow">
+              <input type="checkbox" checked>
+              <label>Readonly</label>
+            </span>
+            <span class="checkbox checkbox-red">
+              <input type="checkbox" checked>
+              <label>Required</label>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

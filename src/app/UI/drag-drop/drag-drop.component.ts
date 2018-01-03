@@ -43,6 +43,7 @@ export class DragDropComponent implements OnInit {
   }
 
   drag(ev) {
+    console.log(ev);
     ev.dataTransfer.setData('text', ev.target.id);
   }
 
@@ -54,9 +55,9 @@ export class DragDropComponent implements OnInit {
 
   submit() {
     const choosen = document.getElementById('choosen').children;
-    const cho = document.getElementById('some-div').querySelectorAll('*');
+    const cho = document.getElementById('choosen').querySelectorAll('*');
     console.log(choosen);
-    console.log(this.choosens);
+    console.log(cho);
   }
 
   refresh() {

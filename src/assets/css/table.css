@@ -16,6 +16,7 @@ td {
     padding:5px;    
 }
 
+
 tr:not(:last-child) {
     border-bottom: 1px solid #cad6e2;
 }
@@ -38,6 +39,21 @@ tr:not(:last-child) {
 
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color:#f2f5f8;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color:#f2f5f8; 
+}
+.table-list tbody tr td:nth-of-type(odd) {
+    font-weight: 700;
+    text-align: right;
+    /* background:#f2f5f8; */
+}
+.table-list tbody tr td:nth-of-type(even){
+    /* border-right: 1px solid #cad6e2; */
+}
+.table-list tbody tr td:last-child {
+    border-right:transparent;
 }
 
 .pagination {
@@ -76,11 +92,6 @@ tr:not(:last-child) {
     
 }
 
-/* .pagination.pagination-green ul li {
-    background:#f2f5f8;
-    transition: all 0.3s;
-} */
-
 .pagination.pagination-red ul li:hover,.pagination.pagination-red ul li.active {
     color:#fff;
     background:#E53935;
@@ -115,5 +126,83 @@ tr:not(:last-child) {
     color:#fff;
     background:#7E57C2;
 }
+
+ul.list {
+    list-style: none;
+}
+
+ul.list li:hover {
+    background:#f2f5f8;
+}
+
+ul.list.list-col3 li {
+    display: inline-block;
+    width:33.33%;
+    position: relative;
+}
+
+ul.list li .label {
+    width:33%;
+    box-sizing: border-box;
+    padding:3px;
+    display: inline-block;
+    text-align: right;
+    font-weight: 700;
+}
+
+ul.list li .label .required {
+    color:#E53935;
+    font-weight: 900;
+}
+ul.list li .label .read-only {
+    color:#FDD835;
+    padding-right:5px;
+}
+ul.list li .content {
+    width:66%;
+    box-sizing: border-box;
+    padding:3px;
+}
+ul.list li .content .select {
+    box-sizing: border-box;
+    width:50%;
+}
+ul.list li .setting {
+    position: absolute;
+    right:8px;
+    top:2px;
+    display: none;
+}
+
+ul.list li:hover .setting {
+    display: block;
+}
+
+ul.list li .setting .delete {
+    color:#E53935;
+    cursor: pointer;
+    padding-right: 3px;
+}
+
+ul.list li .setting .edit {
+    color:#4e4e4e;
+    cursor: pointer;
+}
+ul.list.list-setting {
+    background:#f2f5f8;
+}
+ul.list.list-setting li:hover {
+    border-bottom: 2px solid #cad6e2;
+    cursor: pointer;
+}
+ul.list.list-setting li:hover .setting {
+    display: none;
+}
+
+
+
+
+
+
 
 

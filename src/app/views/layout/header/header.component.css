@@ -41,7 +41,7 @@
 }
 
 .layout-header .action .option {
-    display: inline-block;
+    float:right;
     padding:14px;
     cursor: pointer; 
     position: relative;

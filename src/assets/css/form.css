@@ -450,9 +450,10 @@
     opacity: 0;
 }
 
-.checkbox label {
-    padding:3px 20px;
+.checkbox>label {
+    padding:0 20px;
     display: inline-block;
+    font-size: 12px;
 }
 .checkbox label:before {
     content: '';
@@ -481,8 +482,6 @@
     margin-top: -6px;
     font-size: 10px;
     line-height: 1;
-    width: 16px;
-    height: 16px;
     color: #FFF;
 }
 .checkbox.checkbox-red input[type="checkbox"]:checked + label:before {
@@ -532,7 +531,7 @@
 }
 
 .radio label {
-    padding:3px 20px;
+    padding:0 20px;
     display: inline-block;
 }
 

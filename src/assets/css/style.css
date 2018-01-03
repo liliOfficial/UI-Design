@@ -3,6 +3,7 @@
 @import "./panel.css";
 @import "./col.css";
 @import "./form.css";
+@import "./popup.css";
 
 html {
     font-family: sans-serif;
@@ -128,6 +129,33 @@ button:focus {
 .text-purple {
     color:#7E57C2;
 }
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+.font-14 {
+    font-size: 14px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-20 {
+    font-size: 20px;
+}
+
 
 
  /* button style */

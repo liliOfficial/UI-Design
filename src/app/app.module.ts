@@ -22,6 +22,7 @@ import { DropdownComponent } from './UI/dropdown/dropdown.component';
 import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
 import { TabComponent } from './UI/tab/tab.component';
 import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.component';
+import { TableListComponent } from './UI/table-list/table-list.component';
 
 
 
@@ -46,6 +47,7 @@ import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.compo
     DragDropComponent,
     TabComponent,
     CheckboxRadioComponent,
+    TableListComponent,
 
   ],
   imports: [
