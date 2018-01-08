@@ -1,5 +1,5 @@
 .panel {
-    margin:15px 0;
+    margin-bottom: 15px;
     width:100%;
     color:#4e4e4e;
     border-radius: 5px;
@@ -45,9 +45,9 @@
 }
 
 .panel .panel-header {
-    padding:10px 15px;
+    padding:8px 15px;
     position: relative;
-    min-height: 36px;
+    min-height: 32px;
     border-bottom: 1px solid #eee;
 }
 
@@ -68,15 +68,28 @@
 }
 
 .panel .panel-body {
-    padding:5px 15px;
+    padding:0 15px;
     overflow: auto;
 }
 .panel .panel-body h2 {
     font-size:16px;
 }
+.panel .panel-body .section-title {
+    margin:0 -15px;
+    padding:5px 15px;
+    font-size:14px;
+    font-weight: 700;
+    background:#eee;
+}
+.panel .panel-body .section-li {
+    display: inline-block;
+    width:50%;
+    box-sizing: border-box;
+}
 .panel .panel-footer {
     padding:10px 15px;
 }
+
 
 .dropdown-box {
     position: relative;

@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './views/layout/header/header.component';
 import { FooterComponent } from './views/layout/footer/footer.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
-import { LeadsComponent } from './view/leads/leads.component';
+import { LeadsComponent } from './view/leads/index/leads.component';
 import { PanelComponent } from './UI/panel/panel.component';
 import { TableComponent } from './UI/table/table.component';
 import { AccountsComponent } from './view/accounts/accounts/accounts.component';
@@ -23,9 +23,7 @@ import { DragDropComponent } from './UI/drag-drop/drag-drop.component';
 import { TabComponent } from './UI/tab/tab.component';
 import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.component';
 import { TableListComponent } from './UI/table-list/table-list.component';
-import { SidebarRightComponent } from './UI/sidebar-right/sidebar-right.component';
-
-
+import { LeadDetailComponent } from './view/leads/lead-detail/lead-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,14 +47,16 @@ import { SidebarRightComponent } from './UI/sidebar-right/sidebar-right.componen
     TabComponent,
     CheckboxRadioComponent,
     TableListComponent,
-    SidebarRightComponent,
+    LeadDetailComponent,
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
       { path: 'leads', component: LeadsComponent },
+      { path: 'leads/lead-detail', component: LeadDetailComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },

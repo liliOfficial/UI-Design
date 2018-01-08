@@ -1,4 +1,4 @@
-<div>
+<div class="with-sidebar-right" [class.hide-right]="sidebarShow">
   <div class="panel border-red">
     <div class="panel-header">
       <div class="action">
@@ -9,36 +9,21 @@
         <button class="btn btn-xs btn-red btn-circle">Mass Delete</button>
       </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body ">
       <app-table-list></app-table-list>
+      <div class="clearfix pb-5"></div>
     </div>
-    <div class="panel-footer">
-      <div class="pagination pagination-red">
-        <div>Showing 1 to 10 of 57 entries</div>
-        <ul>
-          <li class="arrow">
-            <a>«</a>
-          </li>
-          <li class="active">
-            <a>1</a>
-          </li>
-          <li>
-            <a>2</a>
-          </li>
-          <li>
-            <a>3</a>
-          </li>
-          <li>
-            <a>4</a>
-          </li>
-          <li>
-            <a>5</a>
-          </li>
-          <li class="arrow">
-            <a>»</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  </div>
+</div>
+
+<div class="sidebar-right" [class.hide-right]="sidebarShow">
+  <div class="handle" (click)="sidebarShow = !sidebarShow">
+    <a class="btn btn-icon">
+      <i class="icon fa fa-bars" *ngIf="sidebarShow"></i>
+      <i class="icon fa fa-close" *ngIf="!sidebarShow"></i>
+    </a>
+  </div>
+  <div class="drag-label">
+    <div class="option">Name</div>
   </div>
 </div>

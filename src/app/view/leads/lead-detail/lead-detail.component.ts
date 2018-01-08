@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  selector: 'app-lead-detail',
+  templateUrl: './lead-detail.component.html',
+  styleUrls: ['./lead-detail.component.css']
 })
-export class TableListComponent implements OnInit {
-  edit = false;
+export class LeadDetailComponent implements OnInit {
   lists = [
     {
       'id': 1,
@@ -76,51 +75,6 @@ export class TableListComponent implements OnInit {
     }
 
   ];
-  addno = -1;
-  addJson = null;
-  addAfter = -1;
-
-  findObjectByKey(array, key, value) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i][key] == value) {
-        const obj = { 'no': i, 'json': array[i] }
-        return obj;
-      }
-    }
-    return null;
-  }
-  mouseDown(e) {
-    e.preventDefault();
-    this.edit = true;
-    const obj = this.findObjectByKey(this.lists, 'id', e.target.id);
-    if (obj) {
-      this.addno = obj.no;
-      this.addJson = obj.json;
-      document.getElementById('drag-item-text').innerHTML = obj.json.label;
-      document.getElementById('drag-item').style.display = 'block';
-    }
-    console.log(this.addno, this.addJson);
-  }
-  mouseMove(e) {
-    document.getElementById('drag-item').style.top = e.clientY + 'px';
-    document.getElementById('drag-item').style.left = (e.clientX + 15) + 'px';
-  }
-  mouseUp(e) {
-    e.preventDefault();
-    this.edit = false;
-    document.getElementById('drag-item').style.display = 'none';
-    if (e.target.id && this.addno != -1) {
-      const obj = this.findObjectByKey(this.lists, 'id', e.target.id);
-      this.addAfter = obj.no;
-      console.log(this.addAfter);
-      this.lists.splice(this.addno, 1);
-      this.lists.splice(this.addAfter, 0, this.addJson);
-    }
-    this.addno = -1;
-    this.addJson = null;
-    this.addAfter = -1;
-  }
-
   constructor() { }
 
   ngOnInit() {

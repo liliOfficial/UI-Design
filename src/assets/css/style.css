@@ -16,6 +16,16 @@ body {
     font-size: 12px;
 }
 
+h2 {
+    font-size:16px;
+    margin:5px 0;
+}
+
+h3 {
+    font-size:14px;
+    margin:5px 0;
+}
+
 ul {
     margin: 0;
     padding:0;
@@ -40,6 +50,9 @@ button:focus {
     display: block;
     content: "";
     clear: both;
+}
+.pull-right {
+    float:right;
 }
 
 .bg-black {
@@ -171,6 +184,7 @@ button:focus {
     background:#4e4e4e;    
     border:1px solid #4e4e4e;
     vertical-align: inherit;
+    position: relative;
 }
 
 .btn:hover {
@@ -178,6 +192,22 @@ button:focus {
     border:1px solid #313131;
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
 }
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+.btn:disabled::after {
+    content:"";
+    background:rgba(255,255,255,0.4);
+    position: absolute;
+    top:-1px;
+    right:-1px;
+    bottom:-1px;
+    left:-1px;
+    border-radius: inherit;
+
+}
+
 .btn-xs {
     padding: 1px 8px;
     font-size: 11px;
