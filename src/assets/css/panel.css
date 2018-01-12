@@ -45,12 +45,27 @@
 }
 
 .panel .panel-header {
-    padding:8px 15px;
+    padding:6px 15px;
     position: relative;
     min-height: 32px;
     border-bottom: 1px solid #eee;
 }
 
+.green .panel {
+    border-top:3px solid #2E7D32;
+}
+.green .panel-header {
+    background: #2E7D32;
+    color:white;
+}
+
+.blue .panel {
+    border-top:3px solid #1E88E5;
+}
+.blue .panel-header {
+    background: #1E88E5;
+    color:white;
+}
 .panel .panel-header h2 {
     font-size:16px;
     margin: 0;
@@ -64,7 +79,7 @@
 .panel .panel-header .action {
     position: absolute;
     right:15px;
-    top:8px;
+    top:6px;
 }
 
 .panel .panel-body {
@@ -74,22 +89,64 @@
 .panel .panel-body h2 {
     font-size:16px;
 }
-.panel .panel-body .section-title {
+.panel .panel-body .panel-section {
+    padding-bottom: 15px;
+}
+.panel .panel-body .section-header {
     margin:0 -15px;
     padding:5px 15px;
     font-size:14px;
     font-weight: 700;
     background:#eee;
 }
+.panel .panel-body .section-body {
+    padding:5px 0;
+    
+}
 .panel .panel-body .section-li {
     display: inline-block;
-    width:50%;
+    width:49.5%;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    margin:0;
+}
+.panel .panel-body .section-li:nth-child(odd){
+    margin-right:-5px;
+}
+.panel .panel-body .section-li label {
+    font-weight: 700;
+    width:30%;
+    display: inline-block;
+    text-align: right;
+    padding:4px 0 3px;
+}
+.panel .panel-body .section-li label .help {
+    display: inline-block;
+    width:20px;
+    text-align: center;
+}
+.panel .panel-body .section-li .content input,.panel .panel-body .section-li .content select,.panel .panel-body .section-li .content .text {
+    width:60%;
+    display: inline-block;
     box-sizing: border-box;
 }
+.panel .panel-body .section-li .content input:focus, .panel .panel-body .section-li .content select:focus {
+    border:1px solid #4e4e4e;
+    outline: none; 
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);   
+}
+.panel .panel-body .section-li .content .icon {
+    display: inline-block;
+    width:15px;
+    text-align: center;
+    box-sizing: border-box;
+    padding:4px 0 3px;
+}
+
 .panel .panel-footer {
     padding:10px 15px;
 }
-
 
 .dropdown-box {
     position: relative;

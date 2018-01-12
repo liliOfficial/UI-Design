@@ -1,15 +1,72 @@
 <div>
-    <div class="panel border-green">
-      <div class="panel-header">
-        <h2>Lead Name</h2>
-      </div>
-      <div class="panel-body">
-        <div class="section-title">Lead Detail</div>
-        <div class="section-li">
-          <label for="">Name</label>
-          <input type="text">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Lead Detail</h2>
+    </div>
+    <div class="panel-body">
+      <div class="panel-section" *ngFor="let section of sections">
+        <div class="section-header">
+          <i class="fa fa-caret-down mr-10" (click)="section.collapse=true" *ngIf="!section.collapse"></i>
+          <i class="fa fa-caret-right mr-10" (click)="section.collapse=false" *ngIf="section.collapse"></i>
+          {{section.text}}
+        </div>
+        <div class="section-body" *ngIf="!section.collapse">
+          <span *ngFor="let list of lists">
+            <div *ngIf="list.sectionName==section.sectionName" class="section-li">
+              <label>
+                {{list.label}}
+                <span class="help">
+                  <i class="fa fa-question-circle"></i>
+                </span>
+              </label>
+              <span class="content">
+                <span *ngIf="list.content.type=='text'" (dblclick)="list.edit=true">
+                  <!-- <span class="required" *ngIf="list.required">*</span>             -->
+                  <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change">{{list.content.text}}</span>
+                  <input type="text" [(ngModel)]="list.content.text" [class.text-green]="list.change" (change)="list.change=true;" (blur)="list.edit=false"
+                    *ngIf="list.edit && !list.readonly">
+                </span>
+                <span *ngIf="list.content.type=='select'" (dblclick)="list.edit=true">
+                  <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change">{{list.content.selected}}</span>
+                  <select name="" id="" [class.text-green]="list.change" (change)="list.change=true" *ngIf="list.edit && !list.readonly" (blur)="list.edit=false">
+                    <option value="" *ngFor="let option of list.content.options">{{option}}</option>
+                  </select>
+                </span>
+                <span class="icon text-green">
+                  <i class="fa fa-undo" *ngIf="list.change"></i>
+                </span>
+                <span class="icon text-red">
+                  <i class="fa fa-lock" *ngIf="list.readonly"></i>
+                </span>
+              </span>
+            </div>
+          </span>
         </div>
       </div>
-      <div class="panel-footer"></div>
+    </div>
+    <div class="tools-bar-right">
+      <div class="pb-5">
+        <a class="btn btn-icon btn-green btn-shadow">
+          <i class="icon fa fa-save"></i>
+        </a>
+      </div>
+      <div class="pb-5">
+        <a class="btn btn-icon btn-shadow">
+          <i class="icon fa fa-plus"></i>
+        </a>
+      </div>
+      <div class="pb-5">
+        <a class="btn btn-icon btn-red btn-shadow">
+          <i class="icon fa fa-undo"></i>
+        </a>
+      </div>
     </div>
   </div>
+  <div class="green">
+    <div class="task-open"></div>
+    <div class="task-history"></div>
+    <div class="email-sent"></div>
+    <div class="attachments"></div>
+    <div class="logs"></div>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './views/layout/header/header.component';
 import { FooterComponent } from './views/layout/footer/footer.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
-import { LeadsComponent } from './view/leads/index/leads.component';
+import { LeadsComponent } from './view/leads/leads/leads.component';
 import { PanelComponent } from './UI/panel/panel.component';
 import { TableComponent } from './UI/table/table.component';
 import { AccountsComponent } from './view/accounts/accounts/accounts.component';
@@ -24,6 +24,13 @@ import { TabComponent } from './UI/tab/tab.component';
 import { CheckboxRadioComponent } from './UI/checkbox-radio/checkbox-radio.component';
 import { TableListComponent } from './UI/table-list/table-list.component';
 import { LeadDetailComponent } from './view/leads/lead-detail/lead-detail.component';
+import { AttachmentsComponent } from './view/common/attachment/attachments/attachments.component';
+import { CommonComponent } from './view/common/common/common.component';
+import { LogsComponent } from './view/common/log/logs/logs.component';
+import { TaskOpenComponent } from './view/common/task/task-open/task-open.component';
+import { TaskHistoryComponent } from './view/common/task/task-history/task-history.component';
+import { EmailSentComponent } from './view/common/email/email-sent/email-sent.component';
+import { AccountDetailComponent } from './view/accounts/account-detail/account-detail.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +55,13 @@ import { LeadDetailComponent } from './view/leads/lead-detail/lead-detail.compon
     CheckboxRadioComponent,
     TableListComponent,
     LeadDetailComponent,
+    AttachmentsComponent,
+    CommonComponent,
+    LogsComponent,
+    TaskOpenComponent,
+    TaskHistoryComponent,
+    EmailSentComponent,
+    AccountDetailComponent,
 
   ],
   imports: [
@@ -58,6 +72,7 @@ import { LeadDetailComponent } from './view/leads/lead-detail/lead-detail.compon
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail', component: LeadDetailComponent },
       { path: 'accounts', component: AccountsComponent },
+      { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
 

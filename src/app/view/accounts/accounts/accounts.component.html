@@ -1,17 +1,124 @@
 <div>
-  <div class="panel border-blue">
-    <div class="panel-header">
-      <div class="action">
-        <button class="btn btn-sm btn-blue btn-circle">New Leads</button>
-        <button class="btn btn-sm btn-blue btn-circle">Change Status</button>
-        <button class="btn btn-sm btn-blue btn-circle">Add to Campaign</button>
-        <button class="btn btn-sm btn-blue btn-circle">Mass Update</button>
-        <button class="btn btn-sm btn-blue btn-circle">Mass Delete</button>
+    <h3 class="mtb-10">
+      <span>View</span>
+      <span class="input-line-group">
+        <select name="" id="" class="select-line">
+          <option value="">My View</option>
+          <option value="">My Account</option>
+          <option value="">My View 2</option>
+        </select>
+        <span class="underline"></span>
+      </span>
+      <span class="pull-right">
+        <button class="btn btn-sm ">Edit</button>
+        <button class="btn btn-sm">Create New View</button>
+      </span>
+    </h3>
+    <div class="panel border-blue">
+      <div class="panel-header">
+        <div class="groupcentrol">
+          <button class="btn btn-xs btn-blue btn-circle">
+            <i class="fa fa-edit"></i> Mass Update</button>
+          <button class="btn btn-xs btn-blue btn-circle">
+            <i class="fa fa-trash"></i> Mass Delete</button>
+        </div>
+        <div class="action">
+          <button class="btn btn-xs btn-blue btn-circle">Add to Campaign</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="mlr-n15">
+          <table class="table-full table-striped table-hover">
+            <thead>
+              <tr>
+                <th>
+                  <div class="checkbox checkbox-blue">
+                    <input type="checkbox">
+                    <label></label>
+                  </div>
+                </th>
+                <th>Action</th>
+                <th *ngFor="let theader of theaders">{{theader.text}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let json of Json">
+                <td>
+                  <div class="checkbox checkbox-blue">
+                    <input type="checkbox">
+                    <label></label>
+                  </div>
+                </td>
+                <td>
+                  <i class="fa fa-edit pr-5" routerLink="/accounts/account-detail"></i>
+                  <i class="fa fa-trash"></i>
+                </td>
+                <td *ngFor="let key of theaders">
+                  {{json[key.jsonKey]}}
+                </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer">
       </div>
     </div>
-    <div class="panel-body">
-      <app-table></app-table>
+    <div class="pagination-side pagination-side-blue">
+      <ul class="pull-right">
+        <li>
+          <a>
+            <i class="fa fa-angle-double-up"></i>
+          </a>
+        </li>
+        <li class="active">
+          <a>1</a>
+        </li>
+        <li>
+          <a>2</a>
+        </li>
+        <li>
+          <a>3</a>
+        </li>
+        <li>
+          <a>4</a>
+        </li>
+        <li>
+          <a>55</a>
+        </li>
+        <li>
+          <a>
+            <i class="fa fa-angle-double-down"></i>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="panel-footer"></div>
+    <div class="pagination-side-text">
+      <div class="content" [class.hide]="!paginationTextShow">
+        <div>
+          <span class="text"> 1 - 23 / 57 </span>
+        </div>
+        <div>
+          <span class="text">200 Selected</span>
+        </div>
+        <div>
+          <span class="text">
+            <select name="" id="" class="select select-xs select-dark">
+              <option value="">25</option>
+              <option value="">50</option>
+              <option value="">100</option>
+              <option value="">200</option>
+              <option value="">300</option>
+            </select>
+          </span>
+        </div>
+      </div>
+      <div class="handle">
+        <a class="btn btn-icon btn-blue btn-shadow" (click)="paginationTextShow=false" *ngIf="paginationTextShow">
+          <i class="icon fa fa-close"></i>
+        </a>
+        <a class="btn btn-icon btn-blue btn-shadow" (click)="paginationTextShow=true" *ngIf="!paginationTextShow">
+            <i class="icon fa fa-info"></i>
+          </a>
+      </div>
+    </div>
   </div>
-</div>

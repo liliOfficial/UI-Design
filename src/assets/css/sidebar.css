@@ -69,5 +69,16 @@
     height: 32px;
 }
 
+.tools-bar-right {
+    position: fixed;
+    right:0;
+    top:120px;
+    padding:5px;
+    z-index: 15;
+}
 
+.tools-bar-right .btn-icon {
+    width:32px;
+    height: 32px;
+}
 

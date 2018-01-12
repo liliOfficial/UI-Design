@@ -1,0 +1,70 @@
+<div class="panel">
+  <div class="panel-header">
+    <h2>Task Open</h2>
+    <div class="action">
+      <button class="btn btn-xs btn-white btn-shadow btn-circle ml-5">New Task</button>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>Due Time</th>
+            <th>Last Modified Date/Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>
+              <button class="btn btn-xs">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-xs btn-red">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+            <td>
+              <a>{{task.subject}}</a>
+            </td>
+            <td>{{task.status}}</td>
+            <td>{{task.dueDate}}</td>
+            <td>{{task.dueTime}}</td>
+            <td>{{task.lastModified}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <div>Showing 1 to 10 of 57 entries</div>
+      <ul>
+        <li class="arrow">
+          <a>«</a>
+        </li>
+        <li class="active">
+          <a>1</a>
+        </li>
+        <li>
+          <a>2</a>
+        </li>
+        <li>
+          <a>3</a>
+        </li>
+        <li>
+          <a>4</a>
+        </li>
+        <li>
+          <a>5</a>
+        </li>
+        <li class="arrow">
+          <a>»</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="panel border-green" *ngFor="let function of functions">
+  <div class="panel-header bg-green text-white">
+    <h2>{{function.title}}</h2>
+    <div class="action">
+      <button class="btn btn-xs btn-green btn-circle ml-5" *ngFor="let button of function.button" [routerLink]="button.url">{{button.text}}</button>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let theader of function.theaders">
+              {{theader.text}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let json of function.jsons">
+            <td *ngFor="let key of function.theaders">
+              <!-- when button exist -->
+              <span *ngIf="json[key.jsonKey].button">
+                <button class="btn btn-xs"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-red"><i class="fa fa-trash"></i></button>
+              </span>
+              <!-- when text exist -->
+              <span *ngIf="json[key.jsonKey].text">
+                  {{json[key.jsonKey].text}}
+              </span>
+              <!-- when select exist -->
+              <span *ngIf="json[key.jsonKey].select">
+                <select class="select select-xs">
+                  <option *ngFor="let option of json[key.jsonKey].select.options">{{option}}</option>
+                </select>
+              </span>
+              <!-- when image exist -->
+              <span *ngIf="json[key.jsonKey].image">
+                {{json[key.jsonKey].image.name}}
+              </span>
+              
+              
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

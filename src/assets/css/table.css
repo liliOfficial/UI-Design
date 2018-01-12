@@ -45,6 +45,7 @@ tr:not(:last-child) {
     background-color:#f2f5f8; 
 }
 
+/* pagination style */
 .pagination {
     padding: 10px 0;
     position: relative;

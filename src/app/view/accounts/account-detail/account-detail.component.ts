@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-lead-detail',
-  templateUrl: './lead-detail.component.html',
-  styleUrls: ['./lead-detail.component.css']
+  selector: 'app-account-detail',
+  templateUrl: './account-detail.component.html',
+  styleUrls: ['./account-detail.component.css']
 })
-export class LeadDetailComponent implements OnInit {
-
+export class AccountDetailComponent implements OnInit {
   sections = [
     { 'text': 'Lead Detail', 'sectionName': 'leadDetail' },
     { 'text': 'Social Media', 'sectionName': 'socialMedia' },
