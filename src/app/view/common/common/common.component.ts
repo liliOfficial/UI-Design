@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CommonComponent implements OnInit {
   functions = [
     {
-      'title': 'Attachments',
+      'title': 'Common Table',
       'button': [
         { 'text': 'Attach File', 'url': '/leads' },
         { 'text': 'Others', 'url': '' }

@@ -10,8 +10,8 @@
       <span class="underline"></span>
     </span>
     <span class="pull-right">
-      <button class="btn btn-sm ">Edit</button>
-      <button class="btn btn-sm">Create New View</button>
+      <button class="btn btn-sm">Edit</button>
+      <button class="btn btn-sm" routerLink="/leads/new-view">Create New View</button>
     </span>
   </h3>
   <div class="panel border-green">
@@ -51,7 +51,7 @@
                 </div>
               </td>
               <td>
-                <i class="fa fa-edit pr-5"></i>
+                <i class="fa fa-edit pr-5 text-green"></i>
                 <i class="fa fa-trash"></i>
               </td>
               <td *ngFor="let key of theaders">

@@ -21,6 +21,10 @@ tr:not(:last-child) {
     border-bottom: 1px solid #cad6e2;
 }
 
+.no-line tr {
+    border-bottom: transparent;
+}
+
 .table-full th:first-child {
     padding-left:15px;
 }

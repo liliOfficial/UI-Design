@@ -31,6 +31,7 @@ import { TaskOpenComponent } from './view/common/task/task-open/task-open.compon
 import { TaskHistoryComponent } from './view/common/task/task-history/task-history.component';
 import { EmailSentComponent } from './view/common/email/email-sent/email-sent.component';
 import { AccountDetailComponent } from './view/accounts/account-detail/account-detail.component';
+import { LeadsNewViewComponent } from './view/leads/leads-new-view/leads-new-view.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AccountDetailComponent } from './view/accounts/account-detail/account-d
     TaskHistoryComponent,
     EmailSentComponent,
     AccountDetailComponent,
+    LeadsNewViewComponent,
 
   ],
   imports: [
@@ -71,6 +73,7 @@ import { AccountDetailComponent } from './view/accounts/account-detail/account-d
       { path: 'dashboard', component: DashboardComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail', component: LeadDetailComponent },
+      { path: 'leads/new-view', component: LeadsNewViewComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },

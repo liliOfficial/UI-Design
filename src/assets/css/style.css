@@ -238,6 +238,11 @@ button:focus {
     text-align: center;
 }
 
+.btn-icon.btn-icon-32 {
+    width:32px;
+    height:32px;
+}
+
 .btn-icon .icon {
     display: table-cell;
     vertical-align: middle;

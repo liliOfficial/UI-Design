@@ -1,0 +1,148 @@
+<div div class="with-sidebar-right" [class.hide-right]="sidebarShow">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Create New View</h2>
+    </div>
+    <div class="panel-body">
+      <div class="panel-section">
+        <div class="section-header">
+          Step 1: Enter View Name
+        </div>
+        <div class="section-body">
+          <div class="input-line-group mtb-15" style="width:100%">
+            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+            <span class="underline">View Name</span>
+          </div>
+        </div>
+        <div class="section-header">
+          Step 2. Specify Filter Criteria
+        </div>
+        <div class="section-body">
+          <table class="table-full no-line mb-10">
+            <thead>
+              <tr>
+                <td width=50></td>
+                <td>Fields</td>
+                <td>Condition</td>
+                <td>Value</td>
+                <td width=50></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let filter of filters">
+                <td>{{filter.index}}</td>
+                <td>
+                  <select name="" id="" class="select select-sm input-block">
+                    <option value="" *ngFor="let field of fields">{{field.text}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="" id="" class="select select-sm input-block">
+                    <option value="" *ngFor="let condition of conditions">{{condition}}</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="input input-sm input-block">
+                </td>
+                <td><button class="btn btn-sm btn-red"><i class="fa fa-trash"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <button class="btn btn-green btn-sm" (click)="addFilter()">
+              <i class="fa fa-plus"></i> Add New Filter</button>
+          </div>
+          <div class="input-line-group mtb-15" style="width:100%">
+            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+            <span class="underline">Add Filter Logix</span>
+          </div>
+        </div>
+
+        <div class="section-header">
+          Step 3. Select Fields to Display
+        </div>
+        <div class="section-body">
+          <div class="row  mtb-15">
+            <div class="col-5">
+              <h3>Available Fields</h3>
+              <div class="dropbox">
+                <div class="drop-option" *ngFor="let field of availableFields" (mousedown)="mouseDown($event)" [id]="field.id" [class.active]="activeOption==field.id">{{field.text}}</div>
+              </div>
+            </div>
+            <div class="col-1 dropbox-switch">
+              <div>
+                <div class="pb-5" (click)="addField()">
+                  <a class="btn btn-icon btn-shadow btn-icon-32">
+                    <i class="icon fa fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="pb-5">
+                  <a class="btn btn-icon btn-shadow btn-icon-32" (click)="removeField()">
+                    <i class="icon fa fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-5">
+              <h3>Selected Fields</h3>
+              <div class="dropbox">
+                <div class="drop-option" *ngFor="let field of selectedFields" (mousedown)="mouseDown($event)" (mousemove)="mouseMove($event)"
+                  (mouseup)="mouseUp($event)" [id]="field.id" [class.active]="activeOption==field.id">
+                  {{field.text}}
+                </div>
+                <div id="drag-item">
+                  <i class="fa fa-arrows-alt pr-5" style="color:#43A047"></i>
+                  <span id="drag-item-text">Drag Item Label</span>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="section-header">
+          Step 4. Restrict Visibility
+        </div>
+        <div class="section-body">
+          <div class="mt-15">
+            <div class="pb-10 radio">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible only to me</label>
+            </div>
+            <div class="pb-10 radio">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible to all users (Includes partner and customer portal users)</label>
+            </div>
+            <div class="pb-10 radio">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible to certain groups of users</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-green" (click)="submit()">
+        <i class="fa fa-save"></i> Submmit</button>
+      <button class="btn" (click)="refresh()">
+        <i class="fa fa-close"></i> Cancel</button>
+    </div>
+
+  </div>
+</div>
+<div class="sidebar-right" [class.hide-right]="sidebarShow">
+  <div class="handle" (click)="sidebarShow = !sidebarShow">
+    <a class="btn btn-icon">
+      <i class="icon fa fa-bars" *ngIf="sidebarShow"></i>
+      <i class="icon fa fa-close" *ngIf="!sidebarShow"></i>
+    </a>
+  </div>
+  <div>
+    <div class="pb-5 checkbox checkbox-green">
+      <input type="checkbox" checked>
+      <label> .checkbox.checkbox-green</label>
+    </div>
+  </div>
+
+</div>
