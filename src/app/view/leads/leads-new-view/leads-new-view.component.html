@@ -1,10 +1,11 @@
-<div div class="with-sidebar-right" [class.hide-right]="sidebarShow">
+<div div class="with-sidebar-right" [class.hide-right]="!sidebarShow">
   <div class="panel border-green">
     <div class="panel-header">
       <h2>Create New View</h2>
     </div>
     <div class="panel-body">
       <div class="panel-section">
+        <!-- Step 1: Enter View Name -->
         <div class="section-header">
           Step 1: Enter View Name
         </div>
@@ -14,6 +15,7 @@
             <span class="underline">View Name</span>
           </div>
         </div>
+        <!-- Step 2. Specify Filter Criteria -->
         <div class="section-header">
           Step 2. Specify Filter Criteria
         </div>
@@ -29,35 +31,49 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let filter of filters">
+              <tr *ngFor="let filter of filters; index as i">
                 <td>{{filter.index}}</td>
                 <td>
-                  <select name="" id="" class="select select-sm input-block">
-                    <option value="" *ngFor="let field of fields">{{field.text}}</option>
+                  <select class="select select-sm input-block" [(ngModel)]="filter.field" (change)="clearFilterValue(filter.index)">
+                    <option *ngFor="let field of allFields" [ngValue]="field.id">{{field.text}}</option>
                   </select>
                 </td>
                 <td>
-                  <select name="" id="" class="select select-sm input-block">
-                    <option value="" *ngFor="let condition of conditions">{{condition}}</option>
+                  <select name="" id="" class="select select-sm input-block" [(ngModel)]="filter.condition">
+                    <option *ngFor="let condition of conditions" [ngValue]="condition">{{condition}}</option>
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="input input-sm input-block">
+                  <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
+                  <span *ngIf="valueType(filter.field)=='pickList'">
+                    <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
+                      <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value" (change)="changeSelected(filter)">
+                      <span class="input-icon" (click)="showPickList()">
+                        <i class="fa fa-search"></i>
+                      </span>
+                     
+                    </span>
+                  </span>
                 </td>
-                <td><button class="btn btn-sm btn-red"><i class="fa fa-trash"></i></button></td>
+                <td>
+                  <button class="btn btn-sm btn-red" (click)="deleteFilter(i)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
           <div class="text-center">
             <button class="btn btn-green btn-sm" (click)="addFilter()">
-              <i class="fa fa-plus"></i> Add New Filter</button>
+              <i class="fa fa-plus"></i> Add New Filter
+            </button>
           </div>
           <div class="input-line-group mtb-15" style="width:100%">
             <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
             <span class="underline">Add Filter Logix</span>
           </div>
         </div>
-
+        <!-- Step 3. Select Fields to Display -->
         <div class="section-header">
           Step 3. Select Fields to Display
         </div>
@@ -100,25 +116,31 @@
             <div class="clearfix"></div>
           </div>
         </div>
+        <!-- Step 4. Restrict Visibility -->
         <div class="section-header">
           Step 4. Restrict Visibility
         </div>
         <div class="section-body">
           <div class="mt-15">
-            <div class="pb-10 radio">
-              <input type="radio" name="radioExample">
-              <label for=""> Visible only to me</label>
+            <div class="pb-10">
+              <div class="radio">
+                <input type="radio" name="radioExample">
+                <label for=""> Visible only to me</label>
+              </div>
             </div>
-            <div class="pb-10 radio">
-              <input type="radio" name="radioExample">
-              <label for=""> Visible to all users (Includes partner and customer portal users)</label>
+            <div class="pb-10">
+              <div class="radio">
+                <input type="radio" name="radioExample">
+                <label for=""> Visible to all users (Includes partner and customer portal users)</label>
+              </div>
             </div>
-            <div class="pb-10 radio">
-              <input type="radio" name="radioExample">
-              <label for=""> Visible to certain groups of users</label>
+            <div class="pb-10">
+              <div class="radio">
+                <input type="radio" name="radioExample">
+                <label for=""> Visible to certain groups of users</label>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -128,21 +150,27 @@
       <button class="btn" (click)="refresh()">
         <i class="fa fa-close"></i> Cancel</button>
     </div>
-
   </div>
 </div>
-<div class="sidebar-right" [class.hide-right]="sidebarShow">
-  <div class="handle" (click)="sidebarShow = !sidebarShow">
-    <a class="btn btn-icon">
-      <i class="icon fa fa-bars" *ngIf="sidebarShow"></i>
-      <i class="icon fa fa-close" *ngIf="!sidebarShow"></i>
-    </a>
-  </div>
-  <div>
-    <div class="pb-5 checkbox checkbox-green">
-      <input type="checkbox" checked>
-      <label> .checkbox.checkbox-green</label>
+
+<!-- Sidebar for Pick List -->
+<div class="sidebar-right" [class.hide-right]="!sidebarShow">
+  <div class="clearfix p-10"></div>
+  <h2>{{pickHeader}}</h2>
+  <div class="picklist">
+    <div *ngFor="let item of pickList">
+      <div class="mb-10">
+        <div class="checkbox checkbox-green">
+          <input type="checkbox" [(ngModel)]="item.selected">
+          <label> {{item.option}}</label>
+        </div>
+      </div>
     </div>
   </div>
-
+  <div>
+    <button class="btn btn-green btn-sm" (click)="submitPickList()">
+      <i class="fa fa-save"></i> Insert</button>
+    <button class="btn btn-sm" (click)="closePickList()">
+      <i class="fa fa-close"></i> Close</button>
+  </div>
 </div>

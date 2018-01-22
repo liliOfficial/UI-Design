@@ -22,6 +22,7 @@
 
 .input-group {
     display: inline-block;
+    position: relative;
 }
 
 .input-group>.input + .btn {
@@ -51,6 +52,23 @@
     font-size: 14px;
     padding:8px;
     height: auto;
+}
+
+.input-group>.input +.input-icon {
+    position: absolute;
+    right:6px;
+    bottom: 7px;
+    cursor: pointer;
+}
+
+.input-group>.input-xs +.input-icon {
+    bottom: 2px;
+}
+.input-group>.input-sm +.input-icon {
+    bottom: 4px;
+}
+.input-group>.input-lg +.input-icon {
+    bottom: 10px;
 }
 
 .input-block {
@@ -452,6 +470,7 @@
 
 .checkbox {
     position: relative;
+    display: inline-block;
 }
 
 .checkbox input[type="checkbox"] {
@@ -472,7 +491,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: -12px;
+    margin-top: -7px;
     width: 12px;
     height: 12px;
     display: inline-block;
@@ -491,7 +510,7 @@
     content: '\F00C';
     top: 50%;
     left: 2px;
-    margin-top: -10px;
+    margin-top: -5px;
     font-size: 10px;
     line-height: 1;
     color: #FFF;
@@ -532,6 +551,7 @@
 /* radio style */
 .radio {
     position: relative;
+    display: inline-block;
 }
 
 .radio input[type="radio"] {
@@ -552,7 +572,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: -12px;
+    margin-top: -7px;
     width: 12px;
     height: 12px;
     display: inline-block;
@@ -565,7 +585,7 @@
     position: absolute;
     top: 50%;
     left: 3px;
-    margin-top: -9px;
+    margin-top: -4px;
     display: inline-block;
     font-size: 10px;
     line-height: 1;

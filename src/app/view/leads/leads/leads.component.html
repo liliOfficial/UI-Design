@@ -17,7 +17,7 @@
   <div class="panel border-green">
     <div class="panel-header">
       <div class="groupcentrol">
-        <button class="btn btn-xs btn-green btn-circle">
+        <button class="btn btn-xs btn-green btn-circle" (click)="popupShow=true">
           <i class="fa fa-edit"></i> Mass Update</button>
         <button class="btn btn-xs btn-green btn-circle">
           <i class="fa fa-trash"></i> Mass Delete</button>
@@ -39,7 +39,7 @@
                 </div>
               </th>
               <th>Action</th>
-              <th *ngFor="let theader of theaders">{{theader.text}}</th>
+              <th *ngFor="let field of fields">{{field.text}}</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +54,7 @@
                 <i class="fa fa-edit pr-5 text-green"></i>
                 <i class="fa fa-trash"></i>
               </td>
-              <td *ngFor="let key of theaders">
+              <td *ngFor="let key of fields">
                 {{json[key.jsonKey]}}
               </td>
           </tbody>
@@ -64,6 +64,7 @@
     <div class="panel-footer">
     </div>
   </div>
+  <!-- pagination -->
   <div class="pagination-side pagination-side-green">
     <ul class="pull-right">
       <li>
@@ -118,8 +119,50 @@
         <i class="icon fa fa-close"></i>
       </a>
       <a class="btn btn-icon btn-green btn-shadow" (click)="paginationTextShow=true" *ngIf="!paginationTextShow">
-          <i class="icon fa fa-info"></i>
-        </a>
+        <i class="icon fa fa-info"></i>
+      </a>
+    </div>
+  </div>
+  <!-- popup -->
+  <div class="popup popup-transparent" *ngIf="popupShow">
+    <div class="popup-content">
+      <div class="popup-box">
+        <div class="popup-header">
+          <h2 class="title">Mass Update</h2>
+          <span class="action">
+            <a class="btn btn-icon btn-green">
+              <i class="icon fa fa-save"></i>
+            </a>
+            <a class="btn btn-icon">
+              <i class="icon fa fa-close" (click)="popupShow= false"></i>
+            </a>
+          </span>
+        </div>
+        <div class="popup-body">
+          <div class="row">
+            <div class="col-3 text-right">Select Field</div>
+            <div class="col-9">
+              <select name="" id="" class="select select-sm input-block" [(ngModel)]="fieldIndex">
+                <option *ngFor="let field of fields; index as i" [ngValue]="i">{{field.text}}</option>
+              </select>
+            </div>
+            <div class="clearfix p-5"></div>
+            <div *ngIf="fieldIndex">
+              <div class="col-3 text-right">{{fields[fieldIndex].text}}</div>
+              <div class="col-9">
+                <span *ngIf="fields[fieldIndex].type=='input'">
+                  <input class="input input-sm input-block" type="text">
+                </span>
+                <span *ngIf="fields[fieldIndex].type=='option'">
+                  <select name="" id="" class="select select-sm input-block">
+                    <option value="" *ngFor="let option of fields[fieldIndex].option">{{option}}</option>
+                  </select>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
