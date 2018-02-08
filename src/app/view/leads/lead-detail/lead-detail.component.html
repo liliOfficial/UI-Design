@@ -1,4 +1,13 @@
 <div>
+  <span class="pull-right">
+    <button class="btn btn-sm" routerLink="/leads/convert">Covert</button>
+    <button class="btn btn-sm">Delete</button>
+    <button class="btn btn-sm">Sharing</button>
+    <button class="btn btn-sm" routerLink="/leads/find-duplications">Find Duplicates</button>
+  </span>
+  <div class="clearfix m-5">
+
+  </div>
   <div class="panel border-green">
     <div class="panel-header">
       <h2>Lead Detail</h2>
@@ -11,7 +20,7 @@
           {{section.text}}
         </div>
         <div class="section-body" *ngIf="!section.collapse">
-          <span *ngFor="let list of lists">
+          <span *ngFor="let list of lists; index as i;">
             <div *ngIf="list.sectionName==section.sectionName" class="section-li">
               <label>
                 {{list.label}}
@@ -20,8 +29,21 @@
                 </span>
               </label>
               <span class="content">
+                <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change" (dblclick)="edit(i)">{{list.value}}</span>
+                <input type="text" [(ngModel)]="list.value" [class.text-green]="list.change" (change)="list.change=true;" (keyup.enter)="list.edit=false"
+                  *ngIf="list.edit && !list.readonly && !list.options">
+                <select [class.text-green]="list.change" (change)="list.change=true;list.edit=false;" *ngIf="list.edit && !list.readonly && list.options" [(ngModel)]="list.value">
+                  <option [ngValue]="option" *ngFor="let option of list.options">{{option}}</option>
+                </select>
+                <span class="icon text-green">
+                  <i class="fa fa-undo" *ngIf="list.change" (click)="undo(i)"></i>
+                </span>
+                <span class="icon text-red">
+                  <i class="fa fa-lock" *ngIf="list.readonly"></i>
+                </span>
+              </span>
+              <!-- <span class="content">
                 <span *ngIf="list.content.type=='text'" (dblclick)="list.edit=true">
-                  <!-- <span class="required" *ngIf="list.required">*</span>             -->
                   <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change">{{list.content.text}}</span>
                   <input type="text" [(ngModel)]="list.content.text" [class.text-green]="list.change" (change)="list.change=true;" (blur)="list.edit=false"
                     *ngIf="list.edit && !list.readonly">
@@ -33,12 +55,12 @@
                   </select>
                 </span>
                 <span class="icon text-green">
-                  <i class="fa fa-undo" *ngIf="list.change"></i>
+                  <i class="fa fa-undo" *ngIf="list.change" (click)="undo()"></i>
                 </span>
                 <span class="icon text-red">
                   <i class="fa fa-lock" *ngIf="list.readonly"></i>
                 </span>
-              </span>
+              </span> -->
             </div>
           </span>
         </div>
@@ -46,7 +68,7 @@
     </div>
     <div class="tools-bar-right">
       <div class="pb-5">
-        <a class="btn btn-icon btn-green btn-shadow">
+        <a class="btn btn-icon btn-green btn-shadow" (click)="output()">
           <i class="icon fa fa-save"></i>
         </a>
       </div>
@@ -56,7 +78,7 @@
         </a>
       </div>
       <div class="pb-5">
-        <a class="btn btn-icon btn-red btn-shadow">
+        <a class="btn btn-icon btn-red btn-shadow" (click)="undoAll()">
           <i class="icon fa fa-undo"></i>
         </a>
       </div>

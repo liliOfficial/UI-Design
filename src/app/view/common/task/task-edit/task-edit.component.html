@@ -1,0 +1,172 @@
+<div class="panel">
+  <div class="panel-header">
+    <h2>Task Edit</h2>
+  </div>
+  <div class="panel-body">
+    <div class="mtb-15">
+      <div class="row">
+        <div class="col-6">
+          <label for="">Assign To</label>
+          <span class="input-group mb-10">
+            <input class="input input-block" type="text" placeholder="Insert value from the pick list" [(ngModel)]="assign">
+            <span class="input-icon" (click)="assignPopup = true">
+              <i class="fa fa-search"></i>
+            </span>
+          </span>
+        </div>
+        <div class="col-6">
+          <label for="">Status</label>
+          <select name="" id="" class="select input-block mb-10" [(ngModel)]="task.status">
+            <option [ngValue]="status.id" *ngFor="let status of status">{{status.text}}</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="">Subject</label>
+          <span class="input-group mb-10">
+            <input class="input input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="task.subject">
+            <span class="input-icon" (click)="subjectPopup = true">
+              <i class="fa fa-list"></i>
+            </span>
+          </span>
+        </div>
+        <div class="col-6">
+          <label for="">Priority</label>
+          <select name="" id="" class="select input-block mb-10" [(ngModel)]="task.priority">
+            <option [ngValue]="priority.text" *ngFor="let priority of priorities">{{priority.text}}</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="">Due Date</label>
+          <span class="input-group mb-10">
+            <input class="input input-block" type="text" placeholder="Input or insert value from the pick list">
+            <span class="input-icon">
+              <i class="fa fa-calendar"></i>
+            </span>
+          </span>
+        </div>
+        <div class="col-6">
+          <label for="">Reminder</label>
+          <select name="" id="" class="select input-block mb-10"></select>
+        </div>
+        <div class="col-12">
+          <label for="">Comments</label>
+          <textarea name="" id="" cols="30" rows="10" class="input-block" [(ngModel)]="task.comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-sm btn-green" (click)="output()">Save</button>
+    <button class="btn btn-sm btn-lightgreen">Save and New</button>
+    <button class="btn btn-sm btn-red">Cancel</button>
+  </div>
+</div>
+<div class="popup popup-transparent" *ngIf="show">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Property Setting</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-red">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="show= false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="row">
+          <div class="col-3 text-right">Label</div>
+          <div class="col-9">
+            <span class="checkbox checkbox-yellow">
+              <input type="checkbox" checked>
+              <label>Readonly</label>
+            </span>
+            <span class="checkbox checkbox-red">
+              <input type="checkbox" checked>
+              <label>Required</label>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Assign to popup -->
+<div class="popup popup-transparent" *ngIf="assignPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Look Up</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-green">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="assignPopup = false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="input-line-group">
+          <span class="input-icon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+          <span class="underline"></span>
+        </div>
+        <div class="mt-10">
+          <table class="table-full table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Role</th>
+                <th>Team</th>
+                <th>Working Hour</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let member of assignList" (dblclick)="assignTo(member.id, member.fullName)">
+                <td>{{member.fullName}}</td>
+                <td>{{member.role}}</td>
+                <td>{{member.team}}</td>
+                <td>{{member.workingHour}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Subject popup -->
+<div class="popup popup-transparent" *ngIf="subjectPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Subjects</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-green">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="subjectPopup = false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <ul>
+          <li *ngFor="let subject of subjectList" (dblclick)="subjectChoose(subject.text)">{{subject.text}}</li>
+        </ul>
+        <div class="ptb-15">
+          <div class="input-line-group">
+            <input type="text" class="input-line  input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+            <span class="underline">New</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

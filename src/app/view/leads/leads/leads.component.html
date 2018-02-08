@@ -10,7 +10,7 @@
       <span class="underline"></span>
     </span>
     <span class="pull-right">
-      <button class="btn btn-sm">Edit</button>
+      <button class="btn btn-sm" routerLink="/leads/new-view">Edit</button>
       <button class="btn btn-sm" routerLink="/leads/new-view">Create New View</button>
     </span>
   </h3>
@@ -20,10 +20,10 @@
         <button class="btn btn-xs btn-green btn-circle" (click)="popupShow=true">
           <i class="fa fa-edit"></i> Mass Update</button>
         <button class="btn btn-xs btn-green btn-circle">
-          <i class="fa fa-trash"></i> Mass Delete</button>
+          <i class="fa fa-trash-alt"></i> Mass Delete</button>
       </div>
       <div class="action">
-        <button class="btn btn-xs btn-green btn-circle" routerLink="/leads/lead-detail">New Leads</button>
+        <button class="btn btn-xs btn-green btn-circle" [routerLink]="['/leads/lead-detail',0]">New Leads</button>
         <button class="btn btn-xs btn-green btn-circle">Add to Campaign</button>
       </div>
     </div>
@@ -51,8 +51,8 @@
                 </div>
               </td>
               <td>
-                <i class="fa fa-edit pr-5 text-green"></i>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-edit pr-5 text-green" [routerLink]="['/leads/lead-detail',json.leadid]"></i>
+                <i class="fa fa-trash-alt"></i>
               </td>
               <td *ngFor="let key of fields">
                 {{json[key.jsonKey]}}
@@ -116,7 +116,7 @@
     </div>
     <div class="handle">
       <a class="btn btn-icon btn-green btn-shadow" (click)="paginationTextShow=false" *ngIf="paginationTextShow">
-        <i class="icon fa fa-close"></i>
+        <i class="icon fa fa-times"></i>
       </a>
       <a class="btn btn-icon btn-green btn-shadow" (click)="paginationTextShow=true" *ngIf="!paginationTextShow">
         <i class="icon fa fa-info"></i>
@@ -134,7 +134,7 @@
               <i class="icon fa fa-save"></i>
             </a>
             <a class="btn btn-icon">
-              <i class="icon fa fa-close" (click)="popupShow= false"></i>
+              <i class="icon fa fa-times" (click)="popupShow= false"></i>
             </a>
           </span>
         </div>

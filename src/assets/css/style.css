@@ -46,6 +46,10 @@ ul.inline-block li {
 button:focus {
     outline: 0;
 }
+
+i:focus {
+    outline: 0;
+}
 .clearfix:after {
     display: block;
     content: "";

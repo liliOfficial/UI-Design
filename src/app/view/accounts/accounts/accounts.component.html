@@ -20,7 +20,7 @@
           <button class="btn btn-xs btn-blue btn-circle">
             <i class="fa fa-edit"></i> Mass Update</button>
           <button class="btn btn-xs btn-blue btn-circle">
-            <i class="fa fa-trash"></i> Mass Delete</button>
+            <i class="fa fa-trash-alt"></i> Mass Delete</button>
         </div>
         <div class="action">
           <button class="btn btn-xs btn-blue btn-circle">Add to Campaign</button>
@@ -51,7 +51,7 @@
                 </td>
                 <td>
                   <i class="fa fa-edit pr-5 text-blue" routerLink="/accounts/account-detail"></i>
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-trash-alt"></i>
                 </td>
                 <td *ngFor="let key of theaders">
                   {{json[key.jsonKey]}}
@@ -114,7 +114,7 @@
       </div>
       <div class="handle">
         <a class="btn btn-icon btn-blue btn-shadow" (click)="paginationTextShow=false" *ngIf="paginationTextShow">
-          <i class="icon fa fa-close"></i>
+          <i class="icon fa fa-times"></i>
         </a>
         <a class="btn btn-icon btn-blue btn-shadow" (click)="paginationTextShow=true" *ngIf="!paginationTextShow">
             <i class="icon fa fa-info"></i>

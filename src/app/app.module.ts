@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './views/layout/header/header.component';
-import { FooterComponent } from './views/layout/footer/footer.component';
+import { HeaderComponent } from './view/layout/header/header.component';
+import { FooterComponent } from './view/layout/footer/footer.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LeadsComponent } from './view/leads/leads/leads.component';
 import { PanelComponent } from './UI/panel/panel.component';
@@ -32,6 +32,10 @@ import { TaskHistoryComponent } from './view/common/task/task-history/task-histo
 import { EmailSentComponent } from './view/common/email/email-sent/email-sent.component';
 import { AccountDetailComponent } from './view/accounts/account-detail/account-detail.component';
 import { LeadsNewViewComponent } from './view/leads/leads-new-view/leads-new-view.component';
+import { TaskEditComponent } from './view/common/task/task-edit/task-edit.component';
+import { ConvertComponent } from './view/leads/convert/convert.component';
+import { FindDuplicationsComponent } from './view/leads/find-duplications/find-duplications.component';
+import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +68,10 @@ import { LeadsNewViewComponent } from './view/leads/leads-new-view/leads-new-vie
     EmailSentComponent,
     AccountDetailComponent,
     LeadsNewViewComponent,
+    TaskEditComponent,
+    ConvertComponent,
+    FindDuplicationsComponent,
+    MergeLeadsComponent,
 
   ],
   imports: [
@@ -72,12 +80,16 @@ import { LeadsNewViewComponent } from './view/leads/leads-new-view/leads-new-vie
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
       { path: 'leads', component: LeadsComponent },
-      { path: 'leads/lead-detail', component: LeadDetailComponent },
+      { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
       { path: 'leads/new-view', component: LeadsNewViewComponent },
+      { path: 'leads/convert', component: ConvertComponent },
+      { path: 'leads/find-duplications', component: FindDuplicationsComponent },
+      { path: 'leads/merge-leads', component: MergeLeadsComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
+      { path: 'task', component: TaskEditComponent }
 
     ])
   ],

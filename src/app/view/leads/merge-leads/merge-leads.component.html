@@ -1,0 +1,44 @@
+<div class="panel border-green">
+  <div class="panel-header">
+    <h2>Merge Leads</h2>
+    <small>Selected Master record will be Save.</small>
+  </div>
+  <div class="panel-body">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let lead of Json">{{lead.name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Master Record</td>
+          <td *ngFor="let lead of Json; index as i;">
+            <div class="radio radio-green">
+              <input type="radio" name="master" [value]="i" [(ngModel)]="masterRecord">
+              <label for=""> </label>
+            </div>
+          </td>
+        </tr>
+        <tr *ngFor="let field of fields">
+          <td>{{field.text}}</td>
+          <td *ngFor="let lead of Json">
+            <div class="radio radio-green" *ngIf="field.radio==true">
+              <input type="radio" [(ngModel)]="mergeResult[field.name]" [name]="field.name" [value]="lead[field.jsonKey]">
+              <label for=""> </label>
+            </div>
+            <span>{{lead[field.jsonKey]}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mt-10 mb-10 text-red" *ngIf="alert">
+      Please make sure all the fields are selected before merge.
+    </div>    
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-green" (click)="merge()">Merge</button>
+    <button class="btn btn-red">Cancel</button>
+  </div>
+</div>

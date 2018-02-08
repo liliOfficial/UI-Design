@@ -220,7 +220,7 @@
   content: "\f00c";
 }
 .fa-remove:before,
-.fa-close:before,
+.fa-times:before,
 .fa-times:before {
   content: "\f00d";
 }
@@ -240,7 +240,7 @@
 .fa-cog:before {
   content: "\f013";
 }
-.fa-trash-o:before {
+.fa-trash-alt-o:before {
   content: "\f014";
 }
 .fa-home:before {
@@ -1631,7 +1631,7 @@
 .fa-bell-slash-o:before {
   content: "\f1f7";
 }
-.fa-trash:before {
+.fa-trash-alt:before {
   content: "\f1f8";
 }
 .fa-copyright:before {

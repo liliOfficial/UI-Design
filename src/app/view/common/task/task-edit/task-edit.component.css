@@ -1,0 +1,33 @@
+label {
+    display:inline-block;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.popup ul {
+    list-style: none;
+}
+
+.popup li {
+    padding:3px;
+    cursor: pointer;
+    color:#444;
+    font-weight: 700;
+}
+
+.popup li:hover {
+    color:#fff;
+    background: #444;
+}
+
+.input-group {
+    width:100%;
+}
+
+.input-line-group {
+    width:100%;
+}
+
+.popup-body .underline {
+    font-weight: 700;
+}

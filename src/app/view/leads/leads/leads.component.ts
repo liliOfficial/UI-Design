@@ -10,7 +10,8 @@ export class LeadsComponent implements OnInit {
   popupShow = false;
 
   fields = [
-    { id: '1', 'type': 'input', 'text': 'Name', 'jsonKey': 'name' },
+    {
+      id: '1', 'type': 'input', 'text': 'Name', 'jsonKey': 'name' },
     { id: '2', 'type': 'input', 'text': 'State/Province', 'jsonKey': 'state' },
     { id: '3', 'type': 'option', 'text': 'Country', 'jsonKey': 'country', option: ['China', 'Australia', 'America'] },
     { id: '4', 'type': 'input', 'text': 'Phone', 'jsonKey': 'phone' },
@@ -27,6 +28,7 @@ export class LeadsComponent implements OnInit {
   ];
   Json = [
     {
+      'leadid': '11111111111',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -43,6 +45,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '22222',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -59,6 +62,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -75,6 +79,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -91,6 +96,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -107,6 +113,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -123,6 +130,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -139,6 +147,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -155,6 +164,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -171,6 +181,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -187,6 +198,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -203,6 +215,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -219,6 +232,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -235,6 +249,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -251,6 +266,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -267,6 +283,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -283,6 +300,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -299,6 +317,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -315,6 +334,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -331,6 +351,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -347,6 +368,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -363,6 +385,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -379,6 +402,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -395,6 +419,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -411,6 +436,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -427,6 +453,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -443,6 +470,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -459,6 +487,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -475,6 +504,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -491,6 +521,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -507,6 +538,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -523,6 +555,7 @@ export class LeadsComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
+      'leadid': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',

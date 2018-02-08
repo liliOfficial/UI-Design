@@ -202,7 +202,7 @@ export class LeadsNewViewComponent implements OnInit {
     this.addAfter = e.target.id;
     const obj = this.findObjectByKey(this.selectedFields, 'id', this.addAfter);
     document.getElementById('drag-item').style.display = 'none';
-    if (obj && this.addno != -1) {
+    if (obj && this.addno !== -1) {
       this.addAfter = obj.no;
       this.selectedFields.splice(this.addno, 1);
       this.selectedFields.splice(this.addAfter, 0, this.addJson);
