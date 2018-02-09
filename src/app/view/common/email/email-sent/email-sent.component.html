@@ -1,70 +1,66 @@
 <div class="panel">
-    <div class="panel-header">
-      <h2>Email Sent</h2>
-      <div class="action">
-        <button class="btn btn-xs btn-shadow btn-circle ml-5">New Email</button>
-      </div>
-    </div>
-  
-    <div class="panel-body">
-      <div class="mlr-n15">
-        <table class="table-full table-striped table-hover">
-          <thead>
-            <tr>
-              <th>Action</th>
-              <th>Subject</th>
-              <th>Date Sent</th>
-              <th>Date Open</th>
-              <th># Times Opened</th>
-              <th>Last Open</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let email of emails">
-              <td>
-                <button class="btn btn-xs">
-                  <i class="fa fa-edit"></i>
-                </button>
-                <button class="btn btn-xs btn-red">
-                  <i class="fa fa-trash-alt"></i>
-                </button>
-              </td>
-              <td>
-                <a>{{email.subject}}</a>
-              </td>
-              <td>{{email.dateSent}}</td>
-              <td>{{email.dateOpen}}</td>
-              <td>{{email.times}}</td>
-              <td>{{email.lastOpen}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pagination">
-        <div>Showing 1 to 10 of 57 entries</div>
-        <ul>
-          <li class="arrow">
-            <a>«</a>
-          </li>
-          <li class="active">
-            <a>1</a>
-          </li>
-          <li>
-            <a>2</a>
-          </li>
-          <li>
-            <a>3</a>
-          </li>
-          <li>
-            <a>4</a>
-          </li>
-          <li>
-            <a>5</a>
-          </li>
-          <li class="arrow">
-            <a>»</a>
-          </li>
-        </ul>
-      </div>
+  <div class="panel-header">
+    <h2>Email Sent</h2>
+    <div class="action">
+      <button class="btn btn-xs btn-shadow btn-circle ml-5">New Email</button>
     </div>
   </div>
+
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Subject</th>
+            <th>Date Sent</th>
+            <th>Date Open</th>
+            <th># Times Opened</th>
+            <th>Last Open</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let email of emails">
+            <td>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-trash-alt text-red"></i>
+            </td>
+            <td>
+              <a>{{email.subject}}</a>
+            </td>
+            <td>{{email.dateSent}}</td>
+            <td>{{email.dateOpen}}</td>
+            <td>{{email.times}}</td>
+            <td>{{email.lastOpen}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <div>Showing 1 to 10 of 57 entries</div>
+      <ul>
+        <li class="arrow">
+          <a>«</a>
+        </li>
+        <li class="active">
+          <a>1</a>
+        </li>
+        <li>
+          <a>2</a>
+        </li>
+        <li>
+          <a>3</a>
+        </li>
+        <li>
+          <a>4</a>
+        </li>
+        <li>
+          <a>5</a>
+        </li>
+        <li class="arrow">
+          <a>»</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

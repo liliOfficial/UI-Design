@@ -11,7 +11,8 @@ export class LeadsComponent implements OnInit {
 
   fields = [
     {
-      id: '1', 'type': 'input', 'text': 'Name', 'jsonKey': 'name' },
+      id: '1', 'type': 'input', 'text': 'Name', 'jsonKey': 'name'
+    },
     { id: '2', 'type': 'input', 'text': 'State/Province', 'jsonKey': 'state' },
     { id: '3', 'type': 'option', 'text': 'Country', 'jsonKey': 'country', option: ['China', 'Australia', 'America'] },
     { id: '4', 'type': 'input', 'text': 'Phone', 'jsonKey': 'phone' },
@@ -573,7 +574,20 @@ export class LeadsComponent implements OnInit {
     }
   ];
 
+  viewLists = [
+    { id: '111111', text: 'My View' },
+    { id: '22222222', text: 'My Account' },
+    { id: '3333333', text: 'My View2' }
+  ];
+
+
+
+  viewId = '3333333';
   fieldIndex;
+
+  changeView() {
+    console.log(this.viewId);
+  }
 
   constructor() { }
 

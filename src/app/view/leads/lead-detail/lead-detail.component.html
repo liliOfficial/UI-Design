@@ -10,7 +10,8 @@
   </div>
   <div class="panel border-green">
     <div class="panel-header">
-      <h2>Lead Detail</h2>
+      <h2 *ngIf="leadId==0">Create New Lead</h2>
+      <h2 *ngIf="leadId!=0">Edit Lead</h2>
     </div>
     <div class="panel-body">
       <div class="panel-section" *ngFor="let section of sections">
@@ -29,10 +30,10 @@
                 </span>
               </label>
               <span class="content">
-                <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change" (dblclick)="edit(i)">{{list.value}}</span>
-                <input type="text" [(ngModel)]="list.value" [class.text-green]="list.change" (change)="list.change=true;" (keyup.enter)="list.edit=false"
+                <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change" (dblclick)="edit(i)" [class.cursor-not-allowed]="list.readonly">{{list.value}}</span>
+                <input type="text" [(ngModel)]="list.value" [class.text-green]="list.change" (change)="list.change=true;" (keyup.enter)="list.edit=false" (blur)="list.edit=false"
                   *ngIf="list.edit && !list.readonly && !list.options">
-                <select [class.text-green]="list.change" (change)="list.change=true;list.edit=false;" *ngIf="list.edit && !list.readonly && list.options" [(ngModel)]="list.value">
+                <select [class.text-green]="list.change" (change)="list.change=true;list.edit=false;" *ngIf="list.edit && !list.readonly && list.options" [(ngModel)]="list.value" (blur)="list.edit=false">
                   <option [ngValue]="option" *ngFor="let option of list.options">{{option}}</option>
                 </select>
                 <span class="icon text-green">
@@ -42,25 +43,6 @@
                   <i class="fa fa-lock" *ngIf="list.readonly"></i>
                 </span>
               </span>
-              <!-- <span class="content">
-                <span *ngIf="list.content.type=='text'" (dblclick)="list.edit=true">
-                  <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change">{{list.content.text}}</span>
-                  <input type="text" [(ngModel)]="list.content.text" [class.text-green]="list.change" (change)="list.change=true;" (blur)="list.edit=false"
-                    *ngIf="list.edit && !list.readonly">
-                </span>
-                <span *ngIf="list.content.type=='select'" (dblclick)="list.edit=true">
-                  <span class="text" *ngIf="!list.edit || list.readonly" [class.text-green]="list.change">{{list.content.selected}}</span>
-                  <select name="" id="" [class.text-green]="list.change" (change)="list.change=true" *ngIf="list.edit && !list.readonly" (blur)="list.edit=false">
-                    <option value="" *ngFor="let option of list.content.options">{{option}}</option>
-                  </select>
-                </span>
-                <span class="icon text-green">
-                  <i class="fa fa-undo" *ngIf="list.change" (click)="undo()"></i>
-                </span>
-                <span class="icon text-red">
-                  <i class="fa fa-lock" *ngIf="list.readonly"></i>
-                </span>
-              </span> -->
             </div>
           </span>
         </div>

@@ -6,7 +6,9 @@
     <div class="mtb-15">
       <div class="row">
         <div class="col-6">
-          <label for="">Assign To</label>
+          <label for="">Assign To
+            <span class="text-red">*</span>
+          </label>
           <span class="input-group mb-10">
             <input class="input input-block" type="text" placeholder="Insert value from the pick list" [(ngModel)]="assign">
             <span class="input-icon" (click)="assignPopup = true">
@@ -15,13 +17,17 @@
           </span>
         </div>
         <div class="col-6">
-          <label for="">Status</label>
+          <label for="">Status
+            <span class="text-red">*</span>
+          </label>
           <select name="" id="" class="select input-block mb-10" [(ngModel)]="task.status">
             <option [ngValue]="status.id" *ngFor="let status of status">{{status.text}}</option>
           </select>
         </div>
         <div class="col-6">
-          <label for="">Subject</label>
+          <label for="">Subject
+            <span class="text-red">*</span>
+          </label>
           <span class="input-group mb-10">
             <input class="input input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="task.subject">
             <span class="input-icon" (click)="subjectPopup = true">
@@ -30,27 +36,31 @@
           </span>
         </div>
         <div class="col-6">
-          <label for="">Priority</label>
+          <label for="">Priority
+            <span class="text-red">*</span>
+          </label>
           <select name="" id="" class="select input-block mb-10" [(ngModel)]="task.priority">
             <option [ngValue]="priority.text" *ngFor="let priority of priorities">{{priority.text}}</option>
           </select>
         </div>
         <div class="col-6">
-          <label for="">Due Date</label>
+          <label for="">Due Date
+            <span class="text-red">*</span>
+          </label>
           <span class="input-group mb-10">
-            <input class="input input-block" type="text" placeholder="Input or insert value from the pick list">
+            <input class="input input-block" type="text">
             <span class="input-icon">
               <i class="fa fa-calendar"></i>
             </span>
           </span>
         </div>
-        <div class="col-6">
-          <label for="">Reminder</label>
-          <select name="" id="" class="select input-block mb-10"></select>
-        </div>
         <div class="col-12">
           <label for="">Comments</label>
           <textarea name="" id="" cols="30" rows="10" class="input-block" [(ngModel)]="task.comments"></textarea>
+        </div>
+        <div class="clearfix"></div>
+        <div class="m-15 text-red" *ngIf="alert">
+          Please make sure all the fields are selected before save.
         </div>
       </div>
     </div>
@@ -101,9 +111,6 @@
       <div class="popup-header">
         <h2 class="title">Look Up</h2>
         <span class="action">
-          <a class="btn btn-icon btn-green">
-            <i class="icon fa fa-save"></i>
-          </a>
           <a class="btn btn-icon">
             <i class="icon fa fa-times" (click)="assignPopup = false"></i>
           </a>
@@ -115,9 +122,12 @@
             <i class="fa fa-search"></i>
           </span>
           <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
-          <span class="underline"></span>
+          <span class="underline">Input Name/Role/Team to Search</span>
         </div>
-        <div class="mt-10">
+        <div class="mtb-15">
+          <small>Click to choose the person you want to assign to.</small>
+        </div>
+        <div>
           <table class="table-full table-striped table-hover">
             <thead>
               <tr>
@@ -128,7 +138,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let member of assignList" (dblclick)="assignTo(member.id, member.fullName)">
+              <tr *ngFor="let member of assignList" (click)="assignTo(member.id, member.fullName)">
                 <td>{{member.fullName}}</td>
                 <td>{{member.role}}</td>
                 <td>{{member.team}}</td>
@@ -148,22 +158,25 @@
       <div class="popup-header">
         <h2 class="title">Subjects</h2>
         <span class="action">
-          <a class="btn btn-icon btn-green">
-            <i class="icon fa fa-save"></i>
-          </a>
           <a class="btn btn-icon">
             <i class="icon fa fa-times" (click)="subjectPopup = false"></i>
           </a>
         </span>
       </div>
       <div class="popup-body">
+        <div class="mtb-15">
+          <small>Click to choose the subject.</small>
+        </div>
         <ul>
-          <li *ngFor="let subject of subjectList" (dblclick)="subjectChoose(subject.text)">{{subject.text}}</li>
+          <li *ngFor="let subject of subjectList; index as i" (click)="subjectChoose(subject.text)">
+            <span  class="title">{{subject.text}}</span>
+            <span class="pull-right text-red" *ngIf="subject.deleteAble" (click)="deleteSubject(i)"><i class="fa fa-trash-alt"></i></span>            
+          </li>
         </ul>
-        <div class="ptb-15">
+        <div class="mtb-15">
           <div class="input-line-group">
-            <input type="text" class="input-line  input-block" onkeyup="this.setAttribute('value', this.value);" value="">
-            <span class="underline">New</span>
+            <input type="text" class="input-line  input-block" onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newSubjectName" (keyup.enter)="addSubject()">
+            <span class="underline">Add New Subject</span>
           </div>
         </div>
       </div>

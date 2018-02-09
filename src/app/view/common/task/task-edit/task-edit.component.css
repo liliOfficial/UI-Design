@@ -6,13 +6,21 @@ label {
 
 .popup ul {
     list-style: none;
+    margin: 0 -15px;
 }
 
 .popup li {
-    padding:3px;
-    cursor: pointer;
+    padding:3px 19px;
     color:#444;
     font-weight: 700;
+}
+
+.popup li .title {
+    cursor: pointer;
+}
+
+.popup li i {
+    cursor: pointer;
 }
 
 .popup li:hover {

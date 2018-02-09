@@ -11,6 +11,13 @@ export class TaskEditComponent implements OnInit {
 
   assignList = [
     {
+      id: '888888',
+      fullName: 'Account Manager',
+      role: 'Team Leader',
+      team: 'ChinaPro',
+      workingHour: '09:00 - 18:00 Monday -Friday'
+    },
+    {
       id: 'id456123',
       fullName: 'Andy Li',
       role: 'Team Leader',
@@ -42,18 +49,19 @@ export class TaskEditComponent implements OnInit {
     { text: 'Live Application' },
     { text: 'Demo Application' },
     { text: 'Call 1' },
-    { text: '咨询代理' }
+    { text: '咨询代理', deleteAble: true }
   ];
 
-  assign;
+  assign = 'Default Account Manager';
+  alert = false;
+  newSubjectName;
 
   task = {
-    assign: '',
-    status: '',
+    assign: '888888',
+    status: 'id4654',
     subject: '',
-    priority: '',
+    priority: 'Normal',
     dueDate: '',
-    reminder: '',
     comments: ''
   };
 
@@ -73,9 +81,26 @@ export class TaskEditComponent implements OnInit {
   }
 
   output() {
-    console.log(this.task);
+    if (this.task.assign && this.task.subject && this.task.priority && this.task.dueDate) {
+      this.alert = false;
+      console.log(this.task);
+    } else {
+      this.alert = true;
+    }
   }
 
+  addSubject() {
+    if (this.newSubjectName) {
+      const newSubject = { text: '', deleteAble: true };
+      newSubject.text = this.newSubjectName;
+      this.subjectList.push(newSubject);
+      this.newSubjectName = '';
+    }
+  }
+
+  deleteSubject(i) {
+    this.subjectList.splice(i, 1);
+  }
 
   constructor() { }
 

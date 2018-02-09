@@ -81,7 +81,7 @@ import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.compon
       { path: 'dashboard', component: DashboardComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
-      { path: 'leads/new-view', component: LeadsNewViewComponent },
+      { path: 'leads/view-detail/:id', component: LeadsNewViewComponent },
       { path: 'leads/convert', component: ConvertComponent },
       { path: 'leads/find-duplications', component: FindDuplicationsComponent },
       { path: 'leads/merge-leads', component: MergeLeadsComponent },

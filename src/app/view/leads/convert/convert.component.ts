@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./convert.component.css']
 })
 export class ConvertComponent implements OnInit {
+  cancel() {
+    window.history.back();
+  }
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lead-detail',
@@ -265,6 +266,9 @@ export class LeadDetailComponent implements OnInit {
     }
   ];
 
+  leadId: number;
+  private sub: any;
+
   edit(i) {
     this.lists.forEach(element => {
       element['edit'] = false;
@@ -285,7 +289,6 @@ export class LeadDetailComponent implements OnInit {
   }
 
   output() {
-    console.log(this.lists);
     const result = {};
     this.lists.forEach(element => {
       const key = element.fieldName;
@@ -293,12 +296,16 @@ export class LeadDetailComponent implements OnInit {
       result[key] = value;
     });
     console.log(result);
+    console.log('current lead ID ' + this.leadId);
   }
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.leadId = + params['id'];
+    });
   }
 
 }

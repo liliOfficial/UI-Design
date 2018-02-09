@@ -1,7 +1,8 @@
 <div div class="with-sidebar-right" [class.hide-right]="!sidebarShow">
   <div class="panel border-green">
     <div class="panel-header">
-      <h2>Create New View</h2>
+      <h2 *ngIf="viewId == 0">Create New View </h2>
+      <h2 *ngIf="viewId != 0">Edit View</h2>
     </div>
     <div class="panel-body">
       <div class="panel-section">
@@ -11,7 +12,7 @@
         </div>
         <div class="section-body">
           <div class="input-line-group mtb-15" style="width:100%">
-            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="" [(ngModel)]="viewName">
             <span class="underline">View Name</span>
           </div>
         </div>
@@ -147,7 +148,7 @@
     <div class="panel-footer">
       <button class="btn btn-green" (click)="submit()">
         <i class="fa fa-save"></i> Submmit</button>
-      <button class="btn" (click)="refresh()">
+      <button class="btn">
         <i class="fa fa-times"></i> Cancel</button>
     </div>
   </div>

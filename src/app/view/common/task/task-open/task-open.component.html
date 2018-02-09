@@ -22,12 +22,8 @@
         <tbody>
           <tr *ngFor="let task of tasks">
             <td>
-              <button class="btn btn-xs">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button class="btn btn-xs btn-red">
-                <i class="fa fa-trash-alt"></i>
-              </button>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-trash-alt text-red"></i>
             </td>
             <td>
               <a>{{task.subject}}</a>

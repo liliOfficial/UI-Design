@@ -2,16 +2,14 @@
   <h3 class="mtb-10">
     <span>View</span>
     <span class="input-line-group">
-      <select name="" id="" class="select-line">
-        <option value="">My View</option>
-        <option value="">My Account</option>
-        <option value="">My View 2</option>
+      <select class="select-line" [(ngModel)]="viewId" (change)="changeView()">
+        <option [ngValue]="view.id" *ngFor="let view of viewLists">{{view.text}}</option>
       </select>
       <span class="underline"></span>
     </span>
     <span class="pull-right">
-      <button class="btn btn-sm" routerLink="/leads/new-view">Edit</button>
-      <button class="btn btn-sm" routerLink="/leads/new-view">Create New View</button>
+      <button class="btn btn-sm" [routerLink]="['/leads/view-detail',viewId]">Edit</button>
+      <button class="btn btn-sm" [routerLink]="['/leads/view-detail',0]">Create New View</button>
     </span>
   </h3>
   <div class="panel border-green">
@@ -46,7 +44,7 @@
             <tr *ngFor="let json of Json">
               <td>
                 <div class="checkbox checkbox-green">
-                  <input type="checkbox">
+                  <input type="checkbox" [(ngModel)]="json.checked">
                   <label></label>
                 </div>
               </td>

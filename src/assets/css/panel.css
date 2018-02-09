@@ -55,16 +55,14 @@
     border-top:3px solid #2E7D32;
 }
 .green .panel-header {
-    background: #2E7D32;
-    color:white;
+    background: #f2f5f8;
 }
 
 .blue .panel {
     border-top:3px solid #1E88E5;
 }
 .blue .panel-header {
-    background: #1E88E5;
-    color:white;
+    background: #f2f5f8;
 }
 .panel .panel-header h2 {
     font-size:16px;
@@ -97,7 +95,7 @@
     padding:5px 15px;
     font-size:14px;
     font-weight: 700;
-    background:#eee;
+    background:#f2f5f8;
 }
 .panel .panel-body .section-body {
     padding:5px 0;

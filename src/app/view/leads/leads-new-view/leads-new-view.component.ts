@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-leads-new-view',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leads-new-view.component.css']
 })
 export class LeadsNewViewComponent implements OnInit {
-  viewName = '';
+  viewName: string;
+  filterLogix: string;
   conditions = ['none', 'equals', 'not equal to', 'starts with', 'contains', 'does not contain'];
   allFields = [
     { id: '1', text: 'Name', type: 'text' },
@@ -46,6 +48,8 @@ export class LeadsNewViewComponent implements OnInit {
 
   // Function Initial Variable
   sidebarShow = false;
+  viewId: number;
+  sub: any;
   pickList = [];
   selectedValue = [];
   pickHeader = '';
@@ -212,9 +216,22 @@ export class LeadsNewViewComponent implements OnInit {
     this.addAfter = -1;
   }
 
-  constructor() { }
+  submit() {
+    const result = { viewName: '', filter: [], filterLogix: '', selectedFields: [] };
+    result.viewName = this.viewName;
+    result.filter = this.filters;
+    result.filterLogix = this.filterLogix;
+    result.selectedFields = this.selectedFields;
+    console.log(result);
+    console.log(this.viewId);
+  }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.viewId = + params['id'];
+    });
   }
 
 }

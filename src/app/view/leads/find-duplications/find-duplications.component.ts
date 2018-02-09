@@ -152,6 +152,25 @@ export class FindDuplicationsComponent implements OnInit {
       'gauge': 'Medium'
     }
   ];
+
+  searchKey = {
+    name: 'Jimmy',
+    lastName: 'Ye',
+    email: 'jimmy@acy.com',
+    company: '',
+    phone: '0405000000'
+  };
+
+  showResult = false;
+
+  search() {
+    this.showResult = true;
+    console.log(this.searchKey);
+  }
+
+  cancel() {
+    window.history.back();
+  }
   constructor() { }
 
   ngOnInit() {
