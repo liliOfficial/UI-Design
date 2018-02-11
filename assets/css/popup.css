@@ -1,0 +1,105 @@
+.popup {
+    background:rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index: 15;
+    display: table;
+    text-align: center;
+    color:#4e4e4e;
+    transition: all 0.3s;
+}
+
+.popup .popup-content {
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 5px;  
+    width:580px; 
+    position: relative;
+}
+
+.popup .popup-box {
+    width: inherit;
+    margin: auto;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.popup .popup-body {
+    margin:auto;
+    padding:15px;
+    background:#fff;
+    width:inherit;
+    overflow: auto;
+    text-align: left;
+}
+
+.popup .popup-header {
+    padding: 11px 15px;
+    background:rgba(255,255,255,0.8);
+    color:#4e4e4e;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.popup .popup-header .title {
+    font-size:16px;
+    margin: 0;
+    text-align: left;
+}
+
+.popup .popup-header .action {
+    position: absolute;
+    top:6px;
+    right:10px;
+}
+
+.popup .popup-header .action > span {
+    cursor: pointer;
+}
+
+.popup .popup-footer {
+    width:inherit;
+    margin: auto;
+    padding:5px 15px;    
+    background:rgba(255,255,255,0.8);
+    border-top: 1px solid #eee;
+}
+
+.popup small {
+    color:#8b91a0;
+    font-size: 12px;
+}
+
+.popup.popup-transparent {
+    background:rgba(255,255,255,0.7);
+}
+
+.popup.popup-transparent .popup-box {
+    box-shadow: none;
+}
+.popup.popup-transparent .popup-header {
+    background: transparent;
+    padding:5px 0;
+    border-bottom:transparent;
+}
+.popup.popup-transparent .popup-header .action {
+    right:0;
+    top:0;
+}
+
+.popup.popup-transparent .popup-header .action .btn {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.popup.popup-transparent .popup-header .title {
+    font-size: 22px;
+    text-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.popup.popup-transparent .popup-body {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    margin-bottom: 150px;    
+}
+

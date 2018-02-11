@@ -1,0 +1,279 @@
+
+table {
+    color:#4e4e4e;
+    border-collapse: collapse;
+    text-align: left;
+    width:100%   
+}
+
+th {
+    border-bottom: 2px solid #cad6e2;
+    border-collapse: collapse;
+    padding:5px;  
+}
+
+td {
+    padding:5px;    
+}
+
+
+tr:not(:last-child) {
+    border-bottom: 1px solid #cad6e2;
+}
+
+.no-line tr {
+    border-bottom: transparent;
+}
+
+.table-full th:first-child {
+    padding-left:15px;
+}
+
+.table-full th:last-child {
+    padding-right:15px;
+}
+
+.table-full td:first-child {
+    padding-left:15px;
+}
+
+.table-full td:last-child {
+    padding-right:15px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color:#f2f5f8;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color:#f2f5f8; 
+}
+
+/* pagination style */
+.pagination {
+    padding: 10px 0;
+    position: relative;
+    color: #4e4e4e;
+    display: block;
+    overflow: auto;   
+}
+.pagination ul {
+    position: absolute;
+    right:0;
+    top:3px;
+}
+
+.pagination ul li {
+    display: inline-table;
+    text-align: center;
+    height:26px;
+    border-radius: 15px;
+    margin-left: 2px;
+    text-align: center;
+    cursor: pointer;    
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
+}
+
+.pagination ul li:hover,.pagination ul li.active,.pagination-side ul li:hover,.pagination-side ul li.active {
+    color:#fff;
+    background:#4e4e4e;
+}
+.pagination ul li a,.pagination-side ul li a {
+    display: table-cell;
+    min-width: 15px;
+    padding:0 6px;
+    vertical-align: middle;    
+}
+
+.pagination-side {
+    position: fixed;
+    top:150px;
+    right:3px;
+}
+
+.pagination-side ul li {
+    display: table;
+    text-align: center;
+    height:26px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    cursor: pointer;
+    background:rgba(255,255,255,0.7);    
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
+}
+
+.pagination-side-text {
+    position:fixed;
+    top:368px;
+    right:0;
+    font-weight: 700;
+    text-align: right;
+}
+
+.pagination-side-text .content {
+    height:88px;
+    overflow: hidden;
+    transition: all 0.6s;
+}
+
+.pagination-side-text .content.hide {
+    height:0;    
+}
+
+
+.pagination-side-text .text {
+    display: inline-block;
+    padding:5px 15px;
+    margin:2px 0;
+    background:rgba(78,78,78,0.9);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color:#fff;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
+}
+.pagination-side-text .handle {
+    margin-right:3px;
+    margin-top:2px;
+}
+
+.pagination.pagination-red ul li:hover,.pagination.pagination-red ul li.active,.pagination-side.pagination-side-red ul li:hover,.pagination-side.pagination-side-red ul li.active {
+    color:#fff;
+    background:#E53935;
+}
+
+.pagination.pagination-orange ul li:hover,.pagination.pagination-orange ul li.active,.pagination-side.pagination-side-orange ul li:hover,.pagination-side.pagination-side-orange ul li.active {
+    color:#fff;
+    background:#FB8C00;
+}
+
+.pagination.pagination-yellow ul li:hover,.pagination.pagination-yellow ul li.active,.pagination-side.pagination-side-yellow ul li:hover,.pagination-side.pagination-side-yellow ul li.active {
+    color:#fff;
+    background:#FDD835;
+}
+.pagination.pagination-lightgreen ul li:hover,.pagination.pagination-lightgreen ul li.active,.pagination-side.pagination-side-lightgreen ul li:hover,.pagination-side.pagination-side-lightgreen ul li.active {
+    color:#fff;
+    background:#8BC34A;
+}
+.pagination.pagination-green ul li:hover,.pagination.pagination-green ul li.active,.pagination-side.pagination-side-green ul li:hover,.pagination-side.pagination-side-green ul li.active {
+    color:#fff;
+    background:#43A047;
+}
+.pagination.pagination-lightblue ul li:hover,.pagination.pagination-lightblue ul li.active,.pagination-side.pagination-side-lightblue ul li:hover,.pagination-side.pagination-side-lightblue ul li.active {
+    color:#fff;
+    background:#29B6F6;
+}
+.pagination.pagination-blue ul li:hover,.pagination.pagination-blue ul li.active,.pagination-side.pagination-side-blue ul li:hover,.pagination-side.pagination-side-blue ul li.active {
+    color:#fff;
+    background:#1E88E5;
+}
+.pagination.pagination-purple ul li:hover,.pagination.pagination-purple ul li.active,.pagination-side.pagination-side-purple ul li:hover,.pagination-side.pagination-side-purple ul li.active {
+    color:#fff;
+    background:#7E57C2;
+}
+
+ul.list {
+    list-style: none;
+}
+ul.list li {
+   display: inline-block; 
+   position: relative; 
+}
+ul.list li .move:after {
+    content:"";
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+ul.list li:hover {
+    background:#f2f5f8;
+}
+ul.list.list-col3 li {    
+    width:33.33%;    
+}
+ul.list li .label {
+    width:33%;
+    box-sizing: border-box;
+    padding:3px;
+    display: inline-block;
+    text-align: right;
+    font-weight: 700;
+}
+ul.list li .label .required {
+    color:#E53935;
+    font-weight: 900;
+}
+ul.list li .label .read-only {
+    color:#FDD835;
+    padding-right:5px;
+}
+ul.list li .content {
+    width:66%;
+    box-sizing: border-box;
+    padding:3px;
+}
+ul.list li .content .select, ul.list li .content .input {
+    box-sizing: border-box;
+    width:50%;
+}
+ul.list li .setting {
+    position: absolute;
+    right:8px;
+    top:2px;
+    display: none;
+}
+ul.list li:hover .setting {
+    display: block;
+}
+ul.list li .setting .delete {
+    color:#E53935;
+    cursor: pointer;
+    padding-right: 3px;
+}
+ul.list li .setting .edit {
+    color:#4e4e4e;
+    cursor: pointer;
+}
+ul.list.list-setting {
+    background:#f2f5f8;
+}
+ul.list.list-setting li:hover {
+    border-bottom: 2px solid #cad6e2;
+    cursor: pointer;
+}
+ul.list.list-setting li:hover .setting {
+    display: none;
+}
+
+#drag-item {
+    position: absolute; 
+    display: none;   
+    width:180px;
+    padding:3px 15px;
+    font-weight: 700;
+    background:rgba(255,255,255,0.7);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: all 0.1s;
+}
+
+.drag-label {
+    background:rgba(255,255,255,0.7);
+    border:1px solid #ccc;
+    padding:1px 15px;
+    margin:1px 0;
+    font-weight: 700;
+    color:#4e4e4e;
+    cursor: move;
+}
+
+
+
+
+
+
+
+
+
+

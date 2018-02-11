@@ -1,0 +1,88 @@
+.with-sidebar-right {
+    margin-right:250px;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.with-sidebar-right.hide-right {
+    margin-right:0;
+}
+.sidebar-right {
+    position: fixed;
+    top:0;
+    right:0;
+    width:250px;
+    background:#fff;
+    height:100%;
+    padding:50px 10px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.sidebar-right.hide-right {
+    right:-250px;
+}
+.sidebar-right .handle {
+    position: absolute;
+    right:240px;
+    top:90px;
+}
+
+.sidebar-right .picklist {
+    margin:15px 0;
+}
+
+.with-sidebar-left {
+    margin-left:250px;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.with-sidebar-left.hide-left {
+    margin-left:0;
+}
+.sidebar-left {
+    position: fixed;
+    top:0;
+    left:0;
+    width:250px;
+    background:#fff;
+    height:100%;
+    padding:50px 10px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.sidebar-left.hide-left {
+    left:-250px;
+}
+.sidebar-left .handle {
+    position: absolute;
+    left:240px;
+    top:50px;
+}
+
+[class^="sidebar-"] .title {
+    font-size:16px;
+}
+
+[class^="sidebar-"] .handle .btn-icon {
+    width:32px;
+    height: 32px;
+}
+
+.tools-bar-right {
+    position: fixed;
+    right:0;
+    top:120px;
+    padding:5px;
+    z-index: 15;
+}
+
+.tools-bar-right .btn-icon {
+    width:32px;
+    height: 32px;
+}
+
