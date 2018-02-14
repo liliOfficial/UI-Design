@@ -1,0 +1,72 @@
+<div class="panel border-green">
+  <div class="panel-header">
+    <h2>Leads</h2>
+  </div>
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fields">{{field.text}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let json of Json">
+            <td *ngFor="let key of fields">
+              {{json[key.jsonKey]}}
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+  </div>
+</div>
+<div class="panel border-blue">
+  <div class="panel-header">
+    <h2>Accounts</h2>
+  </div>
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fields">{{field.text}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let json of Json">
+            <td *ngFor="let key of fields">
+              {{json[key.jsonKey]}}
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+  </div>
+</div>
+<div class="panel border-purple">
+    <div class="panel-header">
+      <h2>Opportunities</h2>
+    </div>
+    <div class="panel-body">
+      <div class="mlr-n15">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th *ngFor="let field of fields">{{field.text}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let json of Json">
+              <td *ngFor="let key of fields">
+                {{json[key.jsonKey]}}
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+  </div>

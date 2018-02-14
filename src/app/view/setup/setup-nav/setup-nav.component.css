@@ -1,0 +1,54 @@
+.sidebar-left {
+    background:#4e4e4e;
+    color:#f2f5f8;
+    padding:50px 0;
+}
+
+:focus {
+    outline: none;
+}
+
+h2 {
+    padding:5px 15px;
+}
+
+.bg-active {
+    background:#1b1e24;
+}
+.sidenav li {
+    margin-left: 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.sidenav li .heading {
+    display: block;
+    padding: 8px 15px;
+    font-weight: 700;    
+}
+
+.sidenav li .subheading .fa {
+    display: inline-block;
+    width:20px;
+}
+
+.sidenav li .heading:hover {
+    background:#1b1e24;
+}
+
+.sidenav li .subheading {
+    display: block;
+    padding: 8px 15px;
+    font-weight: 300;
+    color: #8e8e8e;
+}
+
+.sidenav li .subheading:hover {
+    color:#f2f5f8;
+}
+
+.sidenav .subnav {
+    background:#1b1e24;
+
+}
+

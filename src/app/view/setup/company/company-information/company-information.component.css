@@ -1,0 +1,13 @@
+.panel .panel-body .section-li {
+    width:50%;
+}
+
+.logo {
+    display:inline-block;
+    border:1px dashed #eee;
+}
+
+.logo img {
+    width:250px;
+    height: 250px;
+}

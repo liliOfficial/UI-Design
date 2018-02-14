@@ -1,0 +1,76 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>User Detail</h2>
+    </div>
+    <div class="panel-body">
+      <div class="m-10">
+        <label for="">User Name</label>
+        <input type="text" class="input">
+      </div>
+      <div class="m-10">
+        <label for="">User Email</label>
+        <input type="text" class="input">
+      </div>
+      <div class="m-10">
+        <label for="">Password</label>
+        <input type="password" class="input">
+        <div class="clearfix"></div>
+        <label for=""></label>
+        <span class="notice">Minimum 8 characters , contains at least 6 digits and 2 letters with Capital</span>
+      </div>
+      <div class="m-10">
+        <label for="">Department</label>
+        <span class="input-group" (click)="departmentPopup=true">
+          <input class="input input-block" type="text" placeholder="Insert value from the pick list" readonly >
+          <span class="input-icon">
+            <i class="fa fa-search"></i>
+          </span>
+        </span>
+      </div>
+      <div class="m-10">
+        <label for="">Time Zone</label>
+        <select class="select">
+          <option *ngFor="let option of timeZones">{{option}}</option>
+        </select>
+      </div>
+      <div class="m-10">
+        <label for="">Working Hours Starts</label>
+        <select class="select" [(ngModel)]="startHour">
+          <option [ngValue]="option" *ngFor="let option of hourOptions">{{option}}</option>
+        </select>
+      </div>
+      <div class="m-10">
+        <label for="">Working Hours Finish</label>
+        <select class="select" [(ngModel)]="finishHour">
+          <option [ngValue]="option" *ngFor="let option of hourOptions">{{option}}</option>
+        </select>
+      </div>
+      <div class="m-10">
+        <button class="btn">
+          <i class="fa fa-save"></i> Save</button>
+        <button class="btn btn-red">
+          <i class="fa fa-times"></i> Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Department Popup -->
+<div class="popup popup-transparent" *ngIf="departmentPopup">
+    <div class="popup-content">
+      <div class="popup-box">
+        <div class="popup-header">
+          <h2 class="title">Choose Department</h2>
+          <span class="action">
+            <a class="btn btn-icon" (click)="departmentPopup=false">
+              <i class="icon fa fa-times"></i>
+            </a>
+          </span>
+        </div>
+        <div class="popup-body">
+
+        </div>
+      </div>
+    </div>
+  </div>

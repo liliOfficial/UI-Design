@@ -40,6 +40,10 @@
     top:0;
 }
 
+*:focus {
+    outline: none;
+}
+
 .layout-header .action .option {
     float:right;
     padding:14px;

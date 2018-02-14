@@ -72,38 +72,6 @@
     <button class="btn btn-sm btn-red">Cancel</button>
   </div>
 </div>
-<div class="popup popup-transparent" *ngIf="show">
-  <div class="popup-content">
-    <div class="popup-box">
-      <div class="popup-header">
-        <h2 class="title">Property Setting</h2>
-        <span class="action">
-          <a class="btn btn-icon btn-red">
-            <i class="icon fa fa-save"></i>
-          </a>
-          <a class="btn btn-icon">
-            <i class="icon fa fa-times" (click)="show= false"></i>
-          </a>
-        </span>
-      </div>
-      <div class="popup-body">
-        <div class="row">
-          <div class="col-3 text-right">Label</div>
-          <div class="col-9">
-            <span class="checkbox checkbox-yellow">
-              <input type="checkbox" checked>
-              <label>Readonly</label>
-            </span>
-            <span class="checkbox checkbox-red">
-              <input type="checkbox" checked>
-              <label>Required</label>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Assign to popup -->
 <div class="popup popup-transparent" *ngIf="assignPopup">
   <div class="popup-content">

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
   edit = false;
+  show = false;
+
   lists = [
     {
       'id': 1,

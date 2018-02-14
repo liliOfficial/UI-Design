@@ -36,6 +36,11 @@ import { TaskEditComponent } from './view/common/task/task-edit/task-edit.compon
 import { ConvertComponent } from './view/leads/convert/convert.component';
 import { FindDuplicationsComponent } from './view/leads/find-duplications/find-duplications.component';
 import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.component';
+import { SetupNavComponent } from './view/setup/setup-nav/setup-nav.component';
+import { CompanyInformationComponent } from './view/setup/company/company-information/company-information.component';
+import { SearchComponent } from './view/common/search/search.component';
+import { UsersComponent } from './view/setup/users/users/users.component';
+import { UserDetailComponent } from './view/setup/users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -72,13 +77,18 @@ import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.compon
     ConvertComponent,
     FindDuplicationsComponent,
     MergeLeadsComponent,
+    SetupNavComponent,
+    CompanyInformationComponent,
+    SearchComponent,
+    UsersComponent,
+    UserDetailComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
       { path: 'leads/view-detail/:id', component: LeadsNewViewComponent },
@@ -89,7 +99,13 @@ import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.compon
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
-      { path: 'task', component: TaskEditComponent }
+      { path: 'task', component: TaskEditComponent },
+      { path: 'search', component: SearchComponent },
+      { path: 'setup/company', component: CompanyInformationComponent },
+      { path: 'setup/company/users', component: UsersComponent },
+      { path: 'setup/company/user-detail/:id', component: UserDetailComponent }
+
+
 
     ])
   ],

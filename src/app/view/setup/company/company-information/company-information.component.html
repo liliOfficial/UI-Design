@@ -1,0 +1,104 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Organisation Details</h2>
+    </div>
+    <div class="panel-body">
+      <div class="panel-section">
+        <div class="section-body">
+          <div class="section-li" *ngFor="let detail of details; index as i">
+            <label for="">{{detail.label}}: </label>
+            <span class="content">
+              <span class="text" *ngIf="!detail.edit" (dblclick)="edit(i)"> {{detail.value}}</span>
+              <input type="text" [(ngModel)]="detail.value" *ngIf="detail.edit && !detail.options" (keyup.enter)="detail.edit=false" (blur)="detail.edit=false">
+              <select name="" id="" *ngIf="detail.edit && detail.options" [(ngModel)]="detail.value" (blur)="detail.edit=false">
+                <option [ngValue]="option" *ngFor="let option of detail.options">{{option}}</option>
+              </select>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Users</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-circle" [routerLink]="['/setup/company/user-detail','0']"><i class="fa fa-plus"></i> Add New User</button>
+        <button class="btn btn-xs btn-circle" routerLink="/setup/company/users"><i class="fa fa-eye"></i> View Users</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="mlr-n15">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th>CRM Users</th>
+              <th>Active Users</th>
+              <th>Inactive Users</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20</td>
+              <td>10</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+  </div>
+</div>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Logo</h2>
+
+      <div class="action">
+        <button class="btn btn-xs btn-circle" (click)="uploadPopup=true"><i class="fa fa-edit"></i> Update</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="clearfix m-15"></div>
+      <span class="logo" id="currentlogo">
+        <img src="https://www.seoclerk.com/pics/558390-11FO8A1505384509.png" alt="" width=250 height=250>
+      </span>
+    </div>
+    <div class="panel-footer">
+    </div>
+  </div>
+</div>
+<div class="popup popup-transparent" *ngIf="uploadPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Upload New Logo</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-red" (click)="saveLogo()">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="uploadPopup = false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div>
+          <input type="file" (change)="uploadLogo($event)">
+        </div>
+        <div class="clearfix mtb-15">
+          <small>Requirement: 250 X 250 PNG</small>
+        </div>
+        <div class="logo" id="uploadlogo" *ngIf="uploadFile">
+          <img [src]="uploadImage" alt="" width=250 height=250>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

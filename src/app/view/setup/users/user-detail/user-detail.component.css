@@ -1,0 +1,25 @@
+.panel-body {
+    text-align: center;
+}
+
+.panel-body .m-10 {
+    
+}
+.panel-body .m-10 label {
+    width:150px;
+    display: inline-block;
+    padding-right:10px;
+    text-align: left;
+}
+.panel-body .m-10 input, .panel-body .m-10 select {
+    width:500px;
+}
+
+.notice {
+    width:500px;
+    display: inline-block;
+    color:#E53935;
+    padding:3px 0;
+    text-align: left;
+    font-size: 11px;
+}

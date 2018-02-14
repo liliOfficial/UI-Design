@@ -4,10 +4,10 @@
     <img src="" alt="">
   </div>
   <ul class="nav inline-block">
-    <li routerLink="/dashboard" routerLinkActive="bg-grey">Dashboard</li>
+    <li routerLink="/" routerLinkActive="bg-grey">Dashboard</li>
     <li routerLink="/leads" routerLinkActive="bg-green">Leads</li>
     <li routerLink="/accounts" routerLinkActive="bg-blue">Accounts</li>
-    <li routerLink="/opportunities" routerLinkActive="bg-orange">Opporunities</li>
+    <li routerLink="/opportunities" routerLinkActive="bg-purple">Opportunities</li>
     <li routerLink="/reports" routerLinkActive="bg-red">Reports</li>
   </ul>
   <div class="action">
@@ -32,13 +32,13 @@
         </div>
       </div>
     </div>
-    <div class="option">
-      <i class="fa fa-cog"></i> Setup
+    <div class="option" routerLink="/setup/company">
+      <i class="fa fa-cog" ></i> Setup
     </div>
     <div class="option">
       <div class="search">
         <input type="text" placeholder="search">
-        <i class="fa fa-search"></i>
+        <i class="fa fa-search" routerLink="/search"></i>
       </div>
     </div>
   </div>
