@@ -1,0 +1,84 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Permission Profile</h2>
+    </div>
+    <div class="panel-body">
+      <div class="input-line-group" (click)="departmentPopup = true">
+        <span class="input-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" readonly [(ngModel)]="team">
+        <span class="underline">Team</span>
+      </div>
+      <div class="mtb-15">
+        <label class="input-block text-b">
+          Description
+        </label>
+        <textarea name="" id="" cols="30" rows="10" class="input-block"></textarea>
+      </div>
+
+      <div class="panel-section">
+        <div class="section-header">Tab Settings</div>
+        <div class="section-body">
+          <div class="checkbox mr-20 mtb-15" *ngFor="let tab of tabSettings">
+            <input type="checkbox" [(ngModel)]="tab.value">
+            <label> {{tab.text}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="panel-section">
+        <div class="section-header">Tab Conditions</div>
+        <div class="section-body">
+          <table class="table-full table-striped table-hover">
+            <thead>
+              <tr>
+                <th *ngFor="let condition of conditions">{{condition.text}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of tabConditions">
+                <td *ngFor="let condition of conditions; first as firstCol">
+                  <span *ngIf="firstCol">
+                    {{item[condition.jsonKey]}}
+                  </span>
+                  <span *ngIf="!firstCol">
+                    <div class="checkbox">
+                      <input type="checkbox" [(ngModel)]="item[condition.jsonKey]">
+                      <label> </label>
+                    </div>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <button class="btn" (click)="save()">
+          <i class="fa fa-save"></i> Save</button>
+        <button class="btn btn-red">
+          <i class="fa fa-times"></i> Cancel</button>
+      </div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>
+<div class="popup popup-transparent" *ngIf="departmentPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Choose Department</h2>
+        <span class="action">
+          <a class="btn btn-icon" (click)="departmentPopup=false">
+            <i class="icon fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+          <app-departments (output)="chooseDepartment($event)"></app-departments>
+      </div>
+    </div>
+  </div>
+</div>

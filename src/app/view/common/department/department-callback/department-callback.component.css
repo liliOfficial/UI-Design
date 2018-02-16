@@ -1,0 +1,21 @@
+ul {
+   padding-left:20px; 
+}
+li {
+    list-style: none;
+    
+}
+
+li .icon {
+    display:inline-block;
+    width:15px;
+}
+
+.department-heading {
+    padding:3px 0 3px 5px;
+    cursor: pointer;
+}
+
+.department-heading:hover {
+    background:#f2f5f8;
+}

@@ -1,0 +1,28 @@
+<ul>
+  <li *ngFor="let item of json">
+    <div class="department-heading" (click)="choose(['user',item.name,item.id])">
+      <span class="icon">
+        <span *ngIf="item.id ==='0'">
+          <i class="fa fa-user"></i>
+        </span>
+        <span *ngIf="item.children">
+          <i *ngIf="item.childrenHide" class="fa fa-folder" (click)="item.childrenHide=false"></i>
+          <i *ngIf="!item.childrenHide" class="fa fa-folder-open" (click)="item.childrenHide=true"></i>
+        </span>
+      </span>
+      <span>{{item.name}}</span>
+      <span class="heading-button" *ngIf="item.id !=='0'">
+        <span class="text-green">
+          <i class="fa fa-plus-square" (click)="choose(['add',item.name,item.id])"></i>
+        </span>
+        <span class="text-red">
+          <i class="fa fa-trash-alt" (click)="choose(['delete',item.name,item.id])"></i>
+        </span>
+      </span>
+
+    </div>
+    <div *ngIf="item.children && !item.childrenHide" class="pl-15">
+      <app-organisation-callback [json]="item.children" (pickValue)="pickValueChange($event)"></app-organisation-callback>
+    </div>
+  </li>
+</ul>

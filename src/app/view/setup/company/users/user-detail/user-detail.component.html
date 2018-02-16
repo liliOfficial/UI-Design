@@ -23,7 +23,7 @@
       <div class="m-10">
         <label for="">Department</label>
         <span class="input-group" (click)="departmentPopup=true">
-          <input class="input input-block" type="text" placeholder="Insert value from the pick list" readonly >
+          <input class="input input-block" type="text" placeholder="Insert value from the pick list" readonly [(ngModel)]="department">
           <span class="input-icon">
             <i class="fa fa-search"></i>
           </span>
@@ -48,9 +48,9 @@
         </select>
       </div>
       <div class="m-10">
-        <button class="btn">
-          <i class="fa fa-save"></i> Save</button>
         <button class="btn btn-red">
+          <i class="fa fa-save"></i> Save</button>
+        <button class="btn">
           <i class="fa fa-times"></i> Cancel</button>
       </div>
     </div>
@@ -58,19 +58,19 @@
 </div>
 <!-- Department Popup -->
 <div class="popup popup-transparent" *ngIf="departmentPopup">
-    <div class="popup-content">
-      <div class="popup-box">
-        <div class="popup-header">
-          <h2 class="title">Choose Department</h2>
-          <span class="action">
-            <a class="btn btn-icon" (click)="departmentPopup=false">
-              <i class="icon fa fa-times"></i>
-            </a>
-          </span>
-        </div>
-        <div class="popup-body">
-
-        </div>
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Choose Department</h2>
+        <span class="action">
+          <a class="btn btn-icon" (click)="departmentPopup=false">
+            <i class="icon fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <app-departments (output)="chooseDepartment($event)"></app-departments>
       </div>
     </div>
   </div>
+</div>

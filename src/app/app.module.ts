@@ -39,8 +39,15 @@ import { MergeLeadsComponent } from './view/leads/merge-leads/merge-leads.compon
 import { SetupNavComponent } from './view/setup/setup-nav/setup-nav.component';
 import { CompanyInformationComponent } from './view/setup/company/company-information/company-information.component';
 import { SearchComponent } from './view/common/search/search.component';
-import { UsersComponent } from './view/setup/users/users/users.component';
-import { UserDetailComponent } from './view/setup/users/user-detail/user-detail.component';
+import { OrganisationalChartComponent } from './view/setup/company/organisational-chart/organisational-chart.component';
+import { PermissionProfileComponent } from './view/setup/company/permission-profile/permission-profile.component';
+import { DepartmentsComponent } from './view/common/department/departments/departments.component';
+import { UsersComponent } from './view/setup/company/users/users/users.component';
+import { UserDetailComponent } from './view/setup/company/users/user-detail/user-detail.component';
+import { DepartmentCallbackComponent } from './view/common/department/department-callback/department-callback.component';
+import { OrganisationCallbackComponent } from './view/setup/company/organisation-callback/organisation-callback.component';
+import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fields.component';
+
 
 @NgModule({
   declarations: [
@@ -82,6 +89,12 @@ import { UserDetailComponent } from './view/setup/users/user-detail/user-detail.
     SearchComponent,
     UsersComponent,
     UserDetailComponent,
+    OrganisationalChartComponent,
+    PermissionProfileComponent,
+    DepartmentsComponent,
+    DepartmentCallbackComponent,
+    OrganisationCallbackComponent,
+    LeadsFieldsComponent,
 
   ],
   imports: [
@@ -103,10 +116,10 @@ import { UserDetailComponent } from './view/setup/users/user-detail/user-detail.
       { path: 'search', component: SearchComponent },
       { path: 'setup/company', component: CompanyInformationComponent },
       { path: 'setup/company/users', component: UsersComponent },
-      { path: 'setup/company/user-detail/:id', component: UserDetailComponent }
-
-
-
+      { path: 'setup/company/user-detail/:id', component: UserDetailComponent },
+      { path: 'setup/company/organisational-chart', component: OrganisationalChartComponent },
+      { path: 'setup/company/premission-profile', component: PermissionProfileComponent },
+      { path: 'setup/leads/fields', component: LeadsFieldsComponent },
     ])
   ],
   providers: [],

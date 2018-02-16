@@ -1,0 +1,71 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Organisational Chart</h2>
+    </div>
+    <div class="panel-body">
+      <div class="input-line-group" *ngIf="addNewDepartment">
+        <span class="input-icon">
+          <i class="fa fa-save text-red"></i>
+          <i class="fa fa-times" (click)="addNewDepartment=false"></i>
+        </span>
+        <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="team" placeholder="Input department name here">
+        <span class="underline">Add New Department to
+          <span class="text-red">{{parentDepartment}}</span>
+        </span>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="outbox">
+            <app-organisation-callback [json]="organisation" (pickValue)="pickDepartment($event)"></app-organisation-callback>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="mtb-15">
+
+            <div class="dropbox">
+              <div class="dropbox-heading">{{userDepartment}}</div>
+              <span class="btn btn-circle btn-sm user" *ngFor="let user of users">
+                {{user}}
+                <span (click)="move(user)" class="move">move</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup popup-transparent" *ngIf="departmentPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Choose Department</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-red" (click)="departmentPopup=false">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon" (click)="departmentPopup=false">
+            <i class="icon fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="move">
+          Move
+          <span class="keyword"> {{moveUser}} </span>
+          from
+          <span class="keyword"> {{userDepartment}}</span> to
+          <span class="keyword"> {{targetDepartment}}</span>
+        </div>
+        <small class="text-red mtb-15">Double Click heading to choose the target Department</small>
+        <div class="mt-5 mb-5">
+          <app-departments (output)="chooseDepartment($event)"></app-departments>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

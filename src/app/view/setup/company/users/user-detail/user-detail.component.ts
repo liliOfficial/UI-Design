@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailComponent implements OnInit {
   departmentPopup = false;
+  department;
 
   userName = 'Jimmy';
   userEmail = 'jimmy@acy.com';
@@ -66,6 +67,11 @@ export class UserDetailComponent implements OnInit {
     '11:00PM',
     '11:30PM'
   ];
+
+  chooseDepartment(value) {
+    this.department = value;
+    this.departmentPopup = false;
+  }
   constructor() { }
 
   ngOnInit() {
