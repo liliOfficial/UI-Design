@@ -43,7 +43,7 @@
                   <span *ngIf="field.mapToAccount !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToAccount}}</span>
                     <span *ngIf="edit">
-                      <span class="input-group" style="width:100%" (click)="editField = field">
+                      <span class="input-group" style="width:100%" (click)="editField = field; mapTarget = 'account'">
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToAccount"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
@@ -61,7 +61,7 @@
                   <span *ngIf="field.mapToOpportunity !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToOpportunity}}</span>
                     <span *ngIf="edit">
-                      <span class="input-group" style="width:100%">
+                      <span class="input-group" style="width:100%" (click)="editField = field; mapTarget = 'opportunity'">
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToOpportunity"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
@@ -147,7 +147,7 @@
 </div>
 <div class="sidebar-right" [class.hide-right]="!edit">
     <div class="clearfix p-10"></div>
-    <h2>Fields List</h2>
+    <h2>Map <span class="text-red">{{editField.fieldLabel}}</span> to {{mapTarget}}:</h2>
     <div class="picklist">
       <div *ngFor="let item of pickList">
         <div class="mb-10">

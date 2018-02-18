@@ -70,6 +70,8 @@ export class LeadsFieldsComponent implements OnInit {
   ];
 
   editField;
+  mapTarget;
+  
   constructor() { }
 
   ngOnInit() {
