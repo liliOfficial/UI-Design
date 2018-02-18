@@ -475,8 +475,8 @@
 
 .checkbox input[type="checkbox"] {
     position: absolute;
-    top:0;
-    left:-2px;
+    top:-2px;
+    left:-3px;
     z-index: 2;
     opacity: 0;
 }
@@ -547,6 +547,11 @@
     background:#7E57C2;
     border-color:#7E57C2;
 }
+
+.checkbox input[type="checkbox"]:disabled + label:before {
+    opacity: 0.5;
+}
+
 
 /* radio style */
 .radio {
