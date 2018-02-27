@@ -67,7 +67,7 @@
       </div> -->
       <div class="field-textarea">
         <div class="input-line-group">
-          <span class="input-icon" (click)="addValue()">
+          <span class="input-icon" (click)="addValue(newValue)">
             <i class="fa fa-save"></i>
           </span>
           <input type="text" class="input-line  input-block" onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newValue"

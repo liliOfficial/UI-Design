@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeadsPageLayoutComponent implements OnInit {
   newPopup = false;
+  edit = false;
   layouts = [
     {
       name: 'Company Administrator',
