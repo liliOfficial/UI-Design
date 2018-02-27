@@ -134,6 +134,44 @@
     position: relative;
     display:inline-block;
 }
+
+.input-line-group .search-line {
+    background: transparent;
+    border:1px solid transparent;
+    border-bottom-color: #8e8e8e;
+    transition: all 0.3s;
+    color:#f2f5f8;
+}
+
+.input-line-group .search-icon {
+    position: absolute;
+    right:0;
+    bottom: 3px;
+    cursor:pointer;
+    z-index: 2;
+}
+.input-line-group .search-line + span {
+    background:transparent;
+    position: absolute;
+    display:block;
+    width:0;
+    height:1px;
+    bottom:0;
+    left:50%;
+    transition: all 0.3s;
+}
+
+.input-line-group .search-line:focus {
+    outline: none;
+    border-bottom-color: transparent;
+}
+
+.input-line-group .search-line:focus + span {
+    background:#f2f5f8;
+    width:100%;
+    left:0;
+}
+
 .input-line-group .input-line + .underline {
     font-weight: 700;
     width:100%;
@@ -549,9 +587,55 @@
 }
 
 .checkbox input[type="checkbox"]:disabled + label:before {
+    background:#4e4e4e;
+    border-color:#4e4e4e;
     opacity: 0.5;
 }
 
+.checkbox input[type="checkbox"]:disabled + label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'FontAwesome';
+    content: '\f00c';
+    top: 50%;
+    left: 2px;
+    margin-top: -5px;
+    font-size: 10px;
+    line-height: 1;
+    color: #FFF;
+}
+.checkbox.checkbox-red input[type="checkbox"]:disabled + label:before {
+    background:#E53935;
+    border-color:#E53935;
+}
+.checkbox.checkbox-orange input[type="checkbox"]:disabled + label:before {
+    background:#FB8C00;
+    border-color:#FB8C00;
+}
+.checkbox.checkbox-yellow input[type="checkbox"]:disabled + label:before {
+    background:#FDD835;
+    border-color:#FDD835;
+}
+.checkbox.checkbox-lightgreen input[type="checkbox"]:disabled + label:before {
+    background:#8BC34A;
+    border-color:#8BC34A;
+}
+.checkbox.checkbox-green input[type="checkbox"]:disabled + label:before {
+    background:#43A047;
+    border-color:#43A047;
+}
+.checkbox.checkbox-lightblue input[type="checkbox"]:disabled + label:before {
+    background:#1eb2f1;
+    border-color:#1eb2f1;
+}
+.checkbox.checkbox-blue input[type="checkbox"]:disabled + label:before {
+    background:#1E88E5;
+    border-color:#1E88E5;
+}
+.checkbox.checkbox-purple input[type="checkbox"]:disabled + label:before {
+    background:#7E57C2;
+    border-color:#7E57C2;
+}
 
 /* radio style */
 .radio {

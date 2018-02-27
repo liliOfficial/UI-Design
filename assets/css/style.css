@@ -59,6 +59,19 @@ i:focus {
     float:right;
 }
 
+.midbox {
+    display: table;
+    text-align: center;
+}
+.midbox .midcontent {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.w-100p {
+    width:100%;
+}
+
 .bg-black {
     background:#000;
 }
