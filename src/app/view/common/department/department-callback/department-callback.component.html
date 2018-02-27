@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of json">
-    <div class="department-heading" (dblclick)="choose(item.name)">
+    <div class="department-heading" (dblclick)="choose(item.name)" (click)="click(item)">
       <span class="icon">
         <span *ngIf="item.id ==='0'">
           <i class="fa fa-user"></i>
@@ -13,7 +13,7 @@
       <span>{{item.name}}</span>
     </div>
     <div *ngIf="item.children && !item.childrenHide" class="pl-15">
-      <app-department-callback [json]="item.children" (pickValue)="pickValueChange($event)"></app-department-callback>
+      <app-department-callback [json]="item.children" (pickValue)="pickValueChange($event)" (clickValue)="clickValueChange($event)"></app-department-callback>
     </div>
   </li>
 </ul>

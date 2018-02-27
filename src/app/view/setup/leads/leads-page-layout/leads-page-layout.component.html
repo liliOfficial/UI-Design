@@ -1,0 +1,68 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Lead Page Layouts</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-green btn-circle" (click)="newPopup=true">
+          <i class="fa fa-plus"></i> New</button>
+        <button class="btn btn-xs btn-green btn-circle" (click)="edit=true">
+          <i class="fa fa-edit"></i> Page Layout Assignment</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="mlr-n15">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th width=50>Action</th>
+              <th>Layout Name</th>
+              <th>Created By</th>
+              <th>Modified By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let layout of layouts">
+              <td>
+                <i class="fa fa-edit text-green" routerLink="/setup/leads/edit-layout"></i>
+                <i class="fa fa-trash-alt"></i>
+              </td>
+              <td>{{layout.name}}</td>
+              <td>{{layout.createdBy}}</td>
+              <td>{{layout.modifiedBy}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>
+<div class="popup popup-transparent" *ngIf="newPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Create New Page Layout</h2>
+        <span class="action">
+          <a class="btn btn-icon" (click)="newPopup = false">
+            <i class="icon fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="mt-5">
+          <label>Existing Page Layout</label>
+          <select name="" id="" class="select input-block">
+            <option>-- None --</option>
+            <option value="" *ngFor="let layout of layouts">{{layout.name}}</option>
+          </select>
+        </div>
+        <div class="mt-5">
+          <label>New Page Layout Name</label>
+          <input type="text" class="input input-block">
+        </div>
+        <button class="btn mt-10" routerLink="/setup/leads/edit-layout">Save and Next</button>
+      </div>
+    </div>
+  </div>
+</div>

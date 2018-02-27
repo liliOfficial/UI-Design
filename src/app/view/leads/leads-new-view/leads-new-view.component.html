@@ -48,11 +48,12 @@
                   <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
                   <span *ngIf="valueType(filter.field)=='pickList'">
                     <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
-                      <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value" (change)="changeSelected(filter)">
+                      <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value"
+                        (change)="changeSelected(filter)">
                       <span class="input-icon" (click)="showPickList()">
                         <i class="fa fa-search"></i>
                       </span>
-                     
+
                     </span>
                   </span>
                 </td>
@@ -142,14 +143,71 @@
               </div>
             </div>
           </div>
+
+          <!-- visible User -->
+          <div class="dropbox" *ngIf="sharedUser.length || sharedTeam.length" style="height:auto">
+            <button class="btn btn-circle btn-green btn-xs ml-5 mb-5" *ngFor="let user of sharedUser" (click)="removeUser(user.id)">
+              <i class="fa fa-user"></i>
+              {{user.name}}
+              <i class="fa fa-times ml-5"></i>
+            </button>
+            <div class="clearfix"></div>
+            <button class="btn btn-circle btn-xs ml-5 mb-5" *ngFor="let team of sharedTeam" (click)="removeTeam(index)">
+              <i class="fa fa-users"></i>
+              {{team}}
+              <i class="fa fa-times ml-5"></i>
+            </button>
+          </div>
+          <div class="clearfix"></div>
+          <div class="mt-10 mb-10">
+            <button class="btn btn-sm" (click)="userPopup=true">Add Users to Share</button>
+            <button class="btn btn-sm" (click)="teamPopup=!teamPopup">
+              Add User or Department to Share
+              <i class="fa fa-caret-down ml-5" *ngIf="!teamPopup"></i>
+              <i class="fa fa-caret-up  ml-5" *ngIf="teamPopup"></i>
+            </button>
+          </div>
+
+          <!-- Add Team to Share -->
+          <div class="row" *ngIf="teamPopup">
+            <div class="col-12 text-red mb-5">
+              Double click to add user or department to share.
+            </div>
+            <div class="col-3">
+              <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+            </div>
+            <div class="col-9">
+              <div class="dropbox dropbox-edit">
+                <div class="dropbox-heading">
+                  <span>{{userDepartment}}</span>
+                  <div class="action">
+                    <span class="input-line-group pull-right">
+                      <span class="search-icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                      <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+                      <span class="searchline"></span>
+                    </span>
+                  </div>
+                </div>
+                <span class="btn btn-circle btn-xs user btn-green" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+                  {{user}}
+                </span>
+              </div>
+              
+            </div>
+            <div class="clearfix"></div>
+          </div>
         </div>
       </div>
     </div>
     <div class="panel-footer">
-      <button class="btn btn-green" (click)="submit()">
-        <i class="fa fa-save"></i> Submmit</button>
-      <button class="btn">
-        <i class="fa fa-times"></i> Cancel</button>
+      <div class="mt-15 mb-15">
+        <button class="btn btn-green" (click)="submit()">
+          <i class="fa fa-save"></i> Submmit</button>
+        <button class="btn">
+          <i class="fa fa-times"></i> Cancel</button>
+      </div>
     </div>
   </div>
 </div>
@@ -173,5 +231,41 @@
       <i class="fa fa-save"></i> Insert</button>
     <button class="btn btn-sm" (click)="closePickList()">
       <i class="fa fa-times"></i> Close</button>
+  </div>
+</div>
+
+<!-- Search Users Popup -->
+<div class="popup popup-transparent" *ngIf="userPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Add Users to Share</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-green" (click)="shareToUser()">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon" (click)="userPopup = false">
+            <i class="icon fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="input-line-group mb-10" style="width:100%">
+          <span class="input-icon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+          <span class="underline">Search Users</span>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-5" *ngFor="let user of users">
+            <div class="checkbox checkbox-green">
+              <input type="checkbox" [(ngModel)]="user.share">
+              <label> {{user.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

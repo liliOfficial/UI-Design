@@ -1,0 +1,44 @@
+.outbox {
+    position: fixed;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background:#f2f5f8;
+    z-index: 100;
+}
+.midbox {
+    width:100%;
+    height:100%;
+    padding-bottom: 150px;
+}
+
+.logo {
+    margin:0 auto;
+    max-width: 500px;
+    text-align: center;
+}
+.logo .word {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.panel-log {
+    width:500px;
+    margin:0 auto;
+    text-align: left;
+}
+
+.panel-log label {
+    display: block;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+.input-group {
+    width:100%;
+}
+
+.footer {
+    margin:15px;
+    color:#8b91a0;
+}

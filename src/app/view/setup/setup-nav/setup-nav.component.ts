@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'setup-nav',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setup-nav.component.css']
 })
 export class SetupNavComponent implements OnInit {
+  active = 'company';
 
   constructor() { }
 

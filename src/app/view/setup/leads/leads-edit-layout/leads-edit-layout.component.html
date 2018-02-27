@@ -1,0 +1,55 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left with-sidebar-right">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Quick Actions</h2>
+      <div class="action">
+      </div>
+    </div>
+    <div class="panel-body hover-gray" [class.availablearea]="availableArea === 'quickActions'" (mouseup)="addQuickAction('showbox')">
+      <div class="mtb-15">
+        <span class="box" *ngFor="let action of quickActionSelected; index as i;">
+          <button class="btn mr-10 quick-action" 
+          (mousedown)="chooseQuickAction(action,'showbox',i)" 
+          (mouseenter)="changeTargetQuickAction(i)" (mouseleave)="changeTargetQuickAction('-1')"
+          >
+            {{action.text}}
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Lead Detail</h2>
+      <div class="action">
+      </div>
+    </div>
+    <div class="panel-body">
+
+    </div>
+  </div>
+</div>
+<div class="sidebar-right">
+  <h2>Map</h2>
+  <div class="option">
+    <div class="mb-5">
+      <div class="radio radio-green">
+        <input type="radio" name="object">
+        <label for=""> Quick Actions</label>
+      </div>
+    </div>
+    <div class="mb-5">
+      <div class="radio radio-green">
+        <input type="radio" name="object">
+        <label for=""> Fields</label>
+      </div>
+    </div>
+  </div>
+  <div (mouseup)="addQuickAction('list')">
+    <button class="btn btn-xs btn-block" *ngFor="let action of quickActions; index as i;" [disabled]="action.selected" 
+    (mousedown)="chooseQuickAction(action,'list',i)">
+      {{action.text}}
+    </button>
+  </div>
+</div>

@@ -12,13 +12,23 @@ h2 {
     padding:5px 15px;
 }
 
-.bg-active {
+.active {
     background:#1b1e24;
+}
+.active::after {
+    content:'';
+    position: absolute;
+    right:-2px;
+    top:6px;
+    border-right:8px solid #f2f5f8;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
 }
 .sidenav li {
     margin-left: 0;
     list-style: none;
     cursor: pointer;
+    position: relative;
 }
 
 .sidenav li .heading {
@@ -33,7 +43,7 @@ h2 {
 }
 
 .sidenav li .heading:hover {
-    background:#1b1e24;
+    background:#2c2d2f;
 }
 
 .sidenav li .subheading {
@@ -45,10 +55,24 @@ h2 {
 
 .sidenav li .subheading:hover {
     color:#f2f5f8;
+    background:#2c2d2f;
 }
 
 .sidenav .subnav {
     background:#1b1e24;
+    height:auto;
 
+}
+
+.sidenav .subnav li {
+    height:30px;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+    overflow: hidden;
+}
+
+.sidenav .subnav.hide li {
+    height:0;    
 }
 

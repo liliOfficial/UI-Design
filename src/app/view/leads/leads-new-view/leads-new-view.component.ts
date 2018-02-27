@@ -46,14 +46,44 @@ export class LeadsNewViewComponent implements OnInit {
   filters = [{ index: '0', field: '2', condition: 'equals', value: 'Mr.,Ms.,aaaaa' }];
   selectedFields = [];
 
+  users = [
+    { id: '1', name: 'Jimmy', share: true },
+    { id: '2', name: 'Will', share: false },
+    { id: '3', name: 'Ginney', share: false },
+    { id: '4', name: 'Lily', share: false }
+  ];
+
+  sharedUser = [];
+  sharedTeam = ['Company Administrator'];
+
+  userList = {
+    '0': ['lili', 'Ronan'],
+    '1': ['Jimmy', 'Winson'],
+    '2': ['Jimmy', 'Winson'],
+    '3': ['Will', 'Winson'],
+    '4': ['Will', 'Jimmy'],
+    '5': ['Reena', 'Winson'],
+    '6': ['Will', 'Winson'],
+    '7': ['Ginny', 'Jimmy', 'Winson'],
+    '8': ['Will', 'Winson'],
+    '9': ['Ginny', 'Winson'],
+    '10': ['Will', 'Winson']
+  };
+
   // Function Initial Variable
   sidebarShow = false;
+  userPopup = false;
+  teamPopup = false;
   viewId: number;
   sub: any;
   pickList = [];
   selectedValue = [];
   pickHeader = '';
   pickListIndex;
+  userDepartment = 'Click Chart to Choose Department';
+  departmentUsers;
+  filteredUsers;
+  userKeyword;
 
   activeOption = -1;
 
@@ -224,9 +254,60 @@ export class LeadsNewViewComponent implements OnInit {
     result.selectedFields = this.selectedFields;
     console.log(result);
     console.log(this.viewId);
+    console.log(this.sharedUser);
+    console.log(this.sharedTeam);
   }
 
-  constructor(private route: ActivatedRoute) { }
+  // Restrict Visibility
+  shareToUser() {
+    this.sharedUser = [];
+    this.users.forEach(element => {
+      if (element.share === true) {
+        this.sharedUser.push(element);
+      }
+    });
+    this.userPopup = false;
+  }
+
+  removeUser(id) {
+    this.sharedUser.forEach((element, index) => {
+      if (element.id === id) {
+        this.sharedUser.splice(index, 1);
+      }
+    });
+    this.users.forEach(element => {
+      if (element.id === id) {
+        element.share = false;
+      }
+    });
+  }
+
+  chooseDepartment(value) {
+    this.sharedTeam.push(value);
+  }
+
+  removeTeam(index) {
+    this.sharedTeam.splice(index, 1);
+  }
+
+  showTeamUser(value) {
+    this.userDepartment = value.name;
+    this.departmentUsers = this.userList[value.id];
+    this.filteredUsers = this.departmentUsers;
+  }
+
+  addUser(user) {
+    const pushUser = { id: this.users.length, name: user, share: true };
+    this.sharedUser.push(pushUser);
+  }
+
+  userFilter() {
+    this.filteredUsers = this.departmentUsers.filter(element => element.toLowerCase().includes(this.userKeyword.toLowerCase()));
+  }
+
+  constructor(private route: ActivatedRoute) {
+    this.shareToUser();
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {

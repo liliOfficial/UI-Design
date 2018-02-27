@@ -1,0 +1,99 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Updating Exsting Value</h2>
+    </div>
+    <div class="panel-body">
+      <div class="panel-section">
+        <div class="section-header">
+          Updating Exsting Value
+        </div>
+        <div class="section-body">
+          <div class="input-line-group" style="width:100%">
+            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="picklistValue">
+            <span class="underline">Value</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-section">
+        <div class="section-header">
+          Restriction
+          <i class="fa fa-plus ml-15 pull-right text-green" (click)="edit=true" *ngIf="!edit"></i>
+          <i class="fa fa-times ml-15 pull-right" (click)="edit=false" *ngIf="edit"></i>
+        </div>
+        <div class="section-body">
+          <div class="mt-5">Restrict departments or users from viewing this value</div>
+          <div class="mt-10 mb-15">
+            <div class="dropbox" style="height:auto">
+              <button class="btn btn-circle btn-green btn-xs ml-5 mb-5" *ngFor="let user of blackListUser;index as i" (click)="removeUser(i)">
+                <i class="fa fa-user"></i>
+                {{user}}
+                <i class="fa fa-times ml-5"></i>
+              </button>
+              <div class="clearfix"></div>
+              <button class="btn btn-circle btn-xs ml-5 mb-5" *ngFor="let team of blackListDepartment;index as i" (click)="removeDepartment(i)">
+                <i class="fa fa-users"></i>
+                {{team.name}}
+                <i class="fa fa-times ml-5"></i>
+              </button>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row" *ngIf='edit'>
+            <!-- Select Department -->
+            <div class="col-6">
+              <div class="dropbox dropbox-edit">
+                <div class="dropbox-heading pt-5">
+                  Departments
+                  <div class="action">
+                    <span class="input-line-group pull-right">
+                      <span class="search-icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                      <input type="text" class="search-line" placeholder="search departments" (keyup)="departmentFilter()" [(ngModel)]="departmentKeyword">
+                      <span class="searchline"></span>
+                    </span>
+                  </div>
+                </div>
+                <span class="btn btn-circle btn-xs user" *ngFor="let department of filteredDepartment" (click)="showUser(department)" (dblclick)="addDepartment(department)">
+                  {{department.name}}
+                </span>
+              </div>
+              <div class="clearfix"></div>
+              <div class="mt-5">Double click to add department to restriction</div>
+            </div>
+            <!-- Select User -->
+            <div class="col-6">
+              <div class="dropbox dropbox-edit">
+                <div class="dropbox-heading">
+                  <span>{{userDepartment}}</span>
+                  <div class="action">
+                    <span class="input-line-group pull-right">
+                      <span class="search-icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                      <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+                      <span class="searchline"></span>
+                    </span>
+                  </div>
+                </div>
+                <span class="btn btn-circle btn-xs user btn-green" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+                  {{user}}
+                </span>
+              </div>
+              <div class="clearfix"></div>
+              <div class="mt-5">Double click to add user to restriction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-green">
+        <i class="fa fa-save"></i> Submit</button>
+      <button class="btn">
+        <i class="fa fa-times"></i> Cancel</button>
+    </div>
+  </div>
+</div>

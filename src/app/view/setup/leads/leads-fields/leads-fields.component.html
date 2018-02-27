@@ -4,7 +4,7 @@
     <div class="panel-header">
       <h2>Leads Fields</h2>
       <div class="action">
-        <button class="btn btn-xs btn-green btn-circle" *ngIf="!edit">
+        <button class="btn btn-xs btn-green btn-circle" *ngIf="!edit" routerLink="/setup/leads/field-new">
           <i class="fa fa-plus"></i> New</button>
         <button class="btn btn-xs btn-green btn-circle" *ngIf="!edit" (click)="edit=true">
           <i class="fa fa-edit"></i> Edit Method</button>
@@ -32,22 +32,21 @@
             <tbody>
               <tr *ngFor="let field of defaultFields">
                 <td>
-                  <i class="fa fa-edit text-green"></i>
+                  <i class="fa fa-edit text-green" routerLink="/setup/leads/field-edit"></i>
                 </td>
                 <td>{{field.fieldLabel}}</td>
                 <td>{{field.apiName}}</td>
                 <td>
                   <span *ngIf="field.mapToAccount === 'Can not be Map'">
-                    <span class="text-red">Can not be Map</span>
+                    <span class="text-red">Cannot be Map</span>
                   </span>
                   <span *ngIf="field.mapToAccount !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToAccount}}</span>
                     <span *ngIf="edit">
-                      <span class="input-group" style="width:100%" (click)="editField = field; mapTarget = 'account'">
+                      <span class="input-group" style="width:100%" (click)="chooseEditField(field,'Account')">
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToAccount"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
-                          <i class="fa fa-undo text-green"></i>
                           <i class="fa fa-search"></i>
                         </span>
                       </span>
@@ -56,16 +55,15 @@
                 </td>
                 <td>
                   <span *ngIf="field.mapToOpportunity === 'Can not be Map'">
-                    <span class="text-red">Can not be Map</span>
+                    <span class="text-red">Cannot be Map</span>
                   </span>
                   <span *ngIf="field.mapToOpportunity !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToOpportunity}}</span>
                     <span *ngIf="edit">
-                      <span class="input-group" style="width:100%" (click)="editField = field; mapTarget = 'opportunity'">
+                      <span class="input-group" style="width:100%" (click)="chooseEditField(field,'Opportunity')">
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToOpportunity"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
-                          <i class="fa fa-undo text-green"></i>
                           <i class="fa fa-search"></i>
                         </span>
                       </span>
@@ -80,7 +78,7 @@
         </div>
       </div>
       <div class="panel-section">
-        <div class="section-header">Defaut Lead Fields</div>
+        <div class="section-header">Custom Lead Fields</div>
         <div class="section-body">
           <table class="table-full table-striped table-hover">
             <thead>
@@ -102,7 +100,7 @@
                 <td>{{field.apiName}}</td>
                 <td>
                   <span *ngIf="field.mapToAccount === 'Can not be Map'">
-                    <span class="text-red">Can not be Map</span>
+                    <span class="text-red">Cannot be Map</span>
                   </span>
                   <span *ngIf="field.mapToAccount !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToAccount}}</span>
@@ -111,7 +109,7 @@
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToAccount"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
-                          <i class="fa fa-undo text-green"></i>
+
                           <i class="fa fa-search"></i>
                         </span>
                       </span>
@@ -120,7 +118,7 @@
                 </td>
                 <td>
                   <span *ngIf="field.mapToOpportunity === 'Can not be Map'">
-                    <span class="text-red">Can not be Map</span>
+                    <span class="text-red">Cannot be Map</span>
                   </span>
                   <span *ngIf="field.mapToOpportunity !== 'Can not be Map'">
                     <span *ngIf="!edit">{{field.mapToOpportunity}}</span>
@@ -129,7 +127,6 @@
                         <input class="input input-sm input-block" type="text" placeholder="choose value from the pick list" [(ngModel)]="field.mapToOpportunity"
                           readonly>
                         <span class="input-icon" (click)="showPickList()">
-                          <i class="fa fa-undo text-green"></i>
                           <i class="fa fa-search"></i>
                         </span>
                       </span>
@@ -146,16 +143,41 @@
   </div>
 </div>
 <div class="sidebar-right" [class.hide-right]="!edit">
-    <div class="clearfix p-10"></div>
-    <h2>Map <span class="text-red">{{editField.fieldLabel}}</span> to {{mapTarget}}:</h2>
+  <div class="clearfix p-10"></div>
+  <h2>Map
+    <span class="text-red">{{editField.fieldLabel}}</span> to {{mapTarget}}:</h2>
+  <div *ngIf="mapTarget == 'Account'">
     <div class="picklist">
-      <div *ngFor="let item of pickList">
+      <div *ngFor="let item of pickListAccount">
         <div class="mb-10">
           <div class="checkbox checkbox-green">
-            <input type="checkbox" [checked]="item.chosen" [disabled]="item.chosen">
+            <input type="checkbox" [(ngModel)]="item.map" [disabled]="item.chosen && !item.map">
+            <label> {{item.fieldLabel}}</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-green btn-sm" (click)="submitMapToAccount()">
+          <i class="fa fa-save"></i> Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="mapTarget == 'Opportunity'">
+    <div class="picklist">
+      <div *ngFor="let item of pickListOpportunity">
+        <div class="mb-10">
+          <div class="checkbox checkbox-green">
+            <input type="checkbox" [(ngModel)]="item.map" [disabled]="item.chosen && !item.map">
             <label> {{item.fieldLabel}}</label>
           </div>
         </div>
       </div>
     </div>
+    <div>
+      <button class="btn btn-green btn-sm" (click)="submitMapToOpportunity()">
+        <i class="fa fa-save"></i> Submit
+      </button>
+    </div>
   </div>
+</div>

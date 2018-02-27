@@ -1,0 +1,39 @@
+.sidebar-right .option {
+    margin:5px -10px;
+    padding:10px 10px 5px;
+    background:#f2f5f8;
+}
+
+.btn-block + .btn-block {
+    margin-top:2px;
+}
+
+.hover-gray:hover {
+    background:#f2f5f8;
+}
+
+.availablearea {
+    background:#E8F5E9;
+}
+
+.availablearea .box {
+    position: relative;
+}
+
+.availablearea .box:hover .quick-action {
+    margin-right: 30px;
+}
+
+.availablearea .box:hover:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'FontAwesome';
+    content: '\f055';
+    color:#2E7D32;
+    top: 50%;
+    right:10px;
+    margin-top: -9px;
+    font-size: 18px;
+    
+    
+}

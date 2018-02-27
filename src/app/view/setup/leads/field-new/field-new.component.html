@@ -1,0 +1,156 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-green">
+    <div class="panel-header">
+      <h2>Creating New {{dataType}}</h2>
+      <div class="action">
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="step1" *ngIf="!nextStep">
+        <div class="row mt-15">
+          <table class="table-full table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let type of dataTypes">
+                <td>
+                  <div class="radio radio-green">
+                    <input type="radio" [(ngModel)]="dataType" [value]="type.label">
+                    <label for="">{{type.label}}</label>
+                  </div>
+                </td>
+                <td>
+                  {{type.description}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mtb-15">
+          <button class="btn pull-right" (click)="step2()" [disabled]="!dataType">Next
+            <i class="fa fa-angle-right"></i>
+          </button>
+          <button class="btn btn-red" (click)="goBack()">
+            <i class="fa fa-times"></i> Cancel</button>
+        </div>
+      </div>
+      <div class="step2" *ngIf="nextStep">
+        <div class="m-10  text-center">
+          <label class="field-label">Field Label</label>
+          <span class="input-group">
+            <input class="input input-block input-sm" type="text" placeholder="Insert value from the pick list" [(ngModel)]="department">
+            <span class="input-icon">
+              <i class="fa fa-question-circle"></i>
+            </span>
+          </span>
+        </div>
+        <div class="m-10 text-center">
+          <label class="field-label">Field API</label>
+          <span class="input-group">
+            <input class="input input-block input-sm" type="text" placeholder="Insert value from the pick list" [(ngModel)]="department">
+            <span class="input-icon">
+              <i class="fa fa-question-circle"></i>
+            </span>
+          </span>
+        </div>
+        <div class="field-textarea m-10">
+          <div>
+            <label for="">Help Text</label>
+          </div>
+          <textarea name="" id="" cols="30" rows="3" class="textarea input-block mt-5"></textarea>
+        </div>
+        <div class="field-textarea m-10">
+          <div>
+            <label for="">Description</label>
+          </div>
+          <textarea name="" id="" cols="30" rows="3" class="textarea input-block  mt-5"></textarea>
+        </div>
+        <div class="field-textarea">
+          <div class="mb-5">
+            <div class="checkbox checkbox-green">
+              <input type="checkbox" checked>
+              <label> Always require value in order to save</label>
+            </div>
+          </div>
+        </div>
+        <div class="panel-section" *ngIf="dataType == 'Picklist'">
+          <div class="section-header">Picklist value</div>
+          <div class="section-body">
+            <div class="field-textarea">
+              <div class="input-line-group">
+                <span class="input-icon" (click)="addValue()">
+                  <i class="fa fa-save"></i>
+                </span>
+                <input type="text" class="input-line  input-block" onkeyup="this.setAttribute('value', this.value);" [(ngModel)]="newValue"
+                  (keyup.enter)="addValue(newValue)">
+                <span class="underline">Add New Values</span>
+              </div>
+              <div class="dropbox value-pool">
+                <div class="pickvalue" *ngFor="let value of picklistValue; index as i">
+                  {{value}}
+                  <span class="pull-right">
+                    <i class="fa fa-trash-alt text-red" (click)="deleteValue(i)"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="panel-section">
+          <div class="section-header">Adding Field to particular Page Layout</div>
+          <div class="section-body">
+            <div class="row">
+              <table class="table-full table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th width=30>
+                      <div class="checkbox checkbox-green">
+                        <input type="checkbox">
+                        <label> </label>
+                      </div>
+                    </th>
+                    <th>Page Layout Name</th>
+                    <th>Departments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of pageLayouts">
+                    <td>
+                      <div class="checkbox checkbox-green">
+                        <input type="checkbox">
+                        <label> </label>
+                      </div>
+                    </td>
+                    <td>{{item.text}}</td>
+                    <td>
+                      <span class="btn btn-xs btn-circle btn-shadow btn-white mr-5" *ngFor="let department of item.departments">{{department}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="mtb-15">
+          <button class="btn" (click)="nextStep=false" [disabled]="!dataType">
+            <i class="fa fa-angle-left"></i> Previous
+          </button>
+          <span class="pull-right">
+            <button class="btn btn-green">
+              <i class="fa fa-save"></i> Save
+            </button>
+            <button class="btn btn-red" (click)="goBack()">
+              <i class="fa fa-times"></i> Cancel
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

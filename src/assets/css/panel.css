@@ -230,6 +230,41 @@
     text-align: center;
 }
 
+.dropbox-edit {
+    margin-top:20px;
+    padding-top:0;
+    position: relative;
+}
+.dropbox-edit .dropbox-heading {
+    font-weight: 700;
+    padding:8px;
+    background:#4e4e4e;
+    color:#fff;
+    position: relative;
+}
+
+.dropbox-edit .dropbox-heading .action {
+    position: absolute;
+    top:5px;
+    right:5px;
+}
+.dropbox-edit .user {
+    display: inline-block;
+    margin-left:5px;
+    margin-top: 5px;
+}
+
+.dropbox-edit .user .move {
+    background: #fff;
+    color:#4e4e4e;
+    border-radius: 10px;
+    padding:0 3px 1px;
+    font-size: 11px;
+    line-height:12px;
+    display:inline-block;
+    margin-left:10px;
+}
+
 .tab {
     color:#4e4e4e;
     border-radius: 5px;

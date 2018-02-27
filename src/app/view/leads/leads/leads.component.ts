@@ -580,8 +580,6 @@ export class LeadsComponent implements OnInit {
     { id: '3333333', text: 'My View2' }
   ];
 
-
-
   viewId = '3333333';
   fieldIndex;
 

@@ -2,10 +2,10 @@
   <h2>SETUP</h2>
   <ul class="sidenav">
     <li class="heading">
-      <span class="heading" routerLink="/setup/company" routerLinkActive="bg-active">
+      <span class="heading" (click)="active='company'" [class.active]="active=='company'">
         Company Information
       </span>
-      <ul class="subnav">
+      <ul class="subnav" [class.hide]="active!=='company'">
         <li>
           <span class="subheading" routerLink="/setup/company">
             <i class="fa fa-info-circle"></i> Company Information
@@ -29,30 +29,55 @@
       </ul>
     </li>
     <li>
-      <span class="heading">
+      <span class="heading" (click)="active='leads'" [class.active]="active=='leads'">
         Leads
       </span>
-      <ul class="subnav">
+      <ul class="subnav" [class.hide]="active!=='leads'">
         <li>
           <span class="subheading" routerLink="/setup/leads/fields">
             <i class="fa fa-file-alt"></i> Fields
           </span>
         </li>
         <li>
-          <span class="subheading">
+          <span class="subheading" routerLink="/setup/leads/page-layout">
             <i class="fa fa-newspaper"></i> Lead Page Layout
           </span>
         </li>
       </ul>
     </li>
     <li>
-      <span class="heading">Accounts</span>
+      <span class="heading" (click)="active='accounts'" [class.active]="active=='accounts'">Accounts</span>
+      <ul class="subnav" [class.hide]="active!=='accounts'">
+        <li>
+          <span class="subheading" routerLink="/setup/leads/fields">
+            <i class="fa fa-file-alt"></i> Fields
+          </span>
+        </li>
+        <li>
+          <span class="subheading" routerLink="/setup/leads/page-layout">
+            <i class="fa fa-newspaper"></i> Lead Page Layout
+          </span>
+        </li>
+      </ul>
     </li>
     <li>
-      <span class="heading">Opportunities</span>
+      <span class="heading" (click)="active='opportunities'" [class.active]="active=='opportunities'">Opportunities</span>
+      <ul class="subnav" [class.hide]="active!=='opportunities'">
+        <li>
+          <span class="subheading" routerLink="/setup/leads/fields">
+            <i class="fa fa-file-alt"></i> Fields
+          </span>
+        </li>
+        <li>
+          <span class="subheading" routerLink="/setup/leads/page-layout">
+            <i class="fa fa-newspaper"></i> Lead Page Layout
+          </span>
+        </li>
+      </ul>
     </li>
     <li>
       <span class="heading">Email Communications</span>
+      
     </li>
     <li>
       <span class="heading">Workflow Automation</span>

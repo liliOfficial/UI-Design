@@ -47,6 +47,15 @@ import { UserDetailComponent } from './view/setup/company/users/user-detail/user
 import { DepartmentCallbackComponent } from './view/common/department/department-callback/department-callback.component';
 import { OrganisationCallbackComponent } from './view/setup/company/organisation-callback/organisation-callback.component';
 import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fields.component';
+import { LeadsPageLayoutComponent } from './view/setup/leads/leads-page-layout/leads-page-layout.component';
+import { FieldEditComponent } from './view/setup/leads/field-edit/field-edit.component';
+import { LeadsEditLayoutComponent } from './view/setup/leads/leads-edit-layout/leads-edit-layout.component';
+import { FieldNewComponent } from './view/setup/leads/field-new/field-new.component';
+import { FieldValueEditComponent } from './view/setup/leads/field-value-edit/field-value-edit.component';
+import { LoginComponent } from './view/user/login/login.component';
+import { SettingComponent } from './view/user/setting/setting.component';
+import { NewEmailComponent } from './view/common/email/new-email/new-email.component';
+import { OpportunityDetailComponent } from './view/opportunities/opportunity-detail/opportunity-detail.component';
 
 
 @NgModule({
@@ -95,6 +104,15 @@ import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fiel
     DepartmentCallbackComponent,
     OrganisationCallbackComponent,
     LeadsFieldsComponent,
+    LeadsPageLayoutComponent,
+    FieldEditComponent,
+    LeadsEditLayoutComponent,
+    FieldNewComponent,
+    FieldValueEditComponent,
+    LoginComponent,
+    SettingComponent,
+    NewEmailComponent,
+    OpportunityDetailComponent,
 
   ],
   imports: [
@@ -102,6 +120,8 @@ import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fiel
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'user/setting', component: SettingComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
       { path: 'leads/view-detail/:id', component: LeadsNewViewComponent },
@@ -112,6 +132,7 @@ import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fiel
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
+      { path: 'opportunities/opportunity-detail', component: OpportunityDetailComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'setup/company', component: CompanyInformationComponent },
@@ -120,6 +141,13 @@ import { LeadsFieldsComponent } from './view/setup/leads/leads-fields/leads-fiel
       { path: 'setup/company/organisational-chart', component: OrganisationalChartComponent },
       { path: 'setup/company/premission-profile', component: PermissionProfileComponent },
       { path: 'setup/leads/fields', component: LeadsFieldsComponent },
+      { path: 'setup/leads/page-layout', component: LeadsPageLayoutComponent },
+      { path: 'setup/leads/field-new', component: FieldNewComponent },
+      { path: 'setup/leads/field-edit', component: FieldEditComponent },
+      { path: 'setup/leads/field-value-edit', component: FieldValueEditComponent },
+      { path: 'setup/leads/edit-layout', component: LeadsEditLayoutComponent },
+      { path: 'setup/email', component: NewEmailComponent },
+
     ])
   ],
   providers: [],

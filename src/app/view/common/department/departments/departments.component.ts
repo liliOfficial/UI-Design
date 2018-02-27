@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class DepartmentsComponent implements OnInit {
   @Output() output = new EventEmitter();
+  @Output() clickValue = new EventEmitter();
 
   structure = [{
     '1': {
@@ -76,6 +77,11 @@ export class DepartmentsComponent implements OnInit {
   pickValue(value) {
     this.output.emit(value);
   }
+
+  clickValueChange(value) {
+    this.clickValue.emit(value);
+  }
+
 
   constructor() { }
 

@@ -23,12 +23,13 @@
         </div>
         <div class="col-8">
           <div class="mtb-15">
-
             <div class="dropbox">
               <div class="dropbox-heading">{{userDepartment}}</div>
               <span class="btn btn-circle btn-sm user" *ngFor="let user of users">
                 {{user}}
-                <span (click)="move(user)" class="move">move</span>
+                <span (click)="move(user)" class="move">
+                  <i class="fa fa-exchange-alt"></i>
+                </span>
               </span>
             </div>
           </div>
@@ -63,8 +64,6 @@
         <div class="mt-5 mb-5">
           <app-departments (output)="chooseDepartment($event)"></app-departments>
         </div>
-
-
       </div>
     </div>
   </div>
