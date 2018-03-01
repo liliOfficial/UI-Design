@@ -12,6 +12,11 @@ th {
     padding:5px;  
 }
 
+th.active {
+    background:#5e5e5e;
+    color:#fff;
+}
+
 td {
     padding:5px;    
 }

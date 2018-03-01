@@ -1,0 +1,71 @@
+<div class="panel">
+    <div class="panel-header">
+      <h2>Opportunities</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-circle" [routerLink]="['/opportunities/opportunity-detail',0]">New Opportunity</button>        
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="mlr-n15">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Opportunity Name</th>
+              <th>Trading Account Type</th>
+              <th>Platform</th>
+              <th>Platform ID</th>
+              <th>Balance</th>
+              <th>Stage</th>
+              <th>Close Date</th>
+              <th>Opportunity Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let opportunity of opportunities">
+              <td>
+                <i class="fa fa-edit" [routerLink]="['/opportunities/opportunity-detail',opportunity.id]"></i>
+                <i class="fa fa-trash-alt text-red"></i>
+              </td>
+              <td>
+                <a>{{opportunity.name}}</a>
+              </td>
+              <td>{{opportunity.tradingAccountType}}</td>
+              <td>{{opportunity.plateform}}</td>
+              <td>{{opportunity.plateformId}}</td>
+              <td>{{opportunity.balance}}</td>
+              <td>{{opportunity.stage}}</td>
+              <td>{{opportunity.closeDate}}</td>
+              <td>{{opportunity.opportunityType}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <div>Showing 1 to 10 of 57 entries</div>
+        <ul>
+          <li class="arrow">
+            <a>«</a>
+          </li>
+          <li class="active">
+            <a>1</a>
+          </li>
+          <li>
+            <a>2</a>
+          </li>
+          <li>
+            <a>3</a>
+          </li>
+          <li>
+            <a>4</a>
+          </li>
+          <li>
+            <a>5</a>
+          </li>
+          <li class="arrow">
+            <a>»</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

@@ -43,11 +43,7 @@ ul.inline-block li {
     display: inline-block;
 }
 
-button:focus {
-    outline: 0;
-}
-
-i:focus {
+*:focus {
     outline: 0;
 }
 .clearfix:after {

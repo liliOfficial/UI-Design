@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leads-edit-layout.component.css']
 })
 export class LeadsEditLayoutComponent implements OnInit {
+  object = 'action';
   sections = [
     { 'text': 'Lead Detail', 'sectionName': 'leadDetail' },
     { 'text': 'Social Media', 'sectionName': 'socialMedia' },

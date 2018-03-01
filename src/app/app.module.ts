@@ -56,6 +56,9 @@ import { LoginComponent } from './view/user/login/login.component';
 import { SettingComponent } from './view/user/setting/setting.component';
 import { NewEmailComponent } from './view/common/email/new-email/new-email.component';
 import { OpportunityDetailComponent } from './view/opportunities/opportunity-detail/opportunity-detail.component';
+import { OpportunitiesAccountComponent } from './view/opportunities/opportunities-account/opportunities-account.component';
+import { LeadsPageLayoutAssignmentComponent } from './view/setup/leads/leads-page-layout-assignment/leads-page-layout-assignment.component';
+import { LeadsPageLayoutAssignmentCallbackComponent } from './view/setup/leads/leads-page-layout-assignment-callback/leads-page-layout-assignment-callback.component';
 
 
 @NgModule({
@@ -113,6 +116,9 @@ import { OpportunityDetailComponent } from './view/opportunities/opportunity-det
     SettingComponent,
     NewEmailComponent,
     OpportunityDetailComponent,
+    OpportunitiesAccountComponent,
+    LeadsPageLayoutAssignmentComponent,
+    LeadsPageLayoutAssignmentCallbackComponent,
 
   ],
   imports: [
@@ -132,7 +138,7 @@ import { OpportunityDetailComponent } from './view/opportunities/opportunity-det
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
-      { path: 'opportunities/opportunity-detail', component: OpportunityDetailComponent },
+      { path: 'opportunities/opportunity-detail/:id', component: OpportunityDetailComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'setup/company', component: CompanyInformationComponent },
@@ -146,6 +152,7 @@ import { OpportunityDetailComponent } from './view/opportunities/opportunity-det
       { path: 'setup/leads/field-edit', component: FieldEditComponent },
       { path: 'setup/leads/field-value-edit', component: FieldValueEditComponent },
       { path: 'setup/leads/edit-layout', component: LeadsEditLayoutComponent },
+      { path: 'setup/leads/edit-layout-assignment', component: LeadsPageLayoutAssignmentComponent },
       { path: 'setup/email', component: NewEmailComponent },
 
     ])

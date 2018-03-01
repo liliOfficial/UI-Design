@@ -32,28 +32,41 @@
             <tr>
               <th>
                 <div class="checkbox checkbox-green">
-                  <input type="checkbox">
+                  <input type="checkbox" (change)="selectAll()" [(ngModel)]="selectedAll">
                   <label></label>
                 </div>
               </th>
-              <th>Action</th>
-              <th *ngFor="let field of fields">{{field.text}}</th>
+              <th></th>
+              <th *ngFor="let field of fields" [class.active]="sortBy==field.text" (click)="sort(field.text)">
+                {{field.text}}
+                <span *ngIf="sortBy==field.text">
+                  <i class="fa fa-arrow-circle-down ml-5" *ngIf="sortDecrease"></i>
+                  <i class="fa fa-arrow-circle-up ml-5" *ngIf="!sortDecrease"></i>
+                </span>
+
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let json of Json">
               <td>
                 <div class="checkbox checkbox-green">
-                  <input type="checkbox" [(ngModel)]="json.checked">
+                  <input type="checkbox" [(ngModel)]="json.checked" (change)="chooseUser()">
                   <label></label>
                 </div>
               </td>
               <td>
-                <i class="fa fa-edit pr-5 text-green" [routerLink]="['/leads/lead-detail',json.leadid]"></i>
+                <!-- <i class="fa fa-edit pr-5 text-green" [routerLink]="['/leads/lead-detail',json.leadid]"></i> -->
                 <i class="fa fa-trash-alt"></i>
               </td>
               <td *ngFor="let key of fields">
-                {{json[key.jsonKey]}}
+                <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/leads/lead-detail',json.leadid]" class="text-green cursor-pointer">
+                  {{json[key.jsonKey]}}
+                </span>
+                <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                  {{json[key.jsonKey]}}
+                </span>
+
               </td>
           </tbody>
         </table>
@@ -65,27 +78,15 @@
   <!-- pagination -->
   <div class="pagination-side pagination-side-green">
     <ul class="pull-right">
-      <li>
+      <li (click)="paginationInit(totalPage,1)">
         <a>
           <i class="fa fa-angle-double-up"></i>
         </a>
       </li>
-      <li class="active">
-        <a>1</a>
+      <li *ngFor="let no of pageNos" [class.active]="no === currentPage" (click)="paginationInit(totalPage,no)">
+        <a>{{no}}</a>
       </li>
-      <li>
-        <a>2</a>
-      </li>
-      <li>
-        <a>3</a>
-      </li>
-      <li>
-        <a>4</a>
-      </li>
-      <li>
-        <a>55</a>
-      </li>
-      <li>
+      <li (click)="paginationInit(totalPage,totalPage)">
         <a>
           <i class="fa fa-angle-double-down"></i>
         </a>
@@ -95,20 +96,17 @@
   <div class="pagination-side-text">
     <div class="content" [class.hide]="!paginationTextShow">
       <div>
-        <span class="text"> 1 - 23 / 57 </span>
+        <span class="text"> {{startNo}} - {{endNo}} / {{totalNo}}</span>
       </div>
       <div>
-        <span class="text">200 Selected</span>
+        <span class="text">{{selectedNo}} Selected</span>
       </div>
       <div>
         <span class="text">
-          <select name="" id="" class="select select-xs select-dark">
-            <option value="">25</option>
-            <option value="">50</option>
-            <option value="">100</option>
-            <option value="">200</option>
-            <option value="">300</option>
+          <select name="" id="" class="select select-xs select-dark" [(ngModel)]="perPage">
+            <option *ngFor="let option of pageOption" [ngValue]="option">{{option}}</option>
           </select>
+          <span>Total Page: {{totalPage}}</span>
         </span>
       </div>
     </div>

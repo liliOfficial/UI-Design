@@ -1,7 +1,7 @@
 <div class="panel border-purple">
   <div class="panel-header">
-    <h2 *ngIf="leadId==0">Create New Lead</h2>
-    <h2 *ngIf="leadId!=0">Edit Opportunities</h2>
+    <h2 *ngIf="opportunityId==0">Create New Opportunity</h2>
+    <h2 *ngIf="opportunityId!=0">Edit Opportunity</h2>
   </div>
   <div class="panel-body">
     <div class="panel-section" *ngFor="let section of sections">
@@ -16,7 +16,7 @@
             <label>
               {{list.label}}
               <span class="help">
-                <i class="fa fa-question-circle"></i>
+                <i class="fa fa-question-circle" *ngIf="list.help" [title]="list.help"></i>
               </span>
             </label>
             <span class="content">

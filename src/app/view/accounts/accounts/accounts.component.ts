@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponent implements OnInit {
   paginationTextShow = true;
+  sortBy = 'Name';
   theaders = [
     { 'text': 'Name', 'jsonKey': 'name' },
     { 'text': 'State/Province', 'jsonKey': 'state' },

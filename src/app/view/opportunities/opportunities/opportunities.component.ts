@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class OpportunitiesComponent implements OnInit {
   paginationTextShow = true;
   popupShow = false;
+  sortBy = 'Name';
 
   fields = [
     {
@@ -29,7 +30,7 @@ export class OpportunitiesComponent implements OnInit {
   ];
   Json = [
     {
-      'leadid': '11111111111',
+      'opportunityId': '11111111111',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -46,7 +47,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '22222',
+      'opportunityId': '22222',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -63,7 +64,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -80,7 +81,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -97,7 +98,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -114,7 +115,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -131,7 +132,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -148,7 +149,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -165,7 +166,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -182,7 +183,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -199,7 +200,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -216,7 +217,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -233,7 +234,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -250,7 +251,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -267,7 +268,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -284,7 +285,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -301,7 +302,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -318,7 +319,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -335,7 +336,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -352,7 +353,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -369,7 +370,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -386,7 +387,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -403,7 +404,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -420,7 +421,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -437,7 +438,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -454,7 +455,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -471,7 +472,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -488,7 +489,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -505,7 +506,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -522,7 +523,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -539,7 +540,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',
@@ -556,7 +557,7 @@ export class OpportunitiesComponent implements OnInit {
       'gauge': 'Medium'
     },
     {
-      'leadid': '88888888',
+      'opportunityId': '88888888',
       'name': 'Jimmy',
       'state': 'Sydeny',
       'country': 'Australia',

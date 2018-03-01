@@ -1,0 +1,28 @@
+<ul>
+    <li *ngFor="let item of json">
+      <div class="department-heading" (click)="choose(['user',item.name,item.id])">
+        <span class="icon">
+          <span *ngIf="item.id ==='0'">
+            <i class="fa fa-user"></i>
+          </span>
+          <span *ngIf="item.children">
+            <i *ngIf="item.childrenHide" class="fa fa-folder" (click)="item.childrenHide=false"></i>
+            <i *ngIf="!item.childrenHide" class="fa fa-folder-open" (click)="item.childrenHide=true"></i>
+          </span>
+        </span>
+        <span>{{item.name}}</span>
+        <span class="heading-select" *ngIf="item.id !=='0'">
+            <span class="input-line-group">
+                <select name="" id="" class="select-line" [(ngModel)]="item.pageLayout">
+                  <option [ngValue]="">Please select a pageLayout</option>
+                  <option *ngFor="let layout of pageLayouts" [ngValue]="layout">{{layout}}</option>
+                </select>
+                <span class="underline"></span>
+              </span>
+        </span>
+      </div>
+      <div *ngIf="item.children && !item.childrenHide" class="pl-15">
+        <app-leads-page-layout-assignment-callback [json]="item.children" (pickValue)="pickValueChange($event)"></app-leads-page-layout-assignment-callback>
+      </div>
+    </li>
+  </ul>

@@ -9,10 +9,8 @@
     <div class="panel-body hover-gray" [class.availablearea]="availableArea === 'quickActions'" (mouseup)="addQuickAction('showbox')">
       <div class="mtb-15">
         <span class="box" *ngFor="let action of quickActionSelected; index as i;">
-          <button class="btn mr-10 quick-action" 
-          (mousedown)="chooseQuickAction(action,'showbox',i)" 
-          (mouseenter)="changeTargetQuickAction(i)" (mouseleave)="changeTargetQuickAction('-1')"
-          >
+          <button class="btn mr-10 quick-action" (mousedown)="chooseQuickAction(action,'showbox',i)" (mouseenter)="changeTargetQuickAction(i)"
+            (mouseleave)="changeTargetQuickAction('-1')">
             {{action.text}}
           </button>
         </span>
@@ -26,30 +24,39 @@
       </div>
     </div>
     <div class="panel-body">
-
+      <app-table-list></app-table-list>
+      <div class="clearfix pb-5"></div>
     </div>
   </div>
+
 </div>
 <div class="sidebar-right">
   <h2>Map</h2>
   <div class="option">
     <div class="mb-5">
       <div class="radio radio-green">
-        <input type="radio" name="object">
+        <input type="radio" value="action" [(ngModel)]="object">
         <label for=""> Quick Actions</label>
       </div>
     </div>
     <div class="mb-5">
       <div class="radio radio-green">
-        <input type="radio" name="object">
+        <input type="radio" value="field" [(ngModel)]="object">
         <label for=""> Fields</label>
       </div>
     </div>
+
   </div>
-  <div (mouseup)="addQuickAction('list')">
-    <button class="btn btn-xs btn-block" *ngFor="let action of quickActions; index as i;" [disabled]="action.selected" 
-    (mousedown)="chooseQuickAction(action,'list',i)">
-      {{action.text}}
-    </button>
+  <div *ngIf="object ==='action'">
+    <div (mouseup)="addQuickAction('list')">
+      <button class="btn btn-xs btn-block" *ngFor="let action of quickActions; index as i;" [disabled]="action.selected" (mousedown)="chooseQuickAction(action,'list',i)">
+        {{action.text}}
+      </button>
+    </div>
   </div>
+  <div *ngIf="object ==='feild'">
+
+  </div>
+
+  <div></div>
 </div>

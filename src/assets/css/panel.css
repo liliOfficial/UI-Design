@@ -123,6 +123,7 @@
     display: inline-block;
     width:20px;
     text-align: center;
+    position:relative;    
 }
 .panel .panel-body .section-li .content input,.panel .panel-body .section-li .content select,.panel .panel-body .section-li .content .text {
     width:60%;
