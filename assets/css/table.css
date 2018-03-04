@@ -12,6 +12,11 @@ th {
     padding:5px;  
 }
 
+th.active {
+    background:#5e5e5e;
+    color:#fff;
+}
+
 td {
     padding:5px;    
 }
@@ -189,6 +194,9 @@ ul.list li .move:after {
 }
 ul.list li:hover {
     background:#f2f5f8;
+}
+ul.list.list-col2 li {    
+    width:49.5%;    
 }
 ul.list.list-col3 li {    
     width:33.33%;    

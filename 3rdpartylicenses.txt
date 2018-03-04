@@ -87,6 +87,10 @@ MIT
 MIT
 MIT
 
+@angular/http@5.2.6
+MIT
+MIT
+
 css-loader@0.28.10
 MIT
 Copyright JS Foundation and other contributors

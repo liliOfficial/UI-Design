@@ -43,11 +43,7 @@ ul.inline-block li {
     display: inline-block;
 }
 
-button:focus {
-    outline: 0;
-}
-
-i:focus {
+*:focus {
     outline: 0;
 }
 .clearfix:after {
@@ -379,6 +375,26 @@ i:focus {
 }
 .btn-shadow {
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
+}
+
+.account .btn-green {
+    color:#fff;
+    background:#1E88E5;    
+    border:1px solid #1E88E5;
+}
+.account .btn-green:hover {
+    background: #1565C0;
+    border:1px solid #1565C0;
+}
+
+.opportunity .btn-green {
+    color:#fff;
+    background:#7E57C2;    
+    border:1px solid #7E57C2;
+}
+.opportunity .btn-green:hover {
+    background: #5E35B1;
+    border:1px solid #5E35B1;
 }
 
 
