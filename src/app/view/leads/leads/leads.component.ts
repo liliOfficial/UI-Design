@@ -660,7 +660,7 @@ export class LeadsComponent implements OnInit {
 
   constructor() {
     this.Json.forEach(element => element['checked'] = false);
-    this.paginationInit(12, 3);
+    this.paginationInit(9, 1);
   }
 
   ngOnInit() {

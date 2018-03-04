@@ -9,6 +9,9 @@ export class OpportunitiesComponent implements OnInit {
   paginationTextShow = true;
   popupShow = false;
   sortBy = 'Name';
+  sortDecrease = true;
+  selectedNo = 0;
+  selectedAll = false;
 
   fields = [
     {
@@ -581,15 +584,82 @@ export class OpportunitiesComponent implements OnInit {
     { id: '3333333', text: 'My View2' }
   ];
 
-
-
   viewId = '3333333';
   fieldIndex;
+
+  currentPage = 3;
+  totalPage = 12;
+  startNo = 1;
+  endNo = 32;
+  totalNo = 567;
+  perPage = 100;
+  pageOption = [25, 50, 100, 200, 300];
+  pageNos;
+
+  chooseUser() {
+    this.selectedNo = 0;
+    this.Json.map(element => {
+      if (element['checked'] === true) {
+        this.selectedNo++;
+      }
+    });
+    if (this.selectedNo === this.Json.length) {
+      this.selectedAll = true;
+    } else {
+      this.selectedAll = false;
+    }
+  }
+
+  selectAll() {
+    if (this.selectedAll === true) {
+      this.Json.forEach(element => element['checked'] = true);
+      this.selectedNo = this.Json.length;
+    } else {
+      this.Json.forEach(element => element['checked'] = false);
+      this.selectedNo = 0;
+    }
+  }
+
+  sort(text) {
+    if (this.sortBy === text) {
+      this.sortDecrease = !this.sortDecrease;
+    }
+    this.sortBy = text;
+  }
 
   changeView() {
     console.log(this.viewId);
   }
-  constructor() { }
+
+  // Pagination
+  paginationInit(totalPage, currentPage) {
+    const pageArr = [];
+    if (totalPage <= 5) {
+      for (let i = 0; i < totalPage; i++) {
+        pageArr.push(i + 1);
+      }
+    } else if (currentPage < 3) {
+      for (let i = 0; i < 5; i++) {
+        pageArr.push(i + 1);
+      }
+    } else if (totalPage - currentPage < 2) {
+      for (let i = 0; i < 5; i++) {
+        pageArr.push(totalPage - 4 + i);
+      }
+    } else {
+      for (let i = 0; i < 5; i++) {
+        pageArr.push(currentPage - 2 + i);
+      }
+    }
+    this.pageNos = pageArr;
+    this.currentPage = currentPage;
+    this.totalPage = totalPage;
+  }
+
+  constructor() {
+    this.Json.forEach(element => element['checked'] = false);
+    this.paginationInit(15, 2);
+   }
 
   ngOnInit() {
   }

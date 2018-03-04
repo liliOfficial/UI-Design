@@ -1,5 +1,5 @@
 <h2>.list (click).list-setting: draggable items</h2>
-<ul class="list list-col3 list-drag" [class.list-setting]="edit">
+<ul class="list list-col2 list-drag" [class.list-setting]="edit">
   <li *ngFor="let list of lists">
     <div class="move" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)" [id]="list.id" style="cursor:move;">
       <span class="label">
@@ -30,7 +30,7 @@
 </ul>
 
 <h2>.list</h2>
-<ul class="list list-col3">
+<ul class="list list-col2">
   <li *ngFor="let list of lists">
     <span class="label">
       <span *ngIf="list.required=='true'" class="required">*</span>

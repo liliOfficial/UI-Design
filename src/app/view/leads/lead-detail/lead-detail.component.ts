@@ -10,6 +10,7 @@ export class LeadDetailComponent implements OnInit {
 
   sections = [
     { 'text': 'Lead Detail', 'sectionName': 'leadDetail' },
+    { 'text': 'Description', 'sectionName': 'description' },
     { 'text': 'Social Media', 'sectionName': 'socialMedia' },
     { 'text': 'Address Information', 'sectionName': 'addressInformation' },
     { 'text': 'Additional Information', 'sectionName': 'Additional Information' },
@@ -90,6 +91,38 @@ export class LeadDetailComponent implements OnInit {
       'value': 'Employed',
       'options': ['Employed', 'Unemployed', 'Retired', 'Student']
     },
+    {
+      'id': 10,
+      'fieldName': 'annual-income',
+      'sectionName': 'leadDetail',
+      'label': 'Employment',
+      'value': '$30,000-$79,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 11,
+      'fieldName': 'total-investment',
+      'sectionName': 'leadDetail',
+      'label': 'Total Investment',
+      'value': 'Less than $29,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 12,
+      'fieldName': 'accepted-terms',
+      'sectionName': 'leadDetail',
+      'label': 'Accepted Terms',
+      'value': 'Yes',
+      'options': ['Yes', 'No']
+    },
+    {
+      'id': 13,
+      'fieldName': 'agent',
+      'sectionName': 'leadDetail',
+      'label': 'Agent',
+      'value': '1234566'
+    },
+
     {
       'id': 10,
       'fieldName': 'skype',
@@ -215,6 +248,38 @@ export class LeadDetailComponent implements OnInit {
       'value': 'Employed',
       'options': ['Employed', 'Unemployed', 'Retired', 'Student']
     },
+    {
+      'id': 10,
+      'fieldName': 'annual-income',
+      'sectionName': 'leadDetail',
+      'label': 'Employment',
+      'value': '$30,000-$79,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 11,
+      'fieldName': 'total-investment',
+      'sectionName': 'leadDetail',
+      'label': 'Total Investment',
+      'value': 'Less than $29,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 12,
+      'fieldName': 'accepted-terms',
+      'sectionName': 'leadDetail',
+      'label': 'Accepted Terms',
+      'value': 'Yes',
+      'options': ['Yes', 'No']
+    },
+    {
+      'id': 13,
+      'fieldName': 'agent',
+      'sectionName': 'leadDetail',
+      'label': 'Agent',
+      'value': '1234566'
+    },
+
     {
       'id': 10,
       'fieldName': 'skype',

@@ -8,8 +8,8 @@
       <span class="underline"></span>
     </span>
     <span class="pull-right">
-      <button class="btn btn-sm" [routerLink]="['/leads/view-detail',viewId]">Edit</button>
-      <button class="btn btn-sm" [routerLink]="['/leads/view-detail',0]">Create New View</button>
+      <button class="btn btn-sm" [routerLink]="['/opportunities/view-detail',viewId]">Edit</button>
+      <button class="btn btn-sm" [routerLink]="['/opportunities/view-detail',0]">Create New View</button>
     </span>
   </h3>
   <div class="panel border-purple">
@@ -35,10 +35,13 @@
                   <label></label>
                 </div>
               </th>
-              <th>Action</th>
-              <th *ngFor="let field of fields" [class.active]="sortBy==field.text" (click)="sortBy = field.text">
+              <th></th>
+              <th *ngFor="let field of fields" [class.active]="sortBy==field.text" (click)="sort(field.text)">
                 {{field.text}}
-                <i class="fa fa-arrow-circle-down ml-5" *ngIf="sortBy==field.text"></i>
+                <span *ngIf="sortBy==field.text">
+                  <i class="fa fa-arrow-circle-down ml-5" *ngIf="sortDecrease"></i>
+                  <i class="fa fa-arrow-circle-up ml-5" *ngIf="!sortDecrease"></i>
+                </span>
               </th>
             </tr>
           </thead>
@@ -51,11 +54,16 @@
                 </div>
               </td>
               <td>
-                <i class="fa fa-edit pr-5 text-purple" [routerLink]="['/opportunities/opportunity-detail',json.opportunityId]"></i>
                 <i class="fa fa-trash-alt"></i>
               </td>
               <td *ngFor="let key of fields">
-                {{json[key.jsonKey]}}
+                <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/opportunities/opportunity-detail',json.opportunityId]"
+                  class="text-purple cursor-pointer">
+                  {{json[key.jsonKey]}}
+                </span>
+                <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                  {{json[key.jsonKey]}}
+                </span>
               </td>
           </tbody>
         </table>
@@ -67,27 +75,15 @@
   <!-- pagination -->
   <div class="pagination-side pagination-side-purple">
     <ul class="pull-right">
-      <li>
+      <li (click)="paginationInit(totalPage,1)">
         <a>
           <i class="fa fa-angle-double-up"></i>
         </a>
       </li>
-      <li class="active">
-        <a>1</a>
+      <li *ngFor="let no of pageNos" [class.active]="no === currentPage" (click)="paginationInit(totalPage,no)">
+        <a>{{no}}</a>
       </li>
-      <li>
-        <a>2</a>
-      </li>
-      <li>
-        <a>3</a>
-      </li>
-      <li>
-        <a>4</a>
-      </li>
-      <li>
-        <a>55</a>
-      </li>
-      <li>
+      <li (click)="paginationInit(totalPage,totalPage)">
         <a>
           <i class="fa fa-angle-double-down"></i>
         </a>
@@ -97,20 +93,17 @@
   <div class="pagination-side-text">
     <div class="content" [class.hide]="!paginationTextShow">
       <div>
-        <span class="text"> 1 - 23 / 57 </span>
+        <span class="text"> {{startNo}} - {{endNo}} / {{totalNo}}</span>
       </div>
       <div>
-        <span class="text">200 Selected</span>
+        <span class="text">{{selectedNo}} Selected</span>
       </div>
       <div>
         <span class="text">
-          <select name="" id="" class="select select-xs select-dark">
-            <option value="">25</option>
-            <option value="">50</option>
-            <option value="">100</option>
-            <option value="">200</option>
-            <option value="">300</option>
+          <select name="" id="" class="select select-xs select-dark" [(ngModel)]="perPage">
+            <option *ngFor="let option of pageOption" [ngValue]="option">{{option}}</option>
           </select>
+          <span>Total Page: {{totalPage}}</span>
         </span>
       </div>
     </div>

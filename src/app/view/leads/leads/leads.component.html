@@ -43,7 +43,6 @@
                   <i class="fa fa-arrow-circle-down ml-5" *ngIf="sortDecrease"></i>
                   <i class="fa fa-arrow-circle-up ml-5" *ngIf="!sortDecrease"></i>
                 </span>
-
               </th>
             </tr>
           </thead>
@@ -66,7 +65,6 @@
                 <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
                   {{json[key.jsonKey]}}
                 </span>
-
               </td>
           </tbody>
         </table>

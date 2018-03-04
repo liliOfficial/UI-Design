@@ -48,7 +48,7 @@ export class LeadsPageLayoutAssignmentComponent implements OnInit {
           name: 'Marketing Administrator',
           pageLayout: 'Company Administration',
           children: [
-            { id: '10', name: 'Marketing Officer',pageLayout: 'Company Administration', }
+            { id: '10', name: 'Marketing Officer', pageLayout: 'Company Administration', }
           ]
         }
       ]

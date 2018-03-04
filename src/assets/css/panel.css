@@ -51,6 +51,15 @@
     border-bottom: 1px solid #eee;
 }
 
+/* Panel Account */
+.account .panel.border-green {
+    border-top:3px solid #1E88E5;
+}
+
+.opportunity .panel.border-green {
+    border-top:3px solid #7E57C2;
+}
+
 .green .panel {
     border-top:3px solid #2E7D32;
 }
@@ -219,6 +228,21 @@
     background: transparent;
     cursor: pointer;
     
+}
+
+.drop-option.active {
+    background:#2E7D32;
+    color:#fff;
+}
+
+.account .drop-option.active {
+    background:#1E88E5;
+    color:#fff;
+}
+
+.opportunity .drop-option.active {
+    background:#5E35B1;
+    color:#fff;
 }
 
 .dropbox .drop-option:hover {

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './view/layout/header/header.component';
@@ -59,6 +60,8 @@ import { OpportunityDetailComponent } from './view/opportunities/opportunity-det
 import { OpportunitiesAccountComponent } from './view/opportunities/opportunities-account/opportunities-account.component';
 import { LeadsPageLayoutAssignmentComponent } from './view/setup/leads/leads-page-layout-assignment/leads-page-layout-assignment.component';
 import { LeadsPageLayoutAssignmentCallbackComponent } from './view/setup/leads/leads-page-layout-assignment-callback/leads-page-layout-assignment-callback.component';
+import { AccountsNewViewComponent } from './view/accounts/accounts-new-view/accounts-new-view.component';
+import { OpportunitiesNewViewComponent } from './view/opportunities/opportunities-new-view/opportunities-new-view.component';
 
 
 @NgModule({
@@ -119,11 +122,14 @@ import { LeadsPageLayoutAssignmentCallbackComponent } from './view/setup/leads/l
     OpportunitiesAccountComponent,
     LeadsPageLayoutAssignmentComponent,
     LeadsPageLayoutAssignmentCallbackComponent,
+    AccountsNewViewComponent,
+    OpportunitiesNewViewComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
       { path: 'login', component: LoginComponent },
@@ -136,9 +142,11 @@ import { LeadsPageLayoutAssignmentCallbackComponent } from './view/setup/leads/l
       { path: 'leads/merge-leads', component: MergeLeadsComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'accounts/account-detail', component: AccountDetailComponent },
+      { path: 'accounts/view-detail/:id', component: AccountsNewViewComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
       { path: 'opportunities/opportunity-detail/:id', component: OpportunityDetailComponent },
+      { path: 'opportunities/view-detail/:id', component: OpportunitiesNewViewComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'setup/company', component: CompanyInformationComponent },

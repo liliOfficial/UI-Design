@@ -13,7 +13,12 @@
         <tbody>
           <tr *ngFor="let json of Json">
             <td *ngFor="let key of fields">
-              {{json[key.jsonKey]}}
+              <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/leads/lead-detail',json.leadid]" class="text-green cursor-pointer">
+                {{json[key.jsonKey]}}
+              </span>
+              <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                {{json[key.jsonKey]}}
+              </span>
             </td>
         </tbody>
       </table>
@@ -37,7 +42,12 @@
         <tbody>
           <tr *ngFor="let json of Json">
             <td *ngFor="let key of fields">
-              {{json[key.jsonKey]}}
+              <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" routerLink="/accounts/account-detail" class="text-blue cursor-pointer">
+                {{json[key.jsonKey]}}
+              </span>
+              <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                {{json[key.jsonKey]}}
+              </span>
             </td>
         </tbody>
       </table>
@@ -47,26 +57,32 @@
   </div>
 </div>
 <div class="panel border-purple">
-    <div class="panel-header">
-      <h2>Opportunities</h2>
-    </div>
-    <div class="panel-body">
-      <div class="mlr-n15">
-        <table class="table-full table-striped table-hover">
-          <thead>
-            <tr>
-              <th *ngFor="let field of fields">{{field.text}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let json of Json">
-              <td *ngFor="let key of fields">
+  <div class="panel-header">
+    <h2>Opportunities</h2>
+  </div>
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fields">{{field.text}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let json of Json">
+            <td *ngFor="let key of fields">
+              <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/opportunities/opportunity-detail',json.opportunityId]"
+                class="text-purple cursor-pointer">
                 {{json[key.jsonKey]}}
-              </td>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="panel-footer">
+              </span>
+              <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                {{json[key.jsonKey]}}
+              </span>
+            </td>
+        </tbody>
+      </table>
     </div>
   </div>
+  <div class="panel-footer">
+  </div>
+</div>
