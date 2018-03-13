@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LeadsComponent implements OnInit {
   paginationTextShow = true;
   popupShow = false;
+  warning = false;
   sortBy = 'Name';
   sortDecrease = true;
   selectedNo = 0;

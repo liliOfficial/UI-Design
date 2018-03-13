@@ -1,13 +1,59 @@
-<app-find-duplications></app-find-duplications>
-<div class="panel border-green">
+<div *ngIf="!convert">
+    <app-find-duplications></app-find-duplications>
+    <button class="btn btn-green btn-block btn-lg" (click)="convert=!convert">Convert</button>
+</div>
+
+<div class="panel border-green" *ngIf="convert">
     <div class="panel-header">
         <h2>Convert</h2>
     </div>
     <div class="panel-body">
-        <h2 class="text-red">TO BE CONTINUE</h2>
+        <div class="panel-section">
+            <div class="section-header">Trading Platform</div>
+            <div class="section-body">
+                <div class="m-10  text-center">
+                    <label class="field-label">Opportunity Type</label>
+                    <span class="input-group">
+                        <select name="" id="" class="select select-sm input-block">
+                            <option value="" *ngFor="let item of opportunityTypes">{{item}}</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="m-10  text-center">
+                    <label class="field-label">Trading Account Number</label>
+                    <span class="input-group">
+                        <input class="input input-block input-sm" type="text">
+                    </span>
+                </div>
+                <div class="m-10  text-center">
+                    <label class="field-label">Password</label>
+                    <span class="input-group">
+                        <input class="input input-block input-sm" type="text">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-section">
+            <div class="section-header">Client Portal</div>
+            <div class="section-body">
+                <div class="field-textarea m-10">
+                    <label class="field-label">Portal Login</label>
+                    <span class="input-group" class="text-b text-left">
+                        testing@testing.com
+                    </span>
+                </div>
+                <div class="m-10  text-center">
+                    <label class="field-label">Password</label>
+                    <span class="input-group">
+                        <input class="input input-block input-sm" type="text">
+                    </span>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="panel-footer">
-        <button class="btn btn-green">Convert to Account</button>
+        <button class="btn btn-green" routerLink="/task">Convert to Account</button>
         <button class="btn btn-red" (click)="cancel()">Cancel</button>
     </div>
 </div>

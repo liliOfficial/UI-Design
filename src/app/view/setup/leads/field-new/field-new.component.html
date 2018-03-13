@@ -43,7 +43,7 @@
         <div class="m-10  text-center">
           <label class="field-label">Field Label</label>
           <span class="input-group">
-            <input class="input input-block input-sm" type="text" placeholder="Insert value from the pick list" [(ngModel)]="department">
+            <input class="input input-block input-sm" type="text">
             <span class="input-icon">
               <i class="fa fa-question-circle"></i>
             </span>
@@ -52,7 +52,7 @@
         <div class="m-10 text-center">
           <label class="field-label">Field API</label>
           <span class="input-group">
-            <input class="input input-block input-sm" type="text" placeholder="Insert value from the pick list" [(ngModel)]="department">
+            <input class="input input-block input-sm" type="text">
             <span class="input-icon">
               <i class="fa fa-question-circle"></i>
             </span>
@@ -73,8 +73,9 @@
         <div class="field-textarea">
           <div class="mb-5">
             <div class="checkbox checkbox-green">
-              <input type="checkbox" checked>
+              <input type="checkbox" (change)="alwaysRequire()" [(ngModel)]="allLayout">
               <label> Always require value in order to save</label>
+              <small class="text-red"> ( Once ticked, will show on all page layout )</small>
             </div>
           </div>
         </div>
@@ -103,7 +104,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="panel-section">
-          <div class="section-header">Adding Field to particular Page Layout</div>
+          <div class="section-header">Adding Field to particular page layout</div>
           <div class="section-body">
             <div class="row">
               <table class="table-full table-striped table-hover">
@@ -111,7 +112,7 @@
                   <tr>
                     <th width=30>
                       <div class="checkbox checkbox-green">
-                        <input type="checkbox">
+                        <input type="checkbox" [disabled]="allLayout" [(ngModel)]="allSelected" (change)="selectAll()">
                         <label> </label>
                       </div>
                     </th>
@@ -123,7 +124,7 @@
                   <tr *ngFor="let item of pageLayouts">
                     <td>
                       <div class="checkbox checkbox-green">
-                        <input type="checkbox">
+                        <input type="checkbox" [(ngModel)]="item.chosen" [disabled]="allLayout">
                         <label> </label>
                       </div>
                     </td>

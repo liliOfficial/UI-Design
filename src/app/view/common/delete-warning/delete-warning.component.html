@@ -1,0 +1,23 @@
+<div class="popup popup-warning">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Warning</h2>
+        <span class="action">
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="warning=false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <h2>Once deleted, cannot be retrived.</h2>
+        <div class="mt-15">
+          <button class="btn btn-red">
+            <i class="icon fa fa-trash-alt"></i> Delete</button>
+          <button class="btn" (click)="warning=false">
+            <i class="icon fa fa-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

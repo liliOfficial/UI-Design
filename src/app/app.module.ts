@@ -62,6 +62,8 @@ import { LeadsPageLayoutAssignmentComponent } from './view/setup/leads/leads-pag
 import { LeadsPageLayoutAssignmentCallbackComponent } from './view/setup/leads/leads-page-layout-assignment-callback/leads-page-layout-assignment-callback.component';
 import { AccountsNewViewComponent } from './view/accounts/accounts-new-view/accounts-new-view.component';
 import { OpportunitiesNewViewComponent } from './view/opportunities/opportunities-new-view/opportunities-new-view.component';
+import { FundDuplicationsComponent } from './view/accounts/fund-duplications/fund-duplications.component';
+import { DeleteWarningComponent } from './view/common/delete-warning/delete-warning.component';
 
 
 @NgModule({
@@ -124,6 +126,8 @@ import { OpportunitiesNewViewComponent } from './view/opportunities/opportunitie
     LeadsPageLayoutAssignmentCallbackComponent,
     AccountsNewViewComponent,
     OpportunitiesNewViewComponent,
+    FundDuplicationsComponent,
+    DeleteWarningComponent,
 
   ],
   imports: [
@@ -143,6 +147,7 @@ import { OpportunitiesNewViewComponent } from './view/opportunities/opportunitie
       { path: 'accounts', component: AccountsComponent },
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'accounts/view-detail/:id', component: AccountsNewViewComponent },
+      { path: 'accounts/find-duplications', component: FundDuplicationsComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
       { path: 'opportunities/opportunity-detail/:id', component: OpportunityDetailComponent },

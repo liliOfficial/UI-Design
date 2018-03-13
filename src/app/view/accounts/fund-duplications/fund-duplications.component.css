@@ -1,0 +1,16 @@
+.find {
+    text-align: center;
+    padding:15px 0;
+}
+.find .checkbox {
+    padding: 5px 0;
+}
+.find-label {
+    width:150px;
+    display:inline-block;
+    text-align: left;
+}
+.find-input {
+    width:500px;
+    display:inline-block;
+}

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldNewComponent implements OnInit {
   dataType;
+  allLayout = false;
+  allSelected = false;
   nextStep = false;
   newValue: string;
 
@@ -17,17 +19,19 @@ export class FieldNewComponent implements OnInit {
     { label: 'Date/Time', description: 'Date within accordance with country format, time is in 24 hours' },
     { label: 'Date', description: 'Date within accordance with country format' },
     { label: 'Numbers', description: 'Field to be in form of numbers' },
+    { label: 'Lone Text', description: 'Field for description' },
+
   ];
 
   picklistValue = ['Jimmy', 'Will', 'Ginney'];
 
   pageLayouts = [
     {
-      text: 'Company Administrator', chosen: true,
+      text: 'Company Administrator', chosen: false,
       departments: ['Company Administrator', 'Sales Administrator']
     },
     {
-      text: 'Operation Administrator', chosen: true,
+      text: 'Operation Administrator', chosen: false,
       departments: ['Company Administrator', 'Sales Administrator']
     },
     {
@@ -39,7 +43,7 @@ export class FieldNewComponent implements OnInit {
       departments: ['Company Administrator', 'Sales Administrator']
     },
     {
-      text: 'Marketing', chosen: true,
+      text: 'Marketing', chosen: false,
       departments: ['Company Administrator', 'Sales Administrator']
     },
   ];
@@ -47,6 +51,21 @@ export class FieldNewComponent implements OnInit {
   step2() {
     this.nextStep = true;
     console.log(this.dataType);
+  }
+
+  alwaysRequire() {
+    if (this.allLayout === true) {
+      this.pageLayouts.forEach(element => element.chosen = true);
+    }
+  }
+
+  selectAll() {
+    if (this.allSelected === false) {
+      this.pageLayouts.forEach(element => element.chosen = false);
+    }
+    if (this.allSelected === true) {
+      this.pageLayouts.forEach(element => element.chosen = true);
+    }
   }
 
   addValue(value) {
