@@ -1,0 +1,15 @@
+.folders {
+    background:#FFF3E0;
+}
+
+
+.folders td {
+    white-space:nowrap;
+    padding:20px 15px 30px;
+    font-weight: 700;    
+}
+
+.folders td .folder-icon {
+    font-size: 30px;
+    padding-bottom: 5px;
+}

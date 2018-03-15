@@ -1,0 +1,52 @@
+<h2 class="mt-15 mb-5">Permission to Get Access</h2>
+<div class="dropbox" style="height:auto">
+  <h2 class="m-10" *ngIf="!sharedUser.length && !sharedTeam.length">Please choose user to share.</h2>
+  <button class="btn btn-circle btn-orange btn-xs ml-5 mb-5" *ngFor="let user of sharedUser" (click)="removeUser(user.id)">
+    <i class="fa fa-user"></i>
+    {{user.name}}
+    <i class="fa fa-times ml-5"></i>
+  </button>
+  <div class="clearfix"></div>
+  <button class="btn btn-circle btn-xs ml-5 mb-5" *ngFor="let team of sharedTeam" (click)="removeTeam(index)">
+    <i class="fa fa-users"></i>
+    {{team}}
+    <i class="fa fa-times ml-5"></i>
+  </button>
+</div>
+
+<button class="btn btn-orange btn-sm mt-10 mb-15" (click)="chartShow=!chartShow">
+  <span *ngIf="!chartShow">
+    <i class="fa fa-user-plus"></i> Add New User
+  </span>
+  <span *ngIf="chartShow">
+    <i class="fa fa-times"></i> Close Chart
+  </span>
+</button>
+<div class="row" *ngIf="chartShow">
+  <div class="col-12 text-orange mb-5">
+    Single click to show departments and users. Double click to add user or department to share.
+  </div>
+  <div class="col-3">
+    <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+  </div>
+  <div class="col-9">
+    <div class="dropbox dropbox-edit">
+      <div class="dropbox-heading">
+        <span>{{userDepartment}}</span>
+        <div class="action">
+          <span class="input-line-group pull-right">
+            <span class="search-icon">
+              <i class="fa fa-search"></i>
+            </span>
+            <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+            <span class="searchline"></span>
+          </span>
+        </div>
+      </div>
+      <span class="btn btn-circle btn-sm user btn-orange" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+        <i class="fa fa-user"></i> {{user}}
+      </span>
+    </div>
+  </div>
+  <div class="clearfix mb-30"></div>
+</div>

@@ -64,6 +64,10 @@ import { AccountsNewViewComponent } from './view/accounts/accounts-new-view/acco
 import { OpportunitiesNewViewComponent } from './view/opportunities/opportunities-new-view/opportunities-new-view.component';
 import { FundDuplicationsComponent } from './view/accounts/fund-duplications/fund-duplications.component';
 import { DeleteWarningComponent } from './view/common/delete-warning/delete-warning.component';
+import { TemplatesComponent } from './view/setup/email/templates/templates.component';
+import { NewTemplateComponent } from './view/setup/email/new-template/new-template.component';
+import { PaginationComponent } from './view/common/pagination/pagination.component';
+import { FolderPermissionComponent } from './view/setup/email/folder-permission/folder-permission.component';
 
 
 @NgModule({
@@ -128,6 +132,10 @@ import { DeleteWarningComponent } from './view/common/delete-warning/delete-warn
     OpportunitiesNewViewComponent,
     FundDuplicationsComponent,
     DeleteWarningComponent,
+    TemplatesComponent,
+    NewTemplateComponent,
+    PaginationComponent,
+    FolderPermissionComponent,
 
   ],
   imports: [
@@ -167,6 +175,8 @@ import { DeleteWarningComponent } from './view/common/delete-warning/delete-warn
       { path: 'setup/leads/edit-layout', component: LeadsEditLayoutComponent },
       { path: 'setup/leads/edit-layout-assignment', component: LeadsPageLayoutAssignmentComponent },
       { path: 'setup/email', component: NewEmailComponent },
+      { path: 'setup/email/templates', component: TemplatesComponent},
+      { path: 'setup/email/new-template', component: NewTemplateComponent}
 
     ])
   ],

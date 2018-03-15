@@ -18,7 +18,7 @@ export class SetupNavComponent implements OnInit {
     if (URL.includes('/setup/accounts')) { this.active = 'accounts'; }
     if (URL.includes('/setup/opportunities')) { this.active = 'opportunities'; }
     if (URL.includes('/setup/email')) { this.active = 'email'; }
-    if (URL.includes('/setup/email')) { this.active = 'email'; }
+    if (URL.includes('/setup/workflow')) { this.active = 'workflow'; }
   }
 
   constructor() {

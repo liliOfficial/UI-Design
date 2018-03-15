@@ -4,10 +4,10 @@
 
 .logo {
     display:inline-block;
-    border:1px dashed #eee;
+    background:#1b1e24;
+    padding:15px;
 }
 
 .logo img {
-    width:250px;
-    height: 250px;
+    max-height: 200px;
 }

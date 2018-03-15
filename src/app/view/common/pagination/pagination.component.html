@@ -1,0 +1,13 @@
+<div>Showing {{startNo}} to {{endNo}} of {{totalNo}} entries</div>
+<ul>
+  <li class="arrow">
+    <a>«</a>
+  </li>
+  <li *ngFor="let no of pageNos" [class.active]="no === currentPage" (click)="paginationInit(totalPage,no)">
+    <a>{{no}}</a>
+  </li>
+
+  <li class="arrow">
+    <a>»</a>
+  </li>
+</ul>

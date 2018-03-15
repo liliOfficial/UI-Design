@@ -76,7 +76,19 @@
       </ul>
     </li>
     <li>
-      <span class="heading" [class.active]="active=='email'">Email Communications</span>
+      <span class="heading" (click)="active='email'" [class.active]="active=='email'">Email Communications</span>
+      <ul class="subnav" [class.hide]="active!=='email'">
+          <li>
+            <span class="subheading" routerLink="/setup/email/templates">
+              <i class="fa fa-envelope-square"></i> Email Templates
+            </span>
+          </li>
+          <li>
+            <span class="subheading" routerLink="/setup/email/new-template">
+              <i class="fa fa-envelope-open"></i> New Email Template
+            </span>
+          </li>
+        </ul>
     </li>
     <li>
       <span class="heading" [class.active]="active=='workflow'">Workflow Automation</span>

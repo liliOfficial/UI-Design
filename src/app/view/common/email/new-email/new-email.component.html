@@ -1,7 +1,12 @@
+<div class="clearfix-"></div>
+<span class="pull-right">
+  <button class="btn btn-orange">
+    <i class="fa fa-share-square"></i> Send</button>
+  <button class="btn">
+    <i class="fa fa-trash-alt"></i> Discard</button>
+</span>
+<h2 class="mb-5 mt-10">New Email</h2>
 <div class="panel">
-  <div class="panel-header">
-    <h2>New Email</h2>
-  </div>
   <div class="panel-body">
     <div class="from-to">
       <div class="label">
@@ -22,14 +27,14 @@
       </div>
     </div>
     <div class="from-to">
-        <div class="label">
-          <label>Bcc:</label>
-        </div>
-        <div class="input-line-group">
-          <input type="text" class="input-line input-block">
-          <span class="underline"></span>
-        </div>
+      <div class="label">
+        <label>Bcc:</label>
       </div>
+      <div class="input-line-group">
+        <input type="text" class="input-line input-block">
+        <span class="underline"></span>
+      </div>
+    </div>
     <div class="from-to">
       <div class="label">
         <label>Subject:</label>
@@ -39,26 +44,27 @@
         <span class="underline"></span>
       </div>
     </div>
-    <div class="mt-15 mb-10">
-      <button class="btn btn-green">
-        <i class="fa fa-share-square"></i> Send</button>
-      <button class="btn btn-lightgreen">
-        <i class="fa fa-download"></i> Import Template</button>
-      <button class="btn btn-red">
-        <i class="fa fa-trash-alt"></i> Discard</button>
-      <span class="multi-upload">
-        <button class="btn">
-          <i class="fa fa-paperclip"></i> Attachment</button>
-        <input type="file" multiple="true" (change)="attach($event)" class="btn" >
-      </span>
-    </div>
-    <div>
-      <span *ngFor="let attachment of attachments; index as i" class="btn mr-5 btn-xs btn-circle btn-white btn-shadow">
-        {{attachment}}
-        <i class="fa fa-times ml-5" (click)="deleteAttachment(i)"></i>
-      </span>
+    
+    <div class="dropbox dropbox-edit">
+      <div class="dropbox-heading">
+        <button class="btn btn-orange btn-sm" (click)="importPopup = true">
+          <i class="fa fa-download"></i> Import HTML Template
+        </button>
+        <span class="multi-upload">
+          <button class="btn btn-orange btn-sm">
+            <i class="fa fa-paperclip"></i> Attachment</button>
+          <input type="file" multiple="true" (change)="attach($event)" class="btn">
+        </span>
+        <div class="mt-10" *ngIf="attachments.length">
+          <span *ngFor="let attachment of attachments; index as i" class="btn mr-5 btn-xs btn-circle btn-white btn-shadow">
+            <i class="fa fa-paperclip"></i>
+            {{attachment}}
+            <i class="fa fa-times ml-5" (click)="deleteAttachment(i)"></i>
+          </span>
+        </div>
+      </div>
+      <textarea name="" id="" rows="20" class="input-block"></textarea>
     </div>
     <div class="clearfix m-15"></div>
-    <textarea name="" id="" rows="20" class="w-100p mb-15"></textarea>
   </div>
 </div>

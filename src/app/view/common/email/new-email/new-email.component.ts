@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-email.component.css']
 })
 export class NewEmailComponent implements OnInit {
-  attachments: any;
+  attachments = [];
 
   attach(e) {
     const files = [].slice.call(e.target.files);

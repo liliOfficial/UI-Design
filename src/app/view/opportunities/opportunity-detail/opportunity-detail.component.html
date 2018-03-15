@@ -16,7 +16,8 @@
             <label>
               {{list.label}}
               <span class="help">
-                <i class="fa fa-question-circle" *ngIf="list.help" [title]="list.help"></i>
+                <i class="fa fa-question-circle" *ngIf="list.help"></i>
+                <span class="hint" *ngIf="list.help">{{list.help}}</span>
               </span>
             </label>
             <span class="content">
