@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-folder-permission',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./folder-permission.component.css']
 })
 export class FolderPermissionComponent implements OnInit {
+  @Input('folderType') folderType;
+  @Input('currentFolders') currentFolders;
+
   chartShow = false;
   users = [
     { id: '1', name: 'Jimmy', share: true },

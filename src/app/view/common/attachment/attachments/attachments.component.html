@@ -2,7 +2,7 @@
   <div class="panel-header">
     <h2>Attachments</h2>
     <div class="action">
-      <button class="btn btn-xs btn-shadow btn-circle ml-5">Attach File</button>
+      <button class="btn btn-xs btn-shadow btn-circle ml-5" routerLink="/attachment">Attach File</button>
     </div>
   </div>
   <div class="panel-body">
@@ -10,7 +10,7 @@
       <table class="table-full table-striped table-hover">
         <thead>
           <tr>
-            <th>Action</th>
+            <th width=60>Action</th>
             <th>Title</th>
             <th>Type</th>
             <th>Uploaded Date</th>
@@ -34,30 +34,7 @@
       </table>
     </div>
     <div class="pagination">
-      <div>Showing 1 to 10 of 57 entries</div>
-      <ul>
-        <li class="arrow">
-          <a>«</a>
-        </li>
-        <li class="active">
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
-        <li>
-          <a>5</a>
-        </li>
-        <li class="arrow">
-          <a>»</a>
-        </li>
-      </ul>
+        <app-pagination></app-pagination>
     </div>
   </div>
 </div>

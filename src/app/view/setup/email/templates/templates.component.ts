@@ -9,57 +9,11 @@ export class TemplatesComponent implements OnInit {
   activeFolder = 'Private Template';
   currentFolders = 'Jimmy';
   userDepartment = 'User in the Department';
-  activeTab = 'templates';
+
   departmentUsers;
   filteredUsers;
   userKeyword;
-
-  folders = ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-    'Sales Team', 'Market Team', 'Personal 1', 'Personal 2', 'Personal 3', 'Personal 4',
-    'Personal 5', 'Personal 6', 'Personal 7'];
-
-  templates = [
-    {
-      id: 145235,
-      name: 'ACY Live Account',
-      createdDate: '28/02/2018',
-      modifiedDate: '28/02/2018',
-      createdBy: 'Jimmy Ye',
-      description: 'Live account'
-    },
-    {
-      id: 145237,
-      name: 'Demo Account',
-      createdDate: '28/02/2018',
-      modifiedDate: '28/02/2018',
-      createdBy: 'Jimmy Ye',
-      description: 'Demo account'
-    },
-    {
-      id: 145258,
-      name: 'Market',
-      createdDate: '28/02/2018',
-      modifiedDate: '28/02/2018',
-      createdBy: 'Jimmy Ye',
-      description: 'Demo account'
-    },
-    {
-      id: 145291,
-      name: 'Sales',
-      createdDate: '28/02/2018',
-      modifiedDate: '28/02/2018',
-      createdBy: 'Jimmy Ye',
-      description: 'Demo account'
-    },
-    {
-      id: 145299,
-      name: 'Administrator',
-      createdDate: '28/02/2018',
-      modifiedDate: '28/02/2018',
-      createdBy: 'Jimmy Ye',
-      description: 'Demo account'
-    },
-  ];
+  departmentShow = true;
 
   userList = {
     '0': ['lili', 'Ronan'],
@@ -76,23 +30,475 @@ export class TemplatesComponent implements OnInit {
   };
 
   folderList = {
-    'lili': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Personal 1', 'Personal 2', 'Personal 3'],
-    'Ronan': ['Private Template', 'Shared Folder'],
-    'Jimmy': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Sales Team', 'Market Team', 'Personal 1', 'Personal 2', 'Personal 3', 'Personal 4',
-      'Personal 5', 'Personal 6', 'Personal 7'],
-    'Winson': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Sales Team', 'Market Team', 'Personal 3', 'Personal 4',
-      'Personal 5', 'Personal 6', 'Personal 7'],
-    'Will': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Personal 3', 'Personal 4', 'Personal 5', 'Personal 6', 'Personal 7'],
-    'Ginny': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Market Team', 'Personal 1', 'Personal 2', 'Personal 3', 'Personal 4',
-      'Personal 5'],
-    'Reena': ['Private Template', 'Shared Folder', 'Genaral Folder', 'Private Folder',
-      'Sales Team'],
+    'lili': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Sales Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Market Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Personal 6',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 7',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 8',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 9',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Ronan': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Jimmy': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Sales Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Market Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Personal 1',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 2',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 3',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 4',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 5',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 6',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 7',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 8',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 9',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Winson': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Sales Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Market Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Personal 1',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 2',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 3',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 4',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 5',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 6',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Will': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 4',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 5',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 6',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 7',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 8',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 9',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Ginny': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 3',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 4',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 5',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 6',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 7',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 8',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Personal 9',
+          Templates: '',
+          shared: false
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    },
+    'Reena': {
+      self: [
+        {
+          name: 'Private Template',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Shared Folder',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Genaral Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Private Folder',
+          Templates: '',
+          shared: false
+        },
+        {
+          name: 'Sales Team',
+          Templates: '',
+          shared: true
+        },
+        {
+          name: 'Market Team',
+          Templates: '',
+          shared: true
+        }
+      ],
+      shared: [
+        {
+          name: 'Shared Folder',
+          by: 'user1'
+        },
+        {
+          name: 'shared2',
+          by: 'user2'
+        },
+        {
+          name: 'shared3',
+          by: 'user3'
+        }
+      ]
+    }
   };
+
+  folders = this.folderList[this.currentFolders];
 
   showTeamUser(value) {
     this.userDepartment = value.name;

@@ -4,13 +4,14 @@
     <div class="panel-header">
       <h2>Email Templates</h2>
       <div class="action">
-        <button class="btn btn-xs btn-circle btn-orange">
-          <i class="fa fa-search"></i> Search Folder
+        <button class="btn btn-xs btn-circle btn-orange" (click)="departmentShow = !departmentShow" >
+          <span *ngIf="departmentShow">Hide Departments</span>
+          <span *ngIf="!departmentShow">Show Departments</span>
         </button>
       </div>
     </div>
     <!-- Search User -->
-    <div class="panel-body mt-15">
+    <div class="panel-body mt-15" *ngIf="departmentShow">
       <div class="row">
         <div class="col-3">
           <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
@@ -38,77 +39,7 @@
         </div>
       </div>
       <div class="clearfix m-20"></div>
-      
-    </div>
-    <!-- Folders -->
-  </div>
-  <div class="panel border-orange">
-    <div class="panel-header">
-      <h2>{{currentFolders}}'s Folders</h2>
-    </div>
-    <div class="panel-body folders mb-30">
-      <div class="row">
-        <table>
-          <tr>
-            <td *ngFor="let folder of folders" class="text-center" (click)="activeFolder=folder">
-              <div class="text-orange folder-icon">
-                <i class="fa fa-folder" *ngIf="activeFolder!==folder"></i>
-                <i class="fa fa-folder-open" *ngIf="activeFolder===folder"></i>
-              </div>
-              <span [class.text-orange]="activeFolder===folder">{{folder}}</span>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <!-- Tabs -->
-    <div class="panel-body">
-      <div class="row">
-        <div class="tab tab-orange">
-          <ul>
-            <li (click)="activeTab='templates'" [class.active]="activeTab==='templates'">Templates in {{activeFolder}}</li>
-            <li (click)="activeTab='permission'" [class.active]="activeTab==='permission'">Permission Setting of {{activeFolder}}</li>
-          </ul>
-        </div>
-      </div>
-      <div *ngIf="activeTab==='templates'">
-        <div class="mt-15">
-          <button class="btn btn-orange btn-xs pull-right btn-circle">
-            <i class="fa fa-plus"></i> Add New Template</button>
-        </div>
-        <div class="row">
-          <table class="table-full table-striped table-hover">
-            <thead>
-              <tr>
-                <th width=30></th>
-                <th>Template Name</th>
-                <th>Created Date</th>
-                <th>Modified Date</th>
-                <th>Created By</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let template of templates">
-                <td>
-                  <i class="fa fa-trash-alt"></i>
-                </td>
-                <td class="text-orange cursor-pointer">{{template.name}}</td>
-                <td>{{template.createdDate}}</td>
-                <td>{{template.modifiedDate}}</td>
-                <td>{{template.createdBy}}</td>
-                <td>{{template.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pagination pagination-orange">
-          <app-pagination></app-pagination>
-        </div>
-      </div>
-      <div *ngIf="activeTab==='permission'">
-        <app-folder-permission></app-folder-permission>
-      </div>
     </div>
   </div>
+  <app-folders [currentFolders]="currentFolders" [folders]="folders"></app-folders>
 </div>

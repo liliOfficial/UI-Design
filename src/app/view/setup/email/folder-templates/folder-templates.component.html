@@ -1,0 +1,33 @@
+<div class="mt-15">
+  <button class="btn btn-orange btn-xs pull-right btn-circle" *ngIf="currentFolders==='Jimmy'&&folderType==='self'" routerLink="/setup/email/new-template">
+    <i class="fa fa-plus"></i> Add New Template</button>
+</div>
+<div class="row">
+  <table class="table-full table-striped table-hover">
+    <thead>
+      <tr>
+        <th width=30></th>
+        <th>Template Name</th>
+        <th>Created Date</th>
+        <th>Modified Date</th>
+        <th>Created By</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let template of templates">
+        <td>
+          <i class="fa fa-trash-alt"></i>
+        </td>
+        <td class="text-orange cursor-pointer">{{template.name}}</td>
+        <td>{{template.createdDate}}</td>
+        <td>{{template.modifiedDate}}</td>
+        <td>{{template.createdBy}}</td>
+        <td>{{template.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination pagination-orange">
+  <app-pagination></app-pagination>
+</div>

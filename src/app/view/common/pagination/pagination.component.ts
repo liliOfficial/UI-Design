@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
+
   constructor() {
     this.paginationInit(this.currentPage, this.totalPage);
   }

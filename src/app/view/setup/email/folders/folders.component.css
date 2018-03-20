@@ -1,0 +1,51 @@
+.folders {
+    background:#FFF3E0;
+}
+
+.folders td {
+    white-space:nowrap;
+    padding:20px 15px 20px;
+    font-weight: 700;    
+}
+
+.folders .folder-icon {
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+
+.folders td .sharedby {
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.folder-box {
+    position: relative;
+}
+
+.folder-box .share-icon {
+    position: absolute;
+    bottom: 5px;
+    left:50%;
+    margin-left:16px;
+}
+
+.folder {
+    display:inline-block;
+    width:23.5%;
+    margin-right: 1%;
+    position: relative;
+}
+
+.folder .input-group {
+    width:95%; 
+    margin-bottom: 5px;
+}
+
+.drag .folder:hover {
+    border-left:3px solid #fb8c00;
+    padding-left:5px;
+}
+
+#drag-folder {
+    position: absolute;
+}

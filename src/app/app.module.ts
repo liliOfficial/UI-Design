@@ -68,6 +68,9 @@ import { TemplatesComponent } from './view/setup/email/templates/templates.compo
 import { NewTemplateComponent } from './view/setup/email/new-template/new-template.component';
 import { PaginationComponent } from './view/common/pagination/pagination.component';
 import { FolderPermissionComponent } from './view/setup/email/folder-permission/folder-permission.component';
+import { AttachmentDetailComponent } from './view/common/attachment/attachment-detail/attachment-detail.component';
+import { FolderTemplatesComponent } from './view/setup/email/folder-templates/folder-templates.component';
+import { FoldersComponent } from './view/setup/email/folders/folders.component';
 
 
 @NgModule({
@@ -136,6 +139,9 @@ import { FolderPermissionComponent } from './view/setup/email/folder-permission/
     NewTemplateComponent,
     PaginationComponent,
     FolderPermissionComponent,
+    AttachmentDetailComponent,
+    FolderTemplatesComponent,
+    FoldersComponent,
 
   ],
   imports: [
@@ -162,6 +168,7 @@ import { FolderPermissionComponent } from './view/setup/email/folder-permission/
       { path: 'opportunities/view-detail/:id', component: OpportunitiesNewViewComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
+      { path: 'attachment', component: AttachmentDetailComponent },
       { path: 'setup/company', component: CompanyInformationComponent },
       { path: 'setup/company/users', component: UsersComponent },
       { path: 'setup/company/user-detail/:id', component: UserDetailComponent },
