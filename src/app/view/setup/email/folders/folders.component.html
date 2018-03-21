@@ -11,7 +11,7 @@
       </span>
     </h2>
     <div class="action">
-      <button class="btn btn-xs btn-orange btn-circle ml-5" *ngIf="folderType==='self'&&currentFolders==='Jimmy'" (click)="editFolder()">
+      <button class="btn btn-xs btn-orange btn-circle ml-5" *ngIf="folderType==='self'||currentFolders==='My Folders'&&currentFolders==='Jimmy'" (click)="editFolder()">
         <i class="fa fa-edit"></i> Edit My Folders
       </button>
     </div>
@@ -76,7 +76,7 @@
     </div>
   </div>
   <div class="panel-body folders" (mousemove)="mouseMove($event)">
-    
+
     <div class="clearfix m-10"></div>
     <div *ngFor="let folder of myFolders; index as i" class="folder" (mouseup)="mouseUp(i)">
       <span class="folder-box">

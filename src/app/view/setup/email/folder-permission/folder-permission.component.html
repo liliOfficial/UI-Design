@@ -14,7 +14,7 @@
   </button>
 </div>
 
-<button class="btn btn-orange btn-sm mt-10" (click)="chartShow=!chartShow" *ngIf="currentFolders==='Jimmy'&&folderType==='self'">
+<button class="btn btn-orange btn-sm mt-10" (click)="chartShow=!chartShow" *ngIf="currentFolders==='Jimmy'||currentFolders==='My Folders'&&folderType==='self'">
   <span *ngIf="!chartShow">
     <i class="fa fa-user-plus"></i> Add New User
   </span>

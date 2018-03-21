@@ -1,6 +1,10 @@
 <div class="mt-15">
   <button class="btn btn-orange btn-xs pull-right btn-circle" *ngIf="currentFolders==='Jimmy'&&folderType==='self'" routerLink="/setup/email/new-template">
-    <i class="fa fa-plus"></i> Add New Template</button>
+    <i class="fa fa-plus"></i> Add New Template
+  </button>
+  <button class="btn btn-orange btn-xs pull-right btn-circle" *ngIf="currentFolders==='My Folders'&&folderType==='self'" routerLink="/setup/email/new-template">
+    <i class="fa fa-plus"></i> Add New Template
+  </button>
 </div>
 <div class="row">
   <table class="table-full table-striped table-hover">

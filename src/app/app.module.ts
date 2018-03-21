@@ -71,6 +71,7 @@ import { FolderPermissionComponent } from './view/setup/email/folder-permission/
 import { AttachmentDetailComponent } from './view/common/attachment/attachment-detail/attachment-detail.component';
 import { FolderTemplatesComponent } from './view/setup/email/folder-templates/folder-templates.component';
 import { FoldersComponent } from './view/setup/email/folders/folders.component';
+import { FolderComponent } from './view/common/email/folder/folder.component';
 
 
 @NgModule({
@@ -142,6 +143,7 @@ import { FoldersComponent } from './view/setup/email/folders/folders.component';
     AttachmentDetailComponent,
     FolderTemplatesComponent,
     FoldersComponent,
+    FolderComponent,
 
   ],
   imports: [
@@ -152,6 +154,7 @@ import { FoldersComponent } from './view/setup/email/folders/folders.component';
       { path: '', component: DashboardComponent },
       { path: 'login', component: LoginComponent },
       { path: 'user/setting', component: SettingComponent },
+      { path: 'user/folder', component: FolderComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
       { path: 'leads/view-detail/:id', component: LeadsNewViewComponent },
