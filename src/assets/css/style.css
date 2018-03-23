@@ -206,6 +206,9 @@ ul.inline-block li {
     cursor: not-allowed;
 }
 
+.cursor-move {
+    cursor: move;
+}
 
  /* button style */
 .btn {
@@ -268,6 +271,7 @@ ul.inline-block li {
     height:28px;
     padding: 0;
     border-radius: 50%;
+    text-decoration: none;
     box-sizing: border-box;
     display: inline-table;
     text-align: center;

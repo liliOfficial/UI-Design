@@ -11,7 +11,7 @@
       </span>
     </h2>
     <div class="action">
-      <button class="btn btn-xs btn-orange btn-circle ml-5" *ngIf="folderType==='self'||currentFolders==='My Folders'&&currentFolders==='Jimmy'" (click)="editFolder()">
+      <button class="btn btn-xs btn-orange btn-circle ml-5" *ngIf="currentFolders==='Jimmy'||currentFolders==='My Folders'&&folderType==='self'" (click)="editFolder()">
         <i class="fa fa-edit"></i> Edit My Folders
       </button>
     </div>
@@ -29,7 +29,6 @@
               <span class="share-icon" *ngIf="folder.shared">
                 <i class="fa fa-share-square"></i>
               </span>
-
             </div>
             <span [class.text-orange]="activeFolder===folder">{{folder.name}}</span>
           </td>
@@ -76,11 +75,10 @@
     </div>
   </div>
   <div class="panel-body folders" (mousemove)="mouseMove($event)">
-
     <div class="clearfix m-10"></div>
     <div *ngFor="let folder of myFolders; index as i" class="folder" (mouseup)="mouseUp(i)">
       <span class="folder-box">
-        <span class="text-orange folder-icon">
+        <span class="text-orange folder-icon cursor-move">
           <i class="fa fa-folder" (mousedown)="mouseDown(i)"></i>
         </span>
         <i class="fa fa-trash-alt" (click)="deleteFolder(i)"></i>
@@ -98,7 +96,7 @@
       <span class="text-orange folder-icon">
         <i class="fa fa-folder" (mousedown)="mouseDown(i)"></i>
       </span>
-      <span>{{dragFolder}}</span>
+      <span class="text-b">{{dragFolder}}</span>
     </div>
     <div class="clearfix m-20"></div>
   </div>

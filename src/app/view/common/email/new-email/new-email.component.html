@@ -47,11 +47,14 @@
     <div class="dropbox dropbox-edit">
       <div class="dropbox-heading">
         <button class="btn btn-orange btn-sm" (click)="popupShow=true">
-          <i class="fa fa-download"></i> Use Template
+          <i class="fa fa-download"></i> Select Template
+        </button>
+        <button class="btn btn-orange btn-sm">
+          <i class="fa fa-file"></i> Cloud Attachment
         </button>
         <span class="multi-upload">
           <button class="btn btn-orange btn-sm">
-            <i class="fa fa-paperclip"></i> Attachment</button>
+            <i class="fa fa-paperclip"></i> Local Attachment</button>
           <input type="file" multiple="true" (change)="attach($event)" class="btn">
         </span>
         <div class="mt-10" *ngIf="attachments.length">
@@ -64,17 +67,20 @@
       </div>
       <textarea name="" id="" rows="20" class="input-block"></textarea>
     </div>
-    <div class="clearfix m-20"></div>
+    <div class="clearfix m-30"></div>
   </div>
 </div>
 <div class="popup popup-transparent" *ngIf="popupShow">
   <div class="popup-content">
     <div class="popup-box">
       <div class="popup-header">
-        <h2 class="title">Choose Template</h2>
+        <h2 class="title">Select Template</h2>
         <span class="action">
           <a class="btn btn-icon btn-orange">
             <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon btn-white" routerLink="/user/folder">
+            <i class="icon fa fa-plus"></i>
           </a>
           <a class="btn btn-icon">
             <i class="icon fa fa-times" (click)="popupShow = false"></i>
@@ -82,13 +88,34 @@
         </span>
       </div>
       <div class="popup-body">
-
-        <div class="mb-10">
-          <div class="mb-10 text-b">
-            <label for="">Select Folders</label>
+        <div class="mb-10 text-b">
+          <div class="row">
+            <div class="col-6">
+              <div class="radio radio-orange">
+                <input type="radio" value="my" [(ngModel)]="folderType">
+                <label for=""> My Folders</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="radio radio-orange">
+                <input type="radio" value="share" [(ngModel)]="folderType">
+                <label for=""> Shared By</label>
+              </div>
+            </div>
           </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="mb-10" *ngIf="folderType==='my'">
           <select id="" class="select input-block" [(ngModel)]="selectFolder">
             <option *ngFor="let folder of folders" [ngValue]="folder.templates">{{folder.name}}</option>
+          </select>
+        </div>
+        <div class="mb-10" *ngIf="folderType==='share'">
+          <select id="" class="select input-block" [(ngModel)]="selectFolder">
+            <option *ngFor="let folder of sharedFolders" [ngValue]="folder.templates">
+              {{folder.name}}
+              <span class="text-orange"> ( By: {{folder.by}} )</span>
+            </option>
           </select>
         </div>
         <div *ngIf="selectFolder.length">

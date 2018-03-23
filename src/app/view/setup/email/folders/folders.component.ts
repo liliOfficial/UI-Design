@@ -57,9 +57,7 @@ export class FoldersComponent implements OnInit {
       document.getElementById('drag-folder').style.top = (e.screenY - 60) + 'px';
       document.getElementById('drag-folder').style.left = (e.screenX + 15) + 'px';
       e.preventDefault();
-
     }
-
   }
 
   constructor() { }

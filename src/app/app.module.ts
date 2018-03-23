@@ -72,6 +72,10 @@ import { AttachmentDetailComponent } from './view/common/attachment/attachment-d
 import { FolderTemplatesComponent } from './view/setup/email/folder-templates/folder-templates.component';
 import { FoldersComponent } from './view/setup/email/folders/folders.component';
 import { FolderComponent } from './view/common/email/folder/folder.component';
+import { MyEmailTemplateComponent } from './view/common/email/my-email-template/my-email-template.component';
+import { CampaignsComponent } from './view/setup/email/campaigns/campaigns.component';
+import { NewReportComponent } from './view/reports/new-report/new-report.component';
+import { EidtCampaignComponent } from './view/setup/email/eidt-campaign/eidt-campaign.component';
 
 
 @NgModule({
@@ -144,7 +148,10 @@ import { FolderComponent } from './view/common/email/folder/folder.component';
     FolderTemplatesComponent,
     FoldersComponent,
     FolderComponent,
-
+    MyEmailTemplateComponent,
+    CampaignsComponent,
+    NewReportComponent,
+    EidtCampaignComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,6 +162,7 @@ import { FolderComponent } from './view/common/email/folder/folder.component';
       { path: 'login', component: LoginComponent },
       { path: 'user/setting', component: SettingComponent },
       { path: 'user/folder', component: FolderComponent },
+      { path: 'user/email-template', component: MyEmailTemplateComponent },
       { path: 'leads', component: LeadsComponent },
       { path: 'leads/lead-detail/:id', component: LeadDetailComponent },
       { path: 'leads/view-detail/:id', component: LeadsNewViewComponent },
@@ -165,10 +173,11 @@ import { FolderComponent } from './view/common/email/folder/folder.component';
       { path: 'accounts/account-detail', component: AccountDetailComponent },
       { path: 'accounts/view-detail/:id', component: AccountsNewViewComponent },
       { path: 'accounts/find-duplications', component: FundDuplicationsComponent },
-      { path: 'reports', component: ReportsComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
       { path: 'opportunities/opportunity-detail/:id', component: OpportunityDetailComponent },
       { path: 'opportunities/view-detail/:id', component: OpportunitiesNewViewComponent },
+      { path: 'reports', component: ReportsComponent },
+      { path: 'reports/new-reports', component: NewReportComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'attachment', component: AttachmentDetailComponent },
@@ -185,9 +194,10 @@ import { FolderComponent } from './view/common/email/folder/folder.component';
       { path: 'setup/leads/edit-layout', component: LeadsEditLayoutComponent },
       { path: 'setup/leads/edit-layout-assignment', component: LeadsPageLayoutAssignmentComponent },
       { path: 'setup/email', component: NewEmailComponent },
-      { path: 'setup/email/templates', component: TemplatesComponent},
-      { path: 'setup/email/new-template', component: NewTemplateComponent}
-
+      { path: 'setup/email/templates', component: TemplatesComponent },
+      { path: 'setup/email/new-template', component: NewTemplateComponent },
+      { path: 'setup/email/campaigns', component: CampaignsComponent },
+      { path: 'setup/email/edit-campaigns', component: EidtCampaignComponent }
     ])
   ],
   providers: [],

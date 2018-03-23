@@ -13,7 +13,7 @@ export class TemplatesComponent implements OnInit {
   departmentUsers;
   filteredUsers;
   userKeyword;
-  departmentShow = true;
+  departmentShow = false;
 
   userList = {
     '0': ['lili', 'Ronan'],

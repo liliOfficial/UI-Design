@@ -13,40 +13,45 @@
     <i class="fa fa-times ml-5"></i>
   </button>
 </div>
-
-<button class="btn btn-orange btn-sm mt-10" (click)="chartShow=!chartShow" *ngIf="currentFolders==='Jimmy'||currentFolders==='My Folders'&&folderType==='self'">
-  <span *ngIf="!chartShow">
+<div *ngIf="currentFolders==='Jimmy'||currentFolders==='My Folders'&&folderType==='self'">
+  <button class="btn btn-orange btn-sm mt-10" (click)="chartShow=true" *ngIf="!chartShow">
     <i class="fa fa-user-plus"></i> Add New User
-  </span>
-  <span *ngIf="chartShow">
-    <i class="fa fa-times"></i> Close Chart
-  </span>
-</button>
-<div class="row" *ngIf="chartShow">
-  <div class="col-12 text-orange mb-5 mt-15">
-    Single click to show departments and users. Double click to add user or department to share.
-  </div>
-  <div class="col-3">
-    <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
-  </div>
-  <div class="col-9">
-    <div class="dropbox dropbox-edit">
-      <div class="dropbox-heading">
-        <span>{{userDepartment}}</span>
-        <div class="action">
-          <span class="input-line-group pull-right">
-            <span class="search-icon">
-              <i class="fa fa-search"></i>
-            </span>
-            <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
-            <span class="searchline"></span>
-          </span>
-        </div>
-      </div>
-      <span class="btn btn-circle btn-sm user btn-orange" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
-        <i class="fa fa-user"></i> {{user}}
-      </span>
+  </button>
+  <button *ngIf="chartShow" class="btn btn-orange btn-sm mt-10">
+    <i class="fa fa-save"></i> Save Changes
+  </button>
+  <button *ngIf="chartShow" class="btn btn-sm mt-10" (click)="chartShow=false">
+    <i class="fa fa-undo"></i> Cancel
+  </button>
+</div>
+
+<div *ngIf="chartShow">
+  <div class="row">
+    <div class="col-12 text-orange mb-5 mt-15">
+      Single click to show departments and users. Double click to add user or department to share.
     </div>
-  </div>  
+    <div class="col-3">
+      <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+    </div>
+    <div class="col-9">
+      <div class="dropbox dropbox-edit">
+        <div class="dropbox-heading">
+          <span>{{userDepartment}}</span>
+          <div class="action">
+            <span class="input-line-group pull-right">
+              <span class="search-icon">
+                <i class="fa fa-search"></i>
+              </span>
+              <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+              <span class="searchline"></span>
+            </span>
+          </div>
+        </div>
+        <span class="btn btn-circle btn-sm user btn-orange" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+          <i class="fa fa-user"></i> {{user}}
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="clearfix mb-20"></div>
