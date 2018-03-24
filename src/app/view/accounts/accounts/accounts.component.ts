@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponent implements OnInit {
   paginationTextShow = true;
+  popupShow = false;
   sortBy = 'Name';
   sortDecrease = true;
   selectedNo = 0;
