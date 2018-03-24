@@ -1,0 +1,45 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-orange">
+    <div class="panel-header">
+      <h2>Email Templates</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-circle btn-orange" (click)="departmentShow = !departmentShow" >
+          <span *ngIf="departmentShow"><i class="fa fa-eye-slash"></i> Hide Departments</span>
+          <span *ngIf="!departmentShow"><i class="fa fa-eye"></i> Show Departments</span>
+        </button>
+      </div>
+    </div>
+    <!-- Search User -->
+    <div class="panel-body mt-15" *ngIf="departmentShow">
+      <div class="row">
+        <div class="col-3">
+          <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+        </div>
+        <div class="col-9">
+          <div class="dropbox dropbox-edit">
+            <div class="dropbox-heading">
+              <span>{{userDepartment}}</span>
+              <div class="action">
+                <span class="input-line-group pull-right">
+                  <span class="search-icon">
+                    <i class="fa fa-search"></i>
+                  </span>
+                  <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+                  <span class="searchline"></span>
+                </span>
+              </div>
+            </div>
+            <span class="btn btn-circle btn-sm user btn-orange" *ngFor="let user of filteredUsers" (click)="showFolder(user)">
+              <i class="fa fa-user"></i> {{user}}
+            </span>
+          </div>
+          <div class="clearfix"></div>
+          <div class="mt-5">Click the user to see the user's folders.</div>
+        </div>
+      </div>
+      <div class="clearfix m-20"></div>
+    </div>
+  </div>
+  <app-folders [currentFolders]="currentFolders" [folders]="folders"></app-folders>
+</div>

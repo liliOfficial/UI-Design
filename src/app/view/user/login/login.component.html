@@ -6,14 +6,18 @@
       </div>
       <div class="panel panel-log">
         <div class="panel-body">
-          <div class="mt-30">
+          <h2 class="text-red text-center mt-15" *ngIf="error">Incorrect Email or Password.</h2>
+          <form class="mt-30" #f="ngForm">
             <div class="mb-15">
               <label for="">Username</label>
               <div class="input-group">
-                <input class="input input-lg input-block" type="text">
+                <input ngModel class="input input-lg input-block" type="email" name="email" #email="ngModel" required>
                 <span class="input-icon">
                   <i class="fa fa-user"></i>
                 </span>
+              </div>
+              <div *ngIf="email.touched && !email.valid">
+                <span class="text-red mt-5">Please enter your email address.</span>
               </div>
             </div>
             <div class="mb-5">
@@ -21,16 +25,19 @@
                 Password
               </label>
               <div class="input-group">
-                <input class="input input-lg input-block" type="text">
+                <input ngModel class="input input-lg input-block" type="password" name="password" #password="ngModel" required>
                 <span class="input-icon">
                   <i class="fa fa-unlock-alt"></i>
                 </span>
               </div>
+              <div *ngIf="password.touched && !password.valid">
+                <span *ngIf="password.errors.required" class="text-red mt-5">Please enter your password.</span>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
         <div class="panel-footer">
-          <button class="btn" routerLink="/">Sign In</button>
+          <button type="submit" class="btn" (click)="signIn(email,password)" [disabled]="!f.valid">Sign In</button>
         </div>
       </div>
       <div class="footer">Copyright © 2017 logixcrm.com, inc. All rights reserved.</div>

@@ -103,7 +103,7 @@ export class LeadsFieldsComponent implements OnInit {
       });
     }
     if (target === 'Opportunity') {
-      console.log('bbbbbbbbbbbbb');
+      console.log('Map to Opportunity');
     }
   }
 

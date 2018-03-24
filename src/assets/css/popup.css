@@ -72,6 +72,13 @@
     font-size: 12px;
 }
 
+/* Popup Warning */
+.popup.popup-warning .popup-header {
+    background: #E53935;
+    color: #fff;
+}
+
+/* Popup Transparent */
 .popup.popup-transparent {
     background:rgba(255,255,255,0.7);
 }

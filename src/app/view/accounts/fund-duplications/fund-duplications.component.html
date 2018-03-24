@@ -1,0 +1,132 @@
+<div>
+  <div class="panel border-blue">
+    <div class="panel-header">
+      <h2>Find Duplicate</h2>
+    </div>
+    <div class="panel-body">
+      <div class="find">
+        <div class="find-label">
+          <div class="checkbox checkbox-blue">
+            <input type="checkbox" checked>
+            <label> First Name</label>
+          </div>
+        </div>
+        <div class="find-input">
+          <input type="text" class="input input-sm input-block" [(ngModel)]="searchKey.name">
+        </div>
+        <div class="clearfix m-5"></div>
+        <div class="find-label">
+          <div class="checkbox checkbox-blue">
+            <input type="checkbox" checked>
+            <label> Last Name</label>
+          </div>
+        </div>
+        <div class="find-input">
+          <input type="text" class="input input-sm input-block" [(ngModel)]="searchKey.lastName">
+        </div>
+        <div class="clearfix m-5"></div>
+        <div class="find-label">
+          <div class="checkbox checkbox-blue">
+            <input type="checkbox" checked>
+            <label> Email</label>
+          </div>
+        </div>
+        <div class="find-input">
+          <input type="text" class="input input-sm input-block" [(ngModel)]="searchKey.email">
+        </div>
+        <div class="clearfix m-5"></div>
+        <div class="find-label">
+          <div class="checkbox checkbox-blue">
+            <input type="checkbox">
+            <label> Company</label>
+          </div>
+        </div>
+        <div class="find-input">
+          <input type="text" class="input input-sm input-block" [(ngModel)]="searchKey.company">
+        </div>
+        <div class="clearfix m-5"></div>
+        <div class="find-label">
+          <div class="checkbox checkbox-blue">
+            <input type="checkbox" checked>
+            <label> Phone</label>
+          </div>
+        </div>
+        <div class="find-input">
+          <input type="text" class="input input-sm input-block" [(ngModel)]="searchKey.phone">
+        </div>
+        <div class="clearfix m-10"></div>
+        <button class="btn btn-sm btn-blue" (click)="search()">
+          <i class="fa fa-search"></i> Search</button>
+        <button class="btn btn-sm btn-red" (click)="showResult=false">
+          <i class="fa fa-times"></i> Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showResult">
+    <div class="blue">
+      <div class="panel border-blue">
+        <div class="panel-header">
+          <h2>Results Accounts</h2>
+        </div>
+        <div class="panel-body">
+          <div class="mlr-n15">
+            <table class="table-full table-striped table-hover">
+              <thead>
+                <tr>
+                  <th *ngFor="let field of fields">{{field.text}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let json of Json">
+                  <td *ngFor="let key of fields">
+                    <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" routerLink="/accounts/account-detail" class="text-blue cursor-pointer">
+                      {{json[key.jsonKey]}}
+                    </span>
+                    <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                      {{json[key.jsonKey]}}
+                    </span>
+                  </td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+      </div>
+    </div>
+    <div class="green">
+      <div class="panel border-green">
+        <div class="panel-header">
+          <h2>Results Leads</h2>
+          <div class="action">
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="mlr-n15">
+            <table class="table-full table-striped table-hover">
+              <thead>
+                <tr>
+                  <th *ngFor="let field of fields">{{field.text}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let json of Json">
+                  <td *ngFor="let key of fields">
+                    <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/leads/lead-detail',json.leadid]" class="text-green cursor-pointer">
+                      {{json[key.jsonKey]}}
+                    </span>
+                    <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                      {{json[key.jsonKey]}}
+                    </span>
+                  </td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -67,6 +67,7 @@
       <div class="panel border-green">
         <div class="panel-header">
           <h2>Results Leads</h2>
+          <small>Max 4 rows can be selected</small>
           <div class="action">
             <button class="btn btn-xs btn-green btn-circle" routerLink="/leads/merge-leads">Merge Leads</button>
           </div>
@@ -79,12 +80,7 @@
             <table class="table-full table-striped table-hover">
               <thead>
                 <tr>
-                  <th>
-                    <div class="checkbox checkbox-green">
-                      <input type="checkbox">
-                      <label></label>
-                    </div>
-                  </th>
+                  <th></th>
                   <th *ngFor="let field of fields">{{field.text}}</th>
                 </tr>
               </thead>
@@ -97,7 +93,12 @@
                     </div>
                   </td>
                   <td *ngFor="let key of fields">
-                    {{json[key.jsonKey]}}
+                    <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" [routerLink]="['/leads/lead-detail',json.leadid]" class="text-green cursor-pointer">
+                      {{json[key.jsonKey]}}
+                    </span>
+                    <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                      {{json[key.jsonKey]}}
+                    </span>
                   </td>
               </tbody>
             </table>
@@ -126,7 +127,12 @@
               <tbody>
                 <tr *ngFor="let json of Json">
                   <td *ngFor="let key of fields">
-                    {{json[key.jsonKey]}}
+                    <span *ngIf="key.jsonKey === 'name'||key.jsonKey === 'email'" routerLink="/accounts/account-detail" class="text-blue cursor-pointer">
+                      {{json[key.jsonKey]}}
+                    </span>
+                    <span *ngIf="key.jsonKey !== 'name' && key.jsonKey !== 'email'">
+                      {{json[key.jsonKey]}}
+                    </span>
                   </td>
               </tbody>
             </table>

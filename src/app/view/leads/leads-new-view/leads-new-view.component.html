@@ -171,7 +171,7 @@
           <!-- Add Team to Share -->
           <div class="row" *ngIf="teamPopup">
             <div class="col-12 text-red mb-5">
-              Double click to add user or department to share.
+              Single click to show departments and users. Double click to add user or department to share.
             </div>
             <div class="col-3">
               <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
@@ -193,8 +193,7 @@
                 <span class="btn btn-circle btn-xs user btn-green" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
                   {{user}}
                 </span>
-              </div>
-              
+              </div>              
             </div>
             <div class="clearfix"></div>
           </div>

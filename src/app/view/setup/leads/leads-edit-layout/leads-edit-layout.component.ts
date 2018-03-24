@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leads-edit-layout.component.css']
 })
 export class LeadsEditLayoutComponent implements OnInit {
-  object = 'action';
+  object = 'preview';
   sections = [
     { 'text': 'Lead Detail', 'sectionName': 'leadDetail' },
     { 'text': 'Social Media', 'sectionName': 'socialMedia' },
@@ -154,7 +154,7 @@ export class LeadsEditLayoutComponent implements OnInit {
     { id: '3', text: 'Email Sent', selected: true }
   ];
 
-  availableArea;
+  availableArea: string;
   movingQuickAction;
 
   targetQuickAction = -1;
@@ -177,25 +177,39 @@ export class LeadsEditLayoutComponent implements OnInit {
   }
 
   addQuickAction(to) {
-    if (to === 'showbox') {
-      if (this.targetQuickAction !== -1) {
-        this.quickActionSelected.splice(this.targetQuickAction, 0, this.movingQuickAction);
-      } else {
-        this.quickActionSelected.push(this.movingQuickAction);
-      }
-
-    }
-    if (to === 'list') {
-      this.quickActions.forEach(element => {
-        if (element.id === this.movingQuickAction.id) {
-          element.selected = false;
-          console.log(element);
+    if (this.movingQuickAction) {
+      if (to === 'showbox') {
+        if (this.targetQuickAction !== -1) {
+          this.quickActionSelected.splice(this.targetQuickAction, 0, this.movingQuickAction);
+        } else {
+          this.quickActionSelected.push(this.movingQuickAction);
         }
-      });
+
+      }
+      if (to === 'list') {
+        this.quickActions.forEach(element => {
+          if (element.id === this.movingQuickAction.id) {
+            element.selected = false;
+            console.log(element);
+          }
+        });
+      }
     }
+
     this.availableArea = '';
+    this.movingQuickAction = null;
   }
-  constructor() { }
+
+  mouseMove(e) {
+    if (this.movingQuickAction) {
+      document.getElementById('drag-item').style.top = e.clientY + 'px';
+      document.getElementById('drag-item').style.left = (e.clientX + 15) + 'px';
+    }
+
+  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

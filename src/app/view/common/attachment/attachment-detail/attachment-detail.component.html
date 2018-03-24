@@ -1,0 +1,41 @@
+<div class="panel">
+  <div class="panel-header">
+    <h2>Attachments</h2>
+    <div class="action">
+      <button class="btn btn-xs btn-shadow btn-circle ml-5" routerLink="/attachment">Attach File</button>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div class="mtb-15">
+        <div class="display-table">
+          <label for="" class="display-tablecell">Type</label>
+          <select name="" id="" class="select input-block display-tablecell" [(ngModel)]="uploadType">
+            <option value="" *ngFor="let type of types">{{type}}</option>
+          </select>
+        </div>
+        <div class="display-table">
+          <label for="" class="display-tablecell">Choose File</label>
+          <div class="display-tablecell">
+            <span class="input-group w-100p">
+              <input class="input input-block" type="file" (change)="uploadDocument($event)" placeholder=".input">
+              <span class="input-icon">
+                <button class="btn btn-sm btn-red" (click)="cancelUpload()">
+                  <i class="fa fa-undo"></i> Clear</button>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn">
+            <i class="fa fa-save"></i> Save</button>
+          <button class="btn btn-red" (click)="cancel">
+            <i class="fa fa-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="mb-15" id="uploadDocument" *ngIf="uploadFile">
+      <img [src]="uploadImage" alt="">
+    </div>
+  </div>
+</div>

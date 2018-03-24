@@ -3,8 +3,13 @@
   <div class="panel">
     <div class="panel-header">
       <h2>Organisational Chart</h2>
+      <div class="action">
+          <button class="btn btn-xs btn-circle" (click)="editMethod = true" *ngIf="!editMethod">
+            <i class="fa fa-edit"></i> Edit Structure
+          </button>
+      </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" *ngIf="!editMethod">
       <div class="input-line-group" *ngIf="addNewDepartment">
         <span class="input-icon">
           <i class="fa fa-save text-red"></i>
@@ -36,6 +41,23 @@
         </div>
       </div>
     </div>
+    <div class="panel-body bg-change" *ngIf="editMethod">
+      <div class="mt-15 text-red">
+        Drag and drop to change the structure of the organisation.
+      </div>
+      <div class="mtb-15">
+        <app-departments (output)="chooseDepartment($event)"></app-departments>
+      </div>        
+    </div>
+    <div class="panel-footer" *ngIf="editMethod">
+      <div class="ptb-10">
+        <button class="btn btn-red">
+        <i class="fa fa-save"></i> Save</button>
+      <button class="btn" (click)="editMethod = false">
+        <i class="fa fa-times"></i> Cancel</button>
+      </div>
+      
+    </div>
   </div>
 </div>
 <div class="popup popup-transparent" *ngIf="departmentPopup">
@@ -60,9 +82,32 @@
           <span class="keyword"> {{userDepartment}}</span> to
           <span class="keyword"> {{targetDepartment}}</span>
         </div>
-        <small class="text-red mtb-15">Double Click heading to choose the target Department</small>
+        <small class="text-red mtb-15">Double Click heading to choose the target department</small>
         <div class="mt-5 mb-5">
           <app-departments (output)="chooseDepartment($event)"></app-departments>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup popup-warning" *ngIf="warning">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Warning</h2>
+        <span class="action">
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="warning=false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <h2>Once deleted, the departments below will all be deleted.</h2>
+        <div class="mt-15">
+          <button class="btn btn-red">
+            <i class="icon fa fa-trash-alt"></i> Delete</button>
+          <button class="btn" (click)="warning=false">
+            <i class="icon fa fa-times"></i> Cancel</button>
         </div>
       </div>
     </div>

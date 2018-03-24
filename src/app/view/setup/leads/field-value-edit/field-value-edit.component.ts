@@ -75,7 +75,7 @@ export class FieldValueEditComponent implements OnInit {
   }
 
   departmentFilter() {
-    this.filteredDepartment = this.avaliableDepartment.filter(element => element.name.includes(this.departmentKeyword));
+    this.filteredDepartment = this.avaliableDepartment.filter(element => element.name.toLowerCase().includes(this.departmentKeyword.toLowerCase()));
   }
 
   userFilter() {

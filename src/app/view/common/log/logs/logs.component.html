@@ -1,51 +1,28 @@
 <div class="panel">
-    <div class="panel-header">
-      <h2>Logs</h2>
+  <div class="panel-header">
+    <h2>Logs</h2>
+  </div>
+  <div class="panel-body">
+    <div class="mlr-n15">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>User</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of logs">
+            <td>{{log.date}}</td>
+            <td>{{log.user}}</td>
+            <td>{{log.action}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="panel-body">
-      <div class="mlr-n15">
-        <table class="table-full table-striped table-hover">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>User</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let log of logs">
-              <td>{{log.date}}</td>
-              <td>{{log.user}}</td>
-              <td>{{log.action}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pagination">
-        <div>Showing 1 to 10 of 57 entries</div>
-        <ul>
-          <li class="arrow">
-            <a>«</a>
-          </li>
-          <li class="active">
-            <a>1</a>
-          </li>
-          <li>
-            <a>2</a>
-          </li>
-          <li>
-            <a>3</a>
-          </li>
-          <li>
-            <a>4</a>
-          </li>
-          <li>
-            <a>5</a>
-          </li>
-          <li class="arrow">
-            <a>»</a>
-          </li>
-        </ul>
-      </div>
+    <div class="pagination">
+      <app-pagination></app-pagination>
     </div>
   </div>
+</div>

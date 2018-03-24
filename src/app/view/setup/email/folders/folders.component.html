@@ -1,0 +1,111 @@
+<div class="panel border-orange" *ngIf="!editMethod">
+  <div class="panel-header">
+    <h2>
+      <span class="radio radio-orange">
+        <input type="radio" name="folderType" value="self" [(ngModel)]="folderType">
+        <label for="" class="mr-15"> {{currentFolders}}'s Folders</label>
+      </span>
+      <span class="radio radio-orange">
+        <input type="radio" name="folderType" value="shared" [(ngModel)]="folderType">
+        <label for=""> Shared By</label>
+      </span>
+    </h2>
+    <div class="action">
+      <button class="btn btn-xs btn-orange btn-circle ml-5" *ngIf="currentFolders==='Jimmy'||currentFolders==='My Folders'&&folderType==='self'" (click)="editFolder()">
+        <i class="fa fa-edit"></i> Edit My Folders
+      </button>
+    </div>
+  </div>
+  <div class="panel-body folders mb-30">
+    <div class="row">
+      <table>
+        <tr *ngIf="folderType==='self'">
+          <td *ngFor="let folder of folders.self" class="text-center" (click)="activeFolder=folder">
+            <div class="folder-box">
+              <span class="text-orange folder-icon">
+                <i class="fa fa-folder" *ngIf="activeFolder!==folder"></i>
+                <i class="fa fa-folder-open" *ngIf="activeFolder===folder"></i>
+              </span>
+              <span class="share-icon" *ngIf="folder.shared">
+                <i class="fa fa-share-square"></i>
+              </span>
+            </div>
+            <span [class.text-orange]="activeFolder===folder">{{folder.name}}</span>
+          </td>
+        </tr>
+        <tr *ngIf="folderType==='shared'">
+          <td *ngFor="let folder of folders.shared" class="text-center" (click)="activeFolder=folder">
+            <div class="text-orange folder-icon">
+              <i class="fa fa-folder" *ngIf="activeFolder!==folder"></i>
+              <i class="fa fa-folder-open" *ngIf="activeFolder===folder"></i>
+            </div>
+            <span [class.text-orange]="activeFolder===folder">{{folder.name}}</span>
+            <div class="sharedby">By: {{folder.by}}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- Tabs -->
+  <div class="panel-body">
+    <div class="row">
+      <div class="tab tab-orange">
+        <ul>
+          <li (click)="activeTab='templates'" [class.active]="activeTab==='templates'">Templates</li>
+          <li (click)="activeTab='permission'" [class.active]="activeTab==='permission'">Permission Setting</li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="activeTab==='templates'">
+      <app-folder-templates [folderType]="folderType" [currentFolders]="currentFolders"></app-folder-templates>
+    </div>
+    <div *ngIf="activeTab==='permission'">
+      <app-folder-permission [folderType]="folderType" [currentFolders]="currentFolders"></app-folder-permission>
+    </div>
+  </div>
+</div>
+<div class="panel border-orange" *ngIf="editMethod" [class.drag]="dragMethod">
+
+  <div class="panel-header">
+    <h2>Edit Folder</h2>
+    <small>Drag the folder to change the order.</small>
+    <div class="action">
+      <button class="btn btn-xs btn-orange btn-circle ml-5" (click)="newFolder()">
+        <i class="fa fa-plus"></i> New Folder</button>
+    </div>
+  </div>
+  <div class="panel-body folders" (mousemove)="mouseMove($event)">
+    <div class="clearfix m-10"></div>
+    <div *ngFor="let folder of myFolders; index as i" class="folder" (mouseup)="mouseUp(i)">
+      <span class="folder-box">
+        <span class="text-orange folder-icon cursor-move">
+          <i class="fa fa-folder" (mousedown)="mouseDown(i)"></i>
+        </span>
+        <i class="fa fa-trash-alt" (click)="deleteFolder(i)"></i>
+      </span>
+      <div>
+        <span class="input-group">
+          <input class="input input-sm input-block" type="text" [(ngModel)]="folder.name" [disabled]="folder.disabled">
+          <span class="input-icon">
+            <i class="fa fa-edit" (click)="folder.disabled=false" *ngIf="folder.disabled"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div id="drag-folder" *ngIf="dragMethod">
+      <span class="text-orange folder-icon">
+        <i class="fa fa-folder" (mousedown)="mouseDown(i)"></i>
+      </span>
+      <span class="text-b">{{dragFolder}}</span>
+    </div>
+    <div class="clearfix m-20"></div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-orange">
+      <i class="fa fa-save"></i> Save
+    </button>
+    <button class="btn" (click)="editMethod = false">
+      <i class="fa fa-times"></i> Cancel
+    </button>
+  </div>
+</div>

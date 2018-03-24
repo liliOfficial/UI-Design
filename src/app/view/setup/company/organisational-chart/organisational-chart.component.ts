@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class OrganisationalChartComponent implements OnInit {
   addNewDepartment = false;
   departmentPopup = false;
+  warning = false;
+  editMethod = false;
   parentDepartment: string;
   targetDepartment: string;
   users;
@@ -75,9 +77,13 @@ export class OrganisationalChartComponent implements OnInit {
   };
 
   pickDepartment(value) {
+
     if (value[0] === 'add') {
       this.parentDepartment = value[1];
       this.addNewDepartment = true;
+    }
+    if (value[0] === 'delete') {
+      this.warning = true;
     }
     if (value[0] === 'user') {
       const userKey = value[2];

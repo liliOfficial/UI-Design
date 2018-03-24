@@ -59,7 +59,7 @@
   <div class="panel">
     <div class="panel-header">
       <h2>Logo</h2>
-
+      <small>This logo will replace the logo on the top navigation bar.</small>
       <div class="action">
         <button class="btn btn-xs btn-circle" (click)="uploadPopup=true"><i class="fa fa-edit"></i> Update</button>
       </div>
@@ -67,7 +67,7 @@
     <div class="panel-body">
       <div class="clearfix m-15"></div>
       <span class="logo" id="currentlogo">
-        <img src="https://www.seoclerk.com/pics/558390-11FO8A1505384509.png" alt="" width=250 height=250>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Solid_color_You_Tube_logo.png" alt="">
       </span>
     </div>
     <div class="panel-footer">
@@ -78,7 +78,7 @@
   <div class="popup-content">
     <div class="popup-box">
       <div class="popup-header">
-        <h2 class="title">Upload New Logo</h2>
+        <h2 class="title">Upload New Logo</h2>        
         <span class="action">
           <a class="btn btn-icon btn-red" (click)="saveLogo()">
             <i class="icon fa fa-save"></i>
@@ -89,14 +89,11 @@
         </span>
       </div>
       <div class="popup-body">
-        <div>
+        <div class="mb-15">
           <input type="file" (change)="uploadLogo($event)">
         </div>
-        <div class="clearfix mtb-15">
-          <small>Requirement: 250 X 250 PNG</small>
-        </div>
         <div class="logo" id="uploadlogo" *ngIf="uploadFile">
-          <img [src]="uploadImage" alt="" width=250 height=250>
+          <img [src]="uploadImage" alt="">
         </div>
       </div>
     </div>

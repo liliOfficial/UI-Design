@@ -1,8 +1,9 @@
 <div class="sidebar-left">
   <h2>SETUP</h2>
+  
   <ul class="sidenav">
     <li class="heading">
-      <span class="heading" (click)="active='company'" [class.active]="active=='company'">
+      <span class="heading" (click)="active='company'" [class.active]="active==='company'">
         Company Information
       </span>
       <ul class="subnav" [class.hide]="active!=='company'">
@@ -29,7 +30,7 @@
       </ul>
     </li>
     <li>
-      <span class="heading" (click)="active='leads'" [class.active]="active=='leads'">
+      <span class="heading" (click)="active='leads'" [class.active]="active==='leads'">
         Leads
       </span>
       <ul class="subnav" [class.hide]="active!=='leads'">
@@ -46,7 +47,7 @@
       </ul>
     </li>
     <li>
-      <span class="heading" (click)="active='accounts'" [class.active]="active=='accounts'">Accounts</span>
+      <span class="heading" (click)="active='accounts'" [class.active]="active==='accounts'">Accounts</span>
       <ul class="subnav" [class.hide]="active!=='accounts'">
         <li>
           <span class="subheading" routerLink="/setup/leads/fields">
@@ -61,7 +62,7 @@
       </ul>
     </li>
     <li>
-      <span class="heading" (click)="active='opportunities'" [class.active]="active=='opportunities'">Opportunities</span>
+      <span class="heading" (click)="active='opportunities'" [class.active]="active==='opportunities'">Opportunities</span>
       <ul class="subnav" [class.hide]="active!=='opportunities'">
         <li>
           <span class="subheading" routerLink="/setup/leads/fields">
@@ -76,10 +77,25 @@
       </ul>
     </li>
     <li>
-      <span class="heading" [class.active]="active=='email'">Email Communications</span>
+      <span class="heading" (click)="active='email'" [class.active]="active==='email'">Email Communications</span>
+      <ul class="subnav" [class.hide]="active!=='email'">
+        <li>
+          <span class="subheading" routerLink="/setup/email/templates">
+            <i class="fa fa-envelope-open"></i> Email Templates
+          </span>
+        </li>
+        <li>
+          <span class="subheading" routerLink="/setup/email/campaigns">
+            <i class="fa fa-at"></i> Email Campaign
+          </span>
+        </li>
+      </ul>
     </li>
     <li>
-      <span class="heading" [class.active]="active=='workflow'">Workflow Automation</span>
+      <span class="heading" [class.active]="active==='workflow'">Workflow Automation</span>
+    </li>
+    <li>
+      <span class="heading" [class.active]="active==='documents'">Documents</span>
     </li>
   </ul>
 </div>

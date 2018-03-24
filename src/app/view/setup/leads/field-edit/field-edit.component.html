@@ -5,11 +5,25 @@
       <h2>Edit Field</h2>
     </div>
     <div class="panel-body">
+      <div div class="m-10 text-center">
+        <label class="field-label">Field Label</label>
+        <span class="input-group">
+          <input class="input input-block input-sm" type="text">
+          <span class="input-icon">
+            <i class="fa fa-question-circle"></i>
+          </span>
+        </span>
+      </div>
+      <div div class="m-10 text-center">
+        <label class="field-label">Field API</label>
+        <span class="input-group">
+          <input class="input input-block input-sm" type="text">
+          <span class="input-icon">
+            <i class="fa fa-question-circle"></i>
+          </span>
+        </span>
+      </div>
       <div class="field-textarea m-10">
-        <div div class="mb-10">
-          <label class="field-label">Field Label</label>
-          <span class="text-b">Account Manager</span>
-        </div>
         <div class="mb-10">
           <label class="field-label">Data Type</label>
           <span class="text-b"> Picklist</span>
@@ -31,8 +45,13 @@
             <div class="checkbox checkbox-green">
               <input type="checkbox" checked>
               <label> Always require value in order to save</label>
+              <small class="text-red"> ( Once ticked, will show on all page layout )</small>
             </div>
           </div>
+        </div>
+        <div class="mtb-15 text-center">
+          <button class="btn btn-green"><i class="fa fa-save"></i> Save</button>
+          <button class="btn"><i class="fa fa-times"></i> Cancel</button>
         </div>
       </div>
     </div>
@@ -42,29 +61,6 @@
       <h2>Values</h2>
     </div>
     <div class="panel-body">
-      <!-- <div class="field-textarea">
-        <table class="table-full table-striped table-hover">
-          <thead>
-            <tr>
-              <th width=100>Action</th>
-              <th>Value</th>
-              <th>Order</th>
-            </tr>
-          </thead>
-          <tr *ngFor="let value of activeValues">
-            <td>
-              <i class="fa fa-edit text-green"></i>
-              <i class="fa fa-trash-alt" (click)="deleteValue(value.id)"></i>
-              <span class="cursor-pointer text-red">Deactive</span>
-            </td>
-            <td>{{value.value}}</td>
-            <td class="font-16">
-              <i class="fa fa-arrow-circle-up"></i>
-              <i class="fa fa-arrow-circle-down"></i>
-            </td>
-          </tr>
-        </table>
-      </div> -->
       <div class="field-textarea">
         <div class="input-line-group">
           <span class="input-icon" (click)="addValue(newValue)">
@@ -76,7 +72,7 @@
         </div>
         <div class="dropbox value-pool">
           <div class="pickvalue" *ngFor="let value of activeValues; index as i">
-            <span class="drag-area" (mousedown)="mouse">{{value.value}}</span>            
+            <span class="drag-area" (mousedown)="mouse">{{value.value}}</span>
             <span class="pull-right">
               <i class="fa fa-edit text-green" routerLink="/setup/leads/field-value-edit"></i>
               <i class="fa fa-trash-alt" (click)="deleteValue(value.id)"></i>
@@ -133,8 +129,11 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-red">
-          <i class="icon fa fa-save"></i> Insert Selected</button>
+        <div class="text-red mtb-15">
+          Change can take up to 5 mins to become effective.
+        </div>
+        <button class="btn btn-red" (click)="replace()">
+          <i class="icon fa fa-save"></i> Replace</button>
         <button class="btn" (click)="closeWarning()">
           <i class="icon fa fa-times"></i> Cancel</button>
       </div>

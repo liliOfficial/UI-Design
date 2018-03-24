@@ -33,7 +33,18 @@
     top: 50%;
     right:10px;
     margin-top: -9px;
-    font-size: 18px;
-    
-    
+    font-size: 18px;   
+}
+
+.sidebar-right .list {
+    margin:0 -10px;
+    padding:15px 0;
+}
+
+.sidebar-right .list .list-item {
+    margin:3px 10px;
+}
+
+#drag-item {
+    display: block;
 }
