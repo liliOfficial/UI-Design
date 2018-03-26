@@ -1,0 +1,44 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-orange">
+    <div class="panel-header">
+      <h2>Subscribers</h2>
+    </div>
+    <!-- Search User -->
+    <div class="panel-body mt-10">
+      <div class="row">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th width=30></th>
+              <th>Name</th>
+              <th>State/province</th>
+              <th>Country</th>
+              <th>Email</th>
+              <th>Added Date</th>
+              <th>Account Manager</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subscriber of subscribers">
+              <td class="text-orange">
+                <i class="fa fa-trash-alt"></i>
+              </td>
+              <td>{{subscriber.name}}</td>
+              <td>{{subscriber.state}}</td>
+              <td>{{subscriber.country}}</td>
+              <td>{{subscriber.email}}</td>
+              <td>{{subscriber.addedDate}}</td>
+              <td>{{subscriber.manager}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+        <div class="pagination pagination-orange">
+            <app-pagination></app-pagination>
+        </div>
+    </div>
+  </div>
+</div>

@@ -76,6 +76,12 @@ import { MyEmailTemplateComponent } from './view/common/email/my-email-template/
 import { CampaignsComponent } from './view/setup/email/campaigns/campaigns.component';
 import { NewReportComponent } from './view/reports/new-report/new-report.component';
 import { EidtCampaignComponent } from './view/setup/email/eidt-campaign/eidt-campaign.component';
+import { SubscriberListComponent } from './view/setup/email/subscriber-list/subscriber-list.component';
+import { NewSubscriberComponent } from './view/setup/email/new-subscriber/new-subscriber.component';
+
+import { FilterService } from './service/filter.service';
+import { SubscribersComponent } from './view/setup/email/subscribers/subscribers.component';
+import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubscribers.component';
 
 
 @NgModule({
@@ -152,6 +158,10 @@ import { EidtCampaignComponent } from './view/setup/email/eidt-campaign/eidt-cam
     CampaignsComponent,
     NewReportComponent,
     EidtCampaignComponent,
+    SubscriberListComponent,
+    NewSubscriberComponent,
+    SubscribersComponent,
+    UnsubscribersComponent,
   ],
   imports: [
     BrowserModule,
@@ -197,10 +207,16 @@ import { EidtCampaignComponent } from './view/setup/email/eidt-campaign/eidt-cam
       { path: 'setup/email/templates', component: TemplatesComponent },
       { path: 'setup/email/new-template', component: NewTemplateComponent },
       { path: 'setup/email/campaigns', component: CampaignsComponent },
-      { path: 'setup/email/edit-campaigns', component: EidtCampaignComponent }
+      { path: 'setup/email/edit-campaigns', component: EidtCampaignComponent },
+      { path: 'setup/email/subscriber-list', component: SubscriberListComponent },
+      { path: 'setup/email/new-subscriber', component: NewSubscriberComponent },
+      { path: 'setup/email/subscribers', component: SubscribersComponent },
+      { path: 'setup/email/unsubscribers', component: UnsubscribersComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    FilterService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

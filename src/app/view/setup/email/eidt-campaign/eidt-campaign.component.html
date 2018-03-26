@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body">
       <div class="panel-section">
-        <div class="section-header">Trading Platform</div>
+        <div class="section-header">Step 1: Information</div>
         <div class="section-body">
           <div class="m-10  text-center">
             <label class="field-label">Campaign Name</label>
@@ -39,13 +39,52 @@
             </span>
           </div>
           <div class="m-10  text-center">
-            <label class="field-label">Type</label>
+            <span class="field-label">
+              <span>Description</span>
+            </span>
             <span class="input-group">
               <textarea class="textarea input-block"></textarea>
             </span>
           </div>
         </div>
       </div>
+      <div class="panel-section">
+        <div class="section-header">Step 2: Schedules</div>
+        <div class="section-body">
+          <div class="field-textarea">
+            <div class="mb-15">
+              <div class="checkbox checkbox-orange">
+                <input type="checkbox" [(ngModel)]="ongoing">
+                <label> Ongoing Campaign</label>
+              </div>
+            </div>
+          </div>
+          <div class="m-10  text-center">
+            <label class="field-label">Start Date </label>
+            <span class="input-group">
+              <input class="input input-block" type="text">
+              <span class="input-icon">
+                <i class="fa fa-calendar-alt"></i>
+              </span>
+            </span>
+          </div>
+          <div class="m-10  text-center" *ngIf="!ongoing">
+            <label class="field-label">End Date </label>
+            <span class="input-group">
+              <input class="input input-block" type="text">
+              <span class="input-icon">
+                <i class="fa fa-calendar-alt"></i>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-orange">
+        <i class="fa fa-save"></i> Save</button>
+      <button class="btn">
+        <i class="fa fa-times"></i> Cancel</button>
     </div>
   </div>
 </div>

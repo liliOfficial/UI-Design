@@ -1,0 +1,73 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-orange">
+    <div class="panel-header">
+      <h2>Unsubscribers</h2>
+      <div class="action">
+        <button class="btn btn-orange btn-xs btn-circle" (click)="tab='add'" *ngIf="tab!=='add'">
+          <i class="fa fa-plus"></i> Add New
+        </button>
+        <button class="btn btn-orange btn-xs btn-circle" (click)="tab='search'" *ngIf="tab!=='search'">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+    <!-- Search User -->
+    <div class="panel-body mt-10">
+      <div *ngIf="tab==='search'">
+        <div class="input-line-group w-100p mb-15">
+          <span class="input-icon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+          <span class="underline">Search Email/Name (fuzzy matching)</span>
+        </div>
+      </div>
+      <div *ngIf="tab==='add'">
+        <div class="input-group w-100p mb-15">
+          <input class="input input-block" type="text" placeholder="email" [(ngModel)]="email">
+          <span class="input-icon">
+            <button class="btn btn-orange btn-xs" (click)="addEmail()">
+              <i class="fa fa-plus"></i> Add to List
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th width=30></th>
+              <th>Name</th>
+              <th>From List</th>
+              <th>Email</th>
+              <th>Type</th>
+              <th>Date Created</th>
+              <th>Modified Date</th>
+              <th>Created By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let unsubscriber of unsubscribers">
+              <td class="text-orange">
+                <i class="fa fa-trash-alt"></i>
+              </td>
+              <td>{{unsubscriber.name}}</td>
+              <td>{{unsubscriber.fromList}}</td>
+              <td>{{unsubscriber.email}}</td>
+              <td>{{unsubscriber.type}}</td>
+              <td>{{unsubscriber.dateCreated}}</td>
+              <td>{{unsubscriber.modifiedDate}}</td>
+              <td>{{unsubscriber.createdBy}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="pagination pagination-orange">
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+  </div>
+</div>

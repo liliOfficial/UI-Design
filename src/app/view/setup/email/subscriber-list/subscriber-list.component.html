@@ -1,0 +1,53 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-orange">
+    <div class="panel-header">
+      <h2>Subscriber List</h2>
+      <div class="action">
+        <button class="btn btn-orange btn-xs btn-circle" routerLink="/setup/email/new-subscriber">
+          <i class="fa fa-plus"></i> New Subscriber List
+        </button>
+        <button class="btn btn-xs btn-circle" routerLink="/setup/email/unsubscribers">
+          <i class="fa fa-users"></i> Unsubscriber List
+        </button>
+      </div>
+    </div>
+    <!-- Search User -->
+    <div class="panel-body mt-10">
+      <div class="row">
+        <table class="table-full table-striped table-hover">
+          <thead>
+            <tr>
+              <th width=50></th>
+              <th>List Name</th>
+              <th>Type</th>
+              <th>Active Subscribers</th>
+              <th>Unsubscribers</th>
+              <th>Date Created</th>
+              <th>Modified Date</th>
+              <th>Created By</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subscriber of subscriberList">
+              <td>
+                <i class="fa fa-edit text-orange" routerLink="/setup/email/subscribers"></i>
+                <i class="fa fa-trash-alt"></i>
+              </td>
+              <td class="text-orange cursor-pointer" routerLink="/setup/email/subscribers">{{subscriber.name}}</td>
+              <td>{{subscriber.type}}</td>
+              <td>{{subscriber.activeSubscribers}}</td>
+              <td>{{subscriber.unsubscribers}}</td>
+              <td>{{subscriber.dateCreated}}</td>
+              <td>{{subscriber.modifiedDate}}</td>
+              <td>{{subscriber.createdBy}}</td>
+              <td>{{subscriber.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>

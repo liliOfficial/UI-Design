@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eidt-campaign.component.css']
 })
 export class EidtCampaignComponent implements OnInit {
-
+  ongoing = false;
   constructor() { }
 
   ngOnInit() {

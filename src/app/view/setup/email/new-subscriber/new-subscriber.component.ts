@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService } from '../../../service/filter.service';
 
 @Component({
-  selector: 'app-new-report',
-  templateUrl: './new-report.component.html',
-  styleUrls: ['./new-report.component.css']
+  selector: 'app-new-subscriber',
+  templateUrl: './new-subscriber.component.html',
+  styleUrls: ['./new-subscriber.component.css']
 })
-export class NewReportComponent implements OnInit {
+export class NewSubscriberComponent implements OnInit {
   sidebarShow = false;
   filterLogix: string;
   pickList = [];
@@ -134,8 +133,8 @@ export class NewReportComponent implements OnInit {
     this.pickHeader = '';
     this.pickList = [];
   }
+  constructor() { }
 
-  constructor(private filter: FilterService) { }
   ngOnInit() {
   }
 

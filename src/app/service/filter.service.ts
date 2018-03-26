@@ -1,12 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FilterService } from '../../../service/filter.service';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-new-report',
-  templateUrl: './new-report.component.html',
-  styleUrls: ['./new-report.component.css']
-})
-export class NewReportComponent implements OnInit {
+@Injectable()
+export class FilterService {
   sidebarShow = false;
   filterLogix: string;
   pickList = [];
@@ -134,9 +129,6 @@ export class NewReportComponent implements OnInit {
     this.pickHeader = '';
     this.pickList = [];
   }
-
-  constructor(private filter: FilterService) { }
-  ngOnInit() {
-  }
+  constructor() { }
 
 }

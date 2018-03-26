@@ -3,9 +3,15 @@
   <div class="panel border-orange">
     <div class="panel-header">
       <h2>Email Campaigns</h2>
-      <div class="action">
+      <div class="action">        
         <button class="btn btn-orange btn-xs btn-circle" routerLink="/setup/email/edit-campaigns">
           <i class="fa fa-plus"></i> New Campaign
+        </button>
+        <button class="btn btn-xs btn-circle" routerLink="/setup/email/subscriber-list">
+          <i class="fa fa-edit"></i> Subscriber Lists
+        </button>
+        <button class="btn btn-xs btn-circle" routerLink="/setup/email/unsubscribers">
+          <i class="fa fa-users"></i> Unsubscriber List
         </button>
       </div>
     </div>
@@ -29,11 +35,11 @@
           <tbody>
             <tr *ngFor="let campaign of campaigns">
               <td>
-                <i class="fa fa-edit text-orange"></i>
+                <i class="fa fa-edit text-orange" routerLink="/setup/email/edit-campaigns"></i>
                 <i class="fa fa-trash-alt"></i>
               </td>
-              <td>{{campaign.name}}</td>
-              <td class="text-orange">{{campaign.subscriber}}</td>
+              <td class="text-orange cursor-pointer" routerLink="/setup/email/edit-campaigns">{{campaign.name}}</td>
+              <td class="text-orange cursor-pointer" routerLink="/setup/email/subscribers">{{campaign.subscriber}}</td>
               <td>{{campaign.type}}</td>
               <td>{{campaign.createdDate}}</td>
               <td>{{campaign.startDate}}</td>
