@@ -9,6 +9,8 @@ export class DeleteWarningComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Output() delete = new EventEmitter();
 
+  warning=false
+  
   close() {
     this.cancel.emit();
   }
