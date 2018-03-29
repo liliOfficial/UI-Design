@@ -228,6 +228,8 @@ export class LeadsEditLayoutComponent implements OnInit {
   targetQuickAction = -1;
   toQuickAction;
 
+  // Sections and Fields
+
   chooseQuickAction(action, from, i) {
     this.availableArea = 'quickActions';
     this.movingQuickAction = action;
@@ -268,7 +270,16 @@ export class LeadsEditLayoutComponent implements OnInit {
     this.movingQuickAction = null;
   }
 
-  chooseSection() {
+  mouseMove(e) {
+    if (this.movingQuickAction) {
+      document.getElementById('drag-item').style.top = e.clientY + 'px';
+      document.getElementById('drag-item').style.left = (e.clientX + 15) + 'px';
+    }
+  }
+
+  // Sections and Fields
+
+  chooseSection(s) {
     this.availableArea = 'section';
   }
 
@@ -279,13 +290,6 @@ export class LeadsEditLayoutComponent implements OnInit {
       this.sections.splice(s, 0, newSection);
     }
     this.availableArea = '';
-  }
-
-  mouseMove(e) {
-    if (this.movingQuickAction) {
-      document.getElementById('drag-item').style.top = e.clientY + 'px';
-      document.getElementById('drag-item').style.left = (e.clientX + 15) + 'px';
-    }
   }
 
   fieldSetting(field) {

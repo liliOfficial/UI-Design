@@ -85,6 +85,8 @@ import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubsc
 import { FileFolderComponent } from './view/setup/files/file-folder/file-folder.component';
 import { FileFolderEditComponent } from './view/setup/files/file-folder-edit/file-folder-edit.component';
 import { UserFilesComponent } from './view/setup/files/user-files/user-files.component';
+import { NewDashboardComponent } from './view/reports/new-dashboard/new-dashboard.component';
+import { GenerateReportComponent } from './view/reports/generate-report/generate-report.component';
 
 
 @NgModule({
@@ -168,6 +170,8 @@ import { UserFilesComponent } from './view/setup/files/user-files/user-files.com
     FileFolderComponent,
     FileFolderEditComponent,
     UserFilesComponent,
+    NewDashboardComponent,
+    GenerateReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -194,6 +198,7 @@ import { UserFilesComponent } from './view/setup/files/user-files/user-files.com
       { path: 'opportunities/view-detail/:id', component: OpportunitiesNewViewComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'reports/new-reports/:type', component: NewReportComponent },
+      { path: 'reports/new-dashboard', component: NewDashboardComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'attachment', component: AttachmentDetailComponent },

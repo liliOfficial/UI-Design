@@ -52,10 +52,16 @@
 
 .section-title {
     position: relative;
-    padding:5px 15px;
+    padding:6px 15px;
     background:#f2f5f8;
     font-size: 14px;
     font-weight: 700;
+}
+
+.section-title .action {
+    position: absolute;
+    right:15px;
+    top:5px;
 }
 
 .availablearea .section-title {

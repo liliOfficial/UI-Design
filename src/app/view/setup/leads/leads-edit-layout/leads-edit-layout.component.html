@@ -27,8 +27,11 @@
       <div class="row">
         <div class="panel-section" *ngFor="let section of sections;index as s" [class.availablearea]="availableArea === 'section'"
           (mouseup)="addsection(s)">
-          <div class="section-title">
+          <div class="section-title cursor-move" (mousedown)="chooseSection(s)">
             <span>{{section.text}}</span>
+            <div class="action">
+              <i class="fa fa-trash-alt cursor-pointer"></i>
+            </div>
           </div>
           <div class="section-body">
             <ul class="list list-col2 list-drag">

@@ -27,7 +27,7 @@ export class ReportsComponent implements OnInit {
     },
     {
       name: 'Total Sales',
-      type: 'Leads',
+      type: 'Accounts',
       createdDate: '25/02/2017',
       createdBy: 'Jimmy Ye',
       lastModifiedBy: 'Winson'
@@ -48,7 +48,7 @@ export class ReportsComponent implements OnInit {
     },
     {
       name: 'Total Revenue',
-      type: 'Leads',
+      type: 'Accounts',
       createdDate: '25/02/2017',
       createdBy: 'Jimmy Ye',
       lastModifiedBy: 'Caroline'
@@ -69,14 +69,14 @@ export class ReportsComponent implements OnInit {
     },
     {
       name: 'Total Sales',
-      type: 'Leads',
+      type: 'Opportunities',
       createdDate: '25/02/2017',
       createdBy: 'Jimmy Ye',
       lastModifiedBy: 'Winson'
     },
     {
       name: 'Total Revenue',
-      type: 'Leads',
+      type: 'Opportunities',
       createdDate: '25/02/2017',
       createdBy: 'Jimmy Ye',
       lastModifiedBy: 'Caroline'
