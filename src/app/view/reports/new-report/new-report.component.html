@@ -1,64 +1,73 @@
 <div div class="with-sidebar-right" [class.hide-right]="!sidebarShow">
   <div class="panel border-red">
     <div class="panel-header">
-      <h2>New Report</h2>
+      <h2>{{reportType}} Report</h2>
     </div>
     <div class="panel-body">
-      <div class="section-header">
-        Conditions
-      </div>
-      <div class="section-body">
-        <table class="table-full no-line mb-10">
-          <thead>
-            <tr>
-              <td width=50></td>
-              <td>Fields</td>
-              <td>Condition</td>
-              <td>Value</td>
-              <td width=50></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let filter of filters; index as i">
-              <td>{{filter.index}}</td>
-              <td>
-                <select class="select select-sm input-block" [(ngModel)]="filter.field" (change)="clearFilterValue(filter.index)">
-                  <option *ngFor="let field of allFields" [ngValue]="field.id">{{field.text}}</option>
-                </select>
-              </td>
-              <td>
-                <select class="select select-sm input-block" [(ngModel)]="filter.condition">
-                  <option *ngFor="let condition of conditions" [ngValue]="condition">{{condition}}</option>
-                </select>
-              </td>
-              <td>
-                <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
-                <span *ngIf="valueType(filter.field)=='pickList'">
-                  <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
-                    <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value"
-                      (change)="changeSelected(filter)">
-                    <span class="input-icon" (click)="showPickList()">
-                      <i class="fa fa-search"></i>
+      <div class="panel-section">
+        <div class="section-header">
+          Conditions
+        </div>
+        <div class="section-body">
+          <table class="table-full no-line mb-10">
+            <thead>
+              <tr>
+                <td width=50></td>
+                <td>Fields</td>
+                <td>Condition</td>
+                <td>Value</td>
+                <td width=50></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let filter of filters; index as i">
+                <td>{{filter.index}}</td>
+                <td>
+                  <select class="select select-sm input-block" [(ngModel)]="filter.field" (change)="clearFilterValue(filter.index)">
+                    <option *ngFor="let field of allFields" [ngValue]="field.id">{{field.text}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="select select-sm input-block" [(ngModel)]="filter.condition">
+                    <option *ngFor="let condition of conditions" [ngValue]="condition">{{condition}}</option>
+                  </select>
+                </td>
+                <td>
+                  <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
+                  <span *ngIf="valueType(filter.field)=='pickList'">
+                    <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
+                      <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value"
+                        (change)="changeSelected(filter)">
+                      <span class="input-icon" (click)="showPickList()">
+                        <i class="fa fa-search"></i>
+                      </span>
                     </span>
                   </span>
-                </span>
-              </td>
-              <td>
-                <button class="btn btn-sm btn-red" (click)="deleteFilter(i)">
-                  <i class="fa fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="text-center">
-          <button class="btn btn-red btn-sm" (click)="addFilter()">
-            <i class="fa fa-plus"></i> Add New Filter
-          </button>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-red" (click)="deleteFilter(i)">
+                    <i class="fa fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <button class="btn btn-red btn-sm" (click)="addFilter()">
+              <i class="fa fa-plus"></i> Add New Filter
+            </button>
+          </div>
+          <div class="input-line-group mtb-15" style="width:100%">
+            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+            <span class="underline">Add Filter Logix</span>
+          </div>
         </div>
-        <div class="input-line-group mtb-15" style="width:100%">
-          <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
-          <span class="underline">Add Filter Logix</span>
+      </div>
+      <div class="panel-section">
+        <div class="section-header">
+          Values
+        </div>
+        <div class="section-body">
         </div>
       </div>
     </div>

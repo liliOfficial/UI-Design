@@ -8,48 +8,84 @@
       <div class="panel-section">
         <div class="section-header">Step 1: Information</div>
         <div class="section-body">
-          <div class="m-10  text-center">
-            <label class="field-label">Campaign Name</label>
-            <span class="input-group">
-              <input type="text" class="input input-block">
-            </span>
-          </div>
-          <div class="m-10  text-center">
-            <label class="field-label">Email Template </label>
-            <span class="input-group">
-              <select name="" id="" class="select input-block">
-                <option value="">{{item}}</option>
-              </select>
-            </span>
-          </div>
-          <div class="m-10  text-center">
-            <label class="field-label">Subscriber List</label>
-            <span class="input-group">
-              <select name="" id="" class="select input-block">
-                <option value="">{{item}}</option>
-              </select>
-            </span>
-          </div>
-          <div class="m-10  text-center">
-            <label class="field-label">Type</label>
-            <span class="input-group">
-              <select name="" id="" class="select input-block">
-                <option value="" *ngFor="let item of opportunityTypes">{{item}}</option>
-              </select>
-            </span>
-          </div>
-          <div class="m-10  text-center">
-            <span class="field-label">
-              <span>Description</span>
-            </span>
-            <span class="input-group">
-              <textarea class="textarea input-block"></textarea>
-            </span>
+          <div class="text-center">
+            <div class="field-textarea">
+              <div class="row">
+                <div class="col-3">
+                  <label class="field-label">Campaign Name
+                    <span class="text-red">*</span>
+                  </label>
+                </div>
+                <div class="col-9">
+                  <input type="text" class="input input-block">
+                </div>
+              </div>
+              <div class="clearfix m-10"></div>
+              <div class="row">
+                <div class="col-3">
+                  <label class="field-label">Email Template
+                    <span class="text-red">*</span>
+                  </label>
+                </div>
+                <div class="col-9">
+                  <select name="" id="" class="select input-block">
+                    <option value="">Deposit 2017</option>
+                    <option value="">Anual 2018</option>
+                    <option value="">10% off</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix  m-10"></div>
+              <div class="row">
+                <div class="col-3">
+                  <label class="field-label">Subscriber List
+                    <span class="text-red">*</span>
+                  </label>
+                </div>
+                <div class="col-9">
+                  <select name="" id="" class="select input-block">
+                    <option value="">Live account</option>
+                    <option value="">2018 Lottery</option>
+                    <option value="">Funding</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix  m-10"></div>
+              <div class="row">
+                <div class="col-3">
+                  <label class="field-label">Type
+                    <span class="text-red">*</span>
+                  </label>
+                </div>
+                <div class="col-9">
+                  <select name="" id="" class="select input-block">
+                    <option value="">Advertisement</option>
+                    <option value="">Promotion</option>
+                    <option value="">Announcement</option>
+                    <option value="">WorkFlow</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix  m-10"></div>
+              <div class="row">
+                <div class="col-3">
+                  <label class="field-label">Description
+                  </label>
+                </div>
+                <div class="col-9">
+                  <textarea class="textarea input-block"></textarea>
+                </div>
+              </div>
+              <div class="clearfix  m-10"></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="panel-section">
-        <div class="section-header">Step 2: Schedules</div>
+        <div class="section-header">
+          Step 2: Schedules 
+          <small class="text-orange">( Email campaign start at the start date, and end at the end date. )</small>
+        </div>
         <div class="section-body">
           <div class="field-textarea">
             <div class="mb-15">
@@ -58,7 +94,8 @@
                 <label> Ongoing Campaign</label>
               </div>
             </div>
-          </div>
+          </div>          
+          <div class="clearfix  m-10"></div>
           <div class="m-10  text-center">
             <label class="field-label">Start Date </label>
             <span class="input-group">
@@ -77,6 +114,16 @@
               </span>
             </span>
           </div>
+          <div class="m-10  text-center">
+            <label class="field-label">Status </label>
+            <span class="input-group text-left">
+              <select name="" id="" class="select select-orange input-block">
+                <option value="">Open</option>
+                <option value="">Closed</option>
+              </select>
+            </span>
+          </div>
+
         </div>
       </div>
     </div>

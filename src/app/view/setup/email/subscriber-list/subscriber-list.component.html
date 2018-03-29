@@ -3,6 +3,7 @@
   <div class="panel border-orange">
     <div class="panel-header">
       <h2>Subscriber List</h2>
+      <small>Maxmine send 500 emails per day.</small>
       <div class="action">
         <button class="btn btn-orange btn-xs btn-circle" routerLink="/setup/email/new-subscriber">
           <i class="fa fa-plus"></i> New Subscriber List
@@ -32,7 +33,7 @@
           <tbody>
             <tr *ngFor="let subscriber of subscriberList">
               <td>
-                <i class="fa fa-edit text-orange" routerLink="/setup/email/subscribers"></i>
+                <i class="fa fa-edit text-orange" routerLink="/setup/email/new-subscriber"></i>
                 <i class="fa fa-trash-alt"></i>
               </td>
               <td class="text-orange cursor-pointer" routerLink="/setup/email/subscribers">{{subscriber.name}}</td>

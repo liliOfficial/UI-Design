@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subscribers.component.css']
 })
 export class SubscribersComponent implements OnInit {
+  tab = 'search';
   subscribers = [
     {
       name: 'Jimmy Ye',
@@ -24,7 +25,7 @@ export class SubscribersComponent implements OnInit {
       manager: 'Renee'
     },
     {
-      name: 'Jimmy Ye',
+      name: 'Renee',
       state: 'Sydney',
       country: 'Australia',
       email: '123654@qq.com',
@@ -32,7 +33,7 @@ export class SubscribersComponent implements OnInit {
       manager: 'Michael'
     },
     {
-      name: 'Will',
+      name: 'Ronan',
       state: 'Sydney',
       country: 'Australia',
       email: '123654@qq.com',
@@ -40,7 +41,7 @@ export class SubscribersComponent implements OnInit {
       manager: 'Renee'
     },
     {
-      name: 'Jimmy Ye',
+      name: 'Colin',
       state: 'Sydney',
       country: 'Australia',
       email: '123654@qq.com',

@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leads-edit-layout.component.css']
 })
 export class LeadsEditLayoutComponent implements OnInit {
-  object = 'preview';
+  object = 'field';
+  fieldSettingPopup = false;
+
   sections = [
-    { 'text': 'Lead Detail', 'sectionName': 'leadDetail' },
-    { 'text': 'Social Media', 'sectionName': 'socialMedia' },
-    { 'text': 'Address Information', 'sectionName': 'addressInformation' },
-    { 'text': 'Additional Information', 'sectionName': 'Additional Information' },
-    { 'text': 'Company Detail', 'sectionName': 'companyDetail' }
+    { id: 0, text: 'Lead Detail', 'sectionName': 'leadDetail' },
+    { id: 1, text: 'Description', 'sectionName': 'description' },
+    { id: 2, text: 'Social Media', 'sectionName': 'socialMedia' },
+    { id: 3, text: 'Address Information', 'sectionName': 'addressInformation' },
+    { id: 4, text: 'Additional Information', 'sectionName': 'Additional Information' },
+    { id: 5, text: 'Company Detail', 'sectionName': 'companyDetail' }
   ];
 
   lists = [
@@ -21,32 +24,32 @@ export class LeadsEditLayoutComponent implements OnInit {
       'fieldName': 'name',
       'sectionName': 'leadDetail',
       'label': 'Name',
-      'value': 'Jimmy',
-      'required': 'true',
-      'readonly': 'true'
+      'value': 'Name of the Lead',
+      'required': true,
+      'readonly': true
     },
     {
       'id': 2,
       'fieldName': 'phone',
       'sectionName': 'leadDetail',
       'label': 'Phone',
-      'value': '0405000000',
-      'required': 'true'
+      'value': 'Phone number',
+      'required': true
     },
     {
       'id': 3,
       'fieldName': 'email',
       'sectionName': 'leadDetail',
       'label': 'Email',
-      'value': 'test@testing.com',
-      'required': 'true'
+      'value': 'Email Adress',
+      'required': true
     },
     {
       'id': 4,
       'fieldName': 'gender',
       'sectionName': 'leadDetail',
       'label': 'Gender',
-      'value': 'Female',
+      'value': 'Female or Male',
       'options': ['Male', 'Female']
     },
     {
@@ -54,16 +57,16 @@ export class LeadsEditLayoutComponent implements OnInit {
       'fieldName': 'birthday',
       'sectionName': 'leadDetail',
       'label': 'Birthday',
-      'value': '01/01/1999'
+      'value': 'Date of Birth in the format of dd/mm/yyy'
     },
     {
       'id': 6,
       'fieldName': 'account-type',
       'sectionName': 'leadDetail',
       'label': 'Account Type',
-      'value': 'AGENT',
+      'value': 'Option with the value of "AGENT" or "ECN/STP"',
       'options': ['ECN/STP', 'AGENT'],
-      'readonly': 'true'
+      'readonly': true
     },
     {
       'id': 7,
@@ -89,6 +92,38 @@ export class LeadsEditLayoutComponent implements OnInit {
       'value': 'Employed',
       'options': ['Employed', 'Unemployed', 'Retired', 'Student']
     },
+    {
+      'id': 10,
+      'fieldName': 'annual-income',
+      'sectionName': 'leadDetail',
+      'label': 'Employment',
+      'value': '$30,000-$79,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 11,
+      'fieldName': 'total-investment',
+      'sectionName': 'leadDetail',
+      'label': 'Total Investment',
+      'value': 'Less than $29,999',
+      'options': ['Less than $29,999', '$30,000-$79,999', '$80,000-$140,999', '$150,000+']
+    },
+    {
+      'id': 12,
+      'fieldName': 'accepted-terms',
+      'sectionName': 'leadDetail',
+      'label': 'Accepted Terms',
+      'value': 'Yes',
+      'options': ['Yes', 'No']
+    },
+    {
+      'id': 13,
+      'fieldName': 'agent',
+      'sectionName': 'leadDetail',
+      'label': 'Agent',
+      'value': '1234566'
+    },
+
     {
       'id': 10,
       'fieldName': 'skype',
@@ -154,6 +189,39 @@ export class LeadsEditLayoutComponent implements OnInit {
     { id: '3', text: 'Email Sent', selected: true }
   ];
 
+  tools = [
+    { id: 0, text: 'Covert', selected: true },
+    { id: 1, text: 'Delete', selected: true },
+    { id: 2, text: 'Sharing', selected: true },
+    { id: 3, text: 'Find Duplicate', selected: true },
+  ];
+
+  toolSelected = [
+    { id: 0, text: 'Covert', selected: true },
+    { id: 1, text: 'Delete', selected: true },
+    { id: 2, text: 'Sharing', selected: true },
+    { id: 3, text: 'Find Duplicate', selected: true },
+  ];
+
+  modules = [
+    { id: '0', text: 'Opportunities', selected: true },
+    { id: '1', text: 'Task Open', selected: false },
+    { id: '2', text: 'Task History', selected: true },
+    { id: '3', text: 'Email Sent', selected: true },
+    { id: '4', text: 'Attachments', selected: false },
+    { id: '5', text: 'Logs', selected: false },
+  ];
+
+  moduleSelected = [
+    { id: '0', text: 'Opportunities', selected: true },
+    { id: '2', text: 'Task History', selected: true },
+    { id: '3', text: 'Email Sent', selected: true }
+  ];
+
+  settingField = this.lists[0];
+
+
+
   availableArea: string;
   movingQuickAction;
 
@@ -200,12 +268,29 @@ export class LeadsEditLayoutComponent implements OnInit {
     this.movingQuickAction = null;
   }
 
+  chooseSection() {
+    this.availableArea = 'section';
+  }
+
+  addsection(s) {
+    if (this.availableArea === 'section') {
+      const newSectionId = this.sections.length;
+      const newSection = { id: newSectionId, text: 'New Section', sectionName: ' ' };
+      this.sections.splice(s, 0, newSection);
+    }
+    this.availableArea = '';
+  }
+
   mouseMove(e) {
     if (this.movingQuickAction) {
       document.getElementById('drag-item').style.top = e.clientY + 'px';
       document.getElementById('drag-item').style.left = (e.clientX + 15) + 'px';
     }
+  }
 
+  fieldSetting(field) {
+    this.settingField = field;
+    this.fieldSettingPopup = true;
   }
 
   constructor() {

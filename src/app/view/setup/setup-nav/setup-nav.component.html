@@ -100,7 +100,19 @@
       <span class="heading" [class.active]="active==='workflow'">Workflow Automation</span>
     </li>
     <li>
-      <span class="heading" [class.active]="active==='documents'">Documents</span>
+      <span class="heading" (click)="active='files'" [class.active]="active==='files'">Files</span>
+      <ul class="subnav" [class.hide]="active!=='files'">
+        <li>
+          <span class="subheading" routerLink="/setup/files/folders">
+            <i class="fa fa-folder"></i> Company Files
+          </span>
+        </li>
+        <li>
+          <span class="subheading" routerLink="/setup/files/user-files">
+            <i class="fa fa-file-alt"></i> User Files
+          </span>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

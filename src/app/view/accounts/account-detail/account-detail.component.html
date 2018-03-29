@@ -1,76 +1,78 @@
 <div>
-    <span class="pull-right">
-      <button class="btn btn-sm">Delete</button>
-      <button class="btn btn-sm">Sharing</button>
-      <button class="btn btn-sm" routerLink="/accounts/find-duplications">Find Duplicates</button>
-    </span>
-    <div class="clearfix m-5">
-  
+  <span class="pull-right">
+    <button class="btn btn-sm">Delete</button>
+    <button class="btn btn-sm">Sharing</button>
+    <button class="btn btn-sm" routerLink="/accounts/find-duplications">Find Duplicates</button>
+  </span>
+  <div class="clearfix m-5">
+
+  </div>
+  <div class="panel border-blue">
+    <div class="panel-header">
+      <h2 *ngIf="leadId==0">Create New Lead</h2>
+      <h2 *ngIf="leadId!=0">Edit Lead</h2>
     </div>
-    <div class="panel border-blue">
-      <div class="panel-header">
-        <h2 *ngIf="leadId==0">Create New Lead</h2>
-        <h2 *ngIf="leadId!=0">Edit Lead</h2>
-      </div>
-      <div class="panel-body">
-        <div class="panel-section" *ngFor="let section of sections">
-          <div class="section-header">
-            <i class="fa fa-caret-down mr-10" (click)="section.collapse=true" *ngIf="!section.collapse"></i>
-            <i class="fa fa-caret-right mr-10" (click)="section.collapse=false" *ngIf="section.collapse"></i>
-            {{section.text}}
-          </div>
-          <div class="section-body" *ngIf="!section.collapse">
-            <span *ngFor="let list of lists; index as i;">
-              <div *ngIf="list.sectionName==section.sectionName" class="section-li">
-                <label>
-                  {{list.label}}
-                  <span class="help">
-                    <i class="fa fa-question-circle"></i>
-                  </span>
-                </label>
-                <span class="content">
-                  <span class="text" *ngIf="!list.edit || list.readonly" [class.text-blue]="list.change" (dblclick)="edit(i)">{{list.value}}</span>
-                  <input type="text" [(ngModel)]="list.value" [class.text-blue]="list.change" (change)="list.change=true;" (keyup.enter)="list.edit=false" (blur)="list.edit=false"
-                    *ngIf="list.edit && !list.readonly && !list.options">
-                  <select [class.text-blue]="list.change" (change)="list.change=true;list.edit=false;" *ngIf="list.edit && !list.readonly && list.options" [(ngModel)]="list.value" (blur)="list.edit=false">
-                    <option [ngValue]="option" *ngFor="let option of list.options">{{option}}</option>
-                  </select>
-                  <span class="icon text-blue">
-                    <i class="fa fa-undo" *ngIf="list.change" (click)="undo(i)"></i>
-                  </span>
-                  <span class="icon text-red">
-                    <i class="fa fa-lock" *ngIf="list.readonly"></i>
-                  </span>
+    <div class="panel-body">
+      <div class="panel-section" *ngFor="let section of sections">
+        <div class="section-header">
+          <i class="fa fa-caret-down mr-10" (click)="section.collapse=true" *ngIf="!section.collapse"></i>
+          <i class="fa fa-caret-right mr-10" (click)="section.collapse=false" *ngIf="section.collapse"></i>
+          {{section.text}}
+        </div>
+        <div class="section-body" *ngIf="!section.collapse">
+          <span *ngFor="let list of lists; index as i;">
+            <div *ngIf="list.sectionName==section.sectionName" class="section-li">
+              <label>
+                <span class="text-red" *ngIf="list.required">*</span>
+                {{list.label}}
+                <span class="help">
+                  <i class="fa fa-question-circle"></i>
                 </span>
-              </div>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="tools-bar-right">
-        <div class="pb-5">
-          <a class="btn btn-icon btn-blue btn-shadow" (click)="output()">
-            <i class="icon fa fa-save"></i>
-          </a>
-        </div>
-        <div class="pb-5">
-          <a class="btn btn-icon btn-shadow">
-            <i class="icon fa fa-plus"></i>
-          </a>
-        </div>
-        <div class="pb-5">
-          <a class="btn btn-icon btn-red btn-shadow" (click)="undoAll()">
-            <i class="icon fa fa-undo"></i>
-          </a>
+              </label>
+              <span class="content">
+                <span class="text" *ngIf="!list.edit || list.readonly" [class.text-blue]="list.change" (dblclick)="edit(i)">{{list.value}}</span>
+                <input type="text" [(ngModel)]="list.value" [class.text-blue]="list.change" (change)="list.change=true;" (keyup.enter)="list.edit=false"
+                  (blur)="list.edit=false" *ngIf="list.edit && !list.readonly && !list.options">
+                <select [class.text-blue]="list.change" (change)="list.change=true;list.edit=false;" *ngIf="list.edit && !list.readonly && list.options"
+                  [(ngModel)]="list.value" (blur)="list.edit=false">
+                  <option [ngValue]="option" *ngFor="let option of list.options">{{option}}</option>
+                </select>
+                <span class="icon text-blue">
+                  <i class="fa fa-undo" *ngIf="list.change" (click)="undo(i)"></i>
+                </span>
+                <span class="icon text-red">
+                  <i class="fa fa-lock" *ngIf="list.readonly"></i>
+                </span>
+              </span>
+            </div>
+          </span>
         </div>
       </div>
     </div>
-    <div class="blue">
-      <div class="opportunities"></div>
-      <div class="task-open"></div>
-      <div class="task-history"></div>
-      <div class="email-sent"></div>
-      <div class="attachments"></div>
-      <div class="logs"></div>
+    <div class="tools-bar-right">
+      <div class="pb-5">
+        <a class="btn btn-icon btn-blue btn-shadow" (click)="output()">
+          <i class="icon fa fa-save"></i>
+        </a>
+      </div>
+      <div class="pb-5">
+        <a class="btn btn-icon btn-shadow">
+          <i class="icon fa fa-plus"></i>
+        </a>
+      </div>
+      <div class="pb-5">
+        <a class="btn btn-icon btn-red btn-shadow" (click)="undoAll()">
+          <i class="icon fa fa-undo"></i>
+        </a>
+      </div>
     </div>
   </div>
+  <div class="blue">
+    <div class="opportunities"></div>
+    <div class="task-open"></div>
+    <div class="task-history"></div>
+    <div class="email-sent"></div>
+    <div class="attachments"></div>
+    <div class="logs"></div>
+  </div>
+</div>

@@ -82,6 +82,9 @@ import { NewSubscriberComponent } from './view/setup/email/new-subscriber/new-su
 import { FilterService } from './service/filter.service';
 import { SubscribersComponent } from './view/setup/email/subscribers/subscribers.component';
 import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubscribers.component';
+import { FileFolderComponent } from './view/setup/files/file-folder/file-folder.component';
+import { FileFolderEditComponent } from './view/setup/files/file-folder-edit/file-folder-edit.component';
+import { UserFilesComponent } from './view/setup/files/user-files/user-files.component';
 
 
 @NgModule({
@@ -162,6 +165,9 @@ import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubsc
     NewSubscriberComponent,
     SubscribersComponent,
     UnsubscribersComponent,
+    FileFolderComponent,
+    FileFolderEditComponent,
+    UserFilesComponent,
   ],
   imports: [
     BrowserModule,
@@ -187,7 +193,7 @@ import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubsc
       { path: 'opportunities/opportunity-detail/:id', component: OpportunityDetailComponent },
       { path: 'opportunities/view-detail/:id', component: OpportunitiesNewViewComponent },
       { path: 'reports', component: ReportsComponent },
-      { path: 'reports/new-reports', component: NewReportComponent },
+      { path: 'reports/new-reports/:type', component: NewReportComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'search', component: SearchComponent },
       { path: 'attachment', component: AttachmentDetailComponent },
@@ -212,6 +218,9 @@ import { UnsubscribersComponent } from './view/setup/email/unsubscribers/unsubsc
       { path: 'setup/email/new-subscriber', component: NewSubscriberComponent },
       { path: 'setup/email/subscribers', component: SubscribersComponent },
       { path: 'setup/email/unsubscribers', component: UnsubscribersComponent },
+      { path: 'setup/files/folders', component: FileFolderComponent },
+      { path: 'setup/files/folder-edit', component: FileFolderEditComponent },
+      { path: 'setup/files/user-files', component: UserFilesComponent },
     ])
   ],
   providers: [

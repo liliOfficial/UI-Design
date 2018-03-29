@@ -1,0 +1,98 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-brown">
+    <div class="panel-header">
+      <h2>Create New Folder</h2>
+    </div>
+    <div class="panel-body">
+      <div class="mtb-15">
+        <div class="mb-5">
+          Folder Name
+          <span class="text-red">*</span>
+        </div>
+        <input type="text" class="input input-block">
+        <div class="mb-5 mt-10">
+          Description
+        </div>
+        <textarea class="textarea input-block"></textarea>
+      </div>
+      <!-- Restrict Visibility -->
+      <div class="section-header">
+        Restrict Visibility
+      </div>
+      <div class="section-body">
+        <div class="mt-15">
+          <div class="pb-10">
+            <div class="radio radio-brown">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible only to me</label>
+            </div>
+          </div>
+          <div class="pb-10">
+            <div class="radio radio-brown">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible to all users (Includes partner and customer portal users)</label>
+            </div>
+          </div>
+          <div class="pb-10">
+            <div class="radio radio-brown">
+              <input type="radio" name="radioExample">
+              <label for=""> Visible to certain groups of users</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropbox" style="height:auto">
+          <h2 class="m-10" *ngIf="!sharedUser.length && !sharedTeam.length">Please choose user to share.</h2>
+          <button class="btn btn-circle btn-brown btn-xs ml-5 mb-5" *ngFor="let user of sharedUser" (click)="removeUser(user.id)">
+            <i class="fa fa-user"></i>
+            {{user.name}}
+            <i class="fa fa-times ml-5"></i>
+          </button>
+          <div class="clearfix"></div>
+          <button class="btn btn-circle btn-xs ml-5 mb-5" *ngFor="let team of sharedTeam" (click)="removeTeam(index)">
+            <i class="fa fa-users"></i>
+            {{team}}
+            <i class="fa fa-times ml-5"></i>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-brown mb-5 mt-15">
+            Single click to show departments and users. Double click to add user or department to share.
+          </div>
+          <div class="col-3">
+            <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+          </div>
+          <div class="col-9">
+            <div class="dropbox dropbox-edit">
+              <div class="dropbox-heading">
+                <span>{{userDepartment}}</span>
+                <div class="action">
+                  <span class="input-line-group pull-right">
+                    <span class="search-icon">
+                      <i class="fa fa-search"></i>
+                    </span>
+                    <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+                    <span class="searchline"></span>
+                  </span>
+                </div>
+              </div>
+              <span class="btn btn-circle btn-sm user btn-brown" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+                <i class="fa fa-user"></i> {{user}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix m-15"></div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-brown">
+        <i class="fa fa-save"></i> Submmit</button>
+      <button class="btn">
+        <i class="fa fa-times"></i> Cancel</button>
+    </div>
+  </div>
+</div>

@@ -38,7 +38,7 @@
 
 .sidebar-right .list {
     margin:0 -10px;
-    padding:15px 0;
+    padding:15px 0 100px;
 }
 
 .sidebar-right .list .list-item {
@@ -47,4 +47,36 @@
 
 #drag-item {
     display: block;
+    z-index: 10;
+}
+
+.section-title {
+    position: relative;
+    padding:5px 15px;
+    background:#f2f5f8;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.availablearea .section-title {
+    background:#A5D6A7;
+}
+
+.availablearea.panel-section {
+    position: relative;
+}
+
+.availablearea.panel-section:hover {
+    border-top: 12px solid #2E7D32;
+}
+
+.availablearea.panel-section:hover:after {
+    font-family: 'FontAwesome';
+    content: '\f055';
+    display: block;
+    background:#2E7D32;
+    position: absolute;
+    color:#fff;
+    top: -12px;
+    left:50%;
 }

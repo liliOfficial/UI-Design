@@ -6,7 +6,11 @@ import { FilterService } from '../../../service/filter.service';
   templateUrl: './new-report.component.html',
   styleUrls: ['./new-report.component.css']
 })
-export class NewReportComponent implements OnInit {
+export class NewReportComponent implements OnInit { 
+
+
+
+  // For Filters
   sidebarShow = false;
   filterLogix: string;
   pickList = [];
@@ -37,6 +41,7 @@ export class NewReportComponent implements OnInit {
 
   filters = [{ index: 0, field: 2, condition: 'equals', value: 'Mr.,Ms.,aaaaa' }];
 
+  // For Filters
   addFilter() {
     const newFilter = { index: 0, field: -1, condition: '', value: '' };
     const length = this.filters.length - 1;

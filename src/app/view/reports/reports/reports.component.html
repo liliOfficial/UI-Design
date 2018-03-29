@@ -1,35 +1,84 @@
-<div class="with-sidebar-right" [class.hide-right]="sidebarShow">
+<div>
   <div class="panel border-red">
     <div class="panel-header">
+      <h2>Reports</h2>
       <div class="action">
-        <button class="btn btn-xs btn-red btn-circle" routerLink="/reports/new-reports">New Report</button>
+        <button class="btn btn-xs btn-red btn-circle" (click)="newReportPopup=true">New Report</button>
       </div>
     </div>
-    <div class="panel-body ">
-      <app-table-list></app-table-list>
-      <div class="clearfix pb-5"></div>
-    </div>
-  </div>
-</div>
-
-<div class="panel border-red">
-    <div class="panel-header">
-    </div>
     <div class="panel-body">
-      <app-drag-drop></app-drag-drop>
+      <h3 class="mtb-15">
+        <span class="radio radio-red">
+          <input type="radio" [(ngModel)]="reportOwner" value='my'>
+          <label for="" class="mr-30"> My Reports</label>
+        </span>
+        <span class="radio radio-red">
+          <input type="radio" [(ngModel)]="reportOwner" value='company'>
+          <label for=""> Company Reports</label>
+        </span>
+      </h3>
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th width=50></th>
+            <th>Report Name</th>
+            <th>Report Type</th>
+            <th>Date Created</th>
+            <th>Created By</th>
+            <th>Last Modified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of reports">
+            <td>
+              <i class="fa fa-edit text-red" [routerLink]="['/reports/new-reports',report.type]"></i>
+              <i class="fa fa-trash-alt"></i>
+            </td>
+            <td class="text-red cursor-pointer">{{report.name}}</td>
+            <td>{{report.type}}</td>
+            <td>{{report.createdDate}}</td>
+            <td>{{report.createdBy}}</td>
+            <td>{{report.lastModifiedBy}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="panel-footer">
-    </div>
-  </div>
-
-<div class="sidebar-right" [class.hide-right]="sidebarShow">
-  <div class="handle" (click)="sidebarShow = !sidebarShow">
-    <a class="btn btn-icon">
-      <i class="icon fa fa-bars" *ngIf="sidebarShow"></i>
-      <i class="icon fa fa-times" *ngIf="!sidebarShow"></i>
-    </a>
-  </div>
-  <div class="drag-label">
-    <div class="option">Name</div>
+    <div class="panel-footer"></div>
   </div>
 </div>
+<div class="popup popup-transparent" *ngIf="newReportPopup">
+    <div class="popup-content">
+      <div class="popup-box">
+        <div class="popup-header">
+          <h2 class="title">New Report</h2>
+          <span class="action">
+            <a class="btn btn-icon">
+              <i class="icon fa fa-times"  (click)="newReportPopup=false"></i>
+            </a>
+          </span>
+        </div>
+        <div class="popup-body">
+            <h2 class="mtb-15">Choose Report Type</h2>
+            <div class="mb-10">
+              <div class="radio radio-red">
+                <input type="radio" [(ngModel)]="reportType" value='Leads'>
+                <label for=""> Leads</label>
+              </div>
+            </div>
+            <div class="mb-10">
+              <div class="radio radio-red">
+                <input type="radio" [(ngModel)]="reportType" value='Accounts'>
+                <label for=""> Accounts</label>
+              </div>
+            </div>
+            <div class="mb-15">
+              <div class="radio radio-red">
+                <input type="radio" [(ngModel)]="reportType" value='Opportunities'>
+                <label for=""> Opportunities</label>
+              </div>
+            </div>
+            <button class="btn btn-red" *ngIf="reportType" [routerLink]="['/reports/new-reports',reportType]">Create New Report</button>
+        </div>
+      </div>
+    </div>
+  </div>

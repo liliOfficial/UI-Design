@@ -6,7 +6,82 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  sidebarShow = false;
+  reportOwner = 'my';
+  reportType: string;
+  newReportPopup = false;
+
+  reports = [
+    {
+      name: 'Total Sales',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Winson'
+    },
+    {
+      name: 'Total Revenue',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Caroline'
+    },
+    {
+      name: 'Total Sales',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Winson'
+    },
+    {
+      name: 'Total Revenue',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Caroline'
+    },
+    {
+      name: 'Total Sales',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Winson'
+    },
+    {
+      name: 'Total Revenue',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Caroline'
+    },
+    {
+      name: 'Total Sales',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Winson'
+    },
+    {
+      name: 'Total Revenue',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Caroline'
+    },
+    {
+      name: 'Total Sales',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Winson'
+    },
+    {
+      name: 'Total Revenue',
+      type: 'Leads',
+      createdDate: '25/02/2017',
+      createdBy: 'Jimmy Ye',
+      lastModifiedBy: 'Caroline'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {

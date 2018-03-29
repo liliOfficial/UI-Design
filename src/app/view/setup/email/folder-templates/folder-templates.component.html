@@ -23,7 +23,8 @@
         <td>
           <i class="fa fa-trash-alt"></i>
         </td>
-        <td class="text-orange cursor-pointer">{{template.name}}</td>
+        <td class="text-orange cursor-pointer" *ngIf="currentFolders==='Jimmy'" routerLink="/setup/email/new-template">{{template.name}}</td>
+        <td class="text-orange cursor-pointer" *ngIf="currentFolders==='My Folders'" routerLink="/user/email-template">{{template.name}}</td>
         <td>{{template.createdDate}}</td>
         <td>{{template.modifiedDate}}</td>
         <td>{{template.createdBy}}</td>

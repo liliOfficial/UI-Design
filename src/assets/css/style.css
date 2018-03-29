@@ -156,6 +156,9 @@ ul.inline-block li {
 .text-purple {
     color:#7E57C2;
 }
+.text-brown {
+    color:#795548;
+}
 .text-black {
     color:#000;
 }
@@ -366,6 +369,15 @@ ul.inline-block li {
 .btn-lightgreen:hover {
     background: #689F38;
     border:1px solid #689F38;
+}
+.btn-brown {
+    color:#fff;
+    background:#795548;    
+    border:1px solid #795548;
+}
+.btn-brown:hover {
+    background: #5D4037;
+    border:1px solid #5D4037;
 }
 .btn-white {
     color:#4e4e4e;

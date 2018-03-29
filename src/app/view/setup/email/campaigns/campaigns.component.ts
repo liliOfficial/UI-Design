@@ -16,6 +16,7 @@ export class CampaignsComponent implements OnInit {
       startDate: '28/02/2018',
       endDate: '28/02/2018',
       createdBy: 'Jimmy Ye',
+      status: 'Open',
       description: 'Live account'
     },
     {
@@ -27,6 +28,7 @@ export class CampaignsComponent implements OnInit {
       startDate: '28/02/2018',
       endDate: '28/02/2018',
       createdBy: 'Jimmy Ye',
+      status: 'Closed',
       description: 'Demo account'
     },
   ];

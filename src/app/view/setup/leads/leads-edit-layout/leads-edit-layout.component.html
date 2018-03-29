@@ -1,10 +1,9 @@
 <setup-nav></setup-nav>
 <div class="with-sidebar-left with-sidebar-right" (mousemove)="mouseMove($event)">
-  <div class="panel border-green" *ngIf="object ==='action'||object ==='preview'">
+  <!-- Tools -->
+  <div class="panel border-green" *ngIf="object ==='action'">
     <div class="panel-header">
       <h2>Tools</h2>
-      <div class="action">
-      </div>
     </div>
     <div class="panel-body hover-gray" [class.availablearea]="availableArea === 'quickActions'" (mouseup)="addQuickAction('showbox')">
       <div class="mtb-15">
@@ -17,11 +16,49 @@
       </div>
     </div>
   </div>
-
-  <div class="panel border-green" *ngIf="object ==='field'||object ==='preview'">
+  <!-- Fields/Sections -->
+  <div class="panel border-green" *ngIf="object ==='field'">
     <div class="panel-header">
       <h2>Lead Detail</h2>
       <div class="action">
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="panel-section" *ngFor="let section of sections;index as s" [class.availablearea]="availableArea === 'section'"
+          (mouseup)="addsection(s)">
+          <div class="section-title">
+            <span>{{section.text}}</span>
+          </div>
+          <div class="section-body">
+            <ul class="list list-col2 list-drag">
+              <span *ngFor="let list of lists">
+                <li *ngIf="list.sectionName==section.sectionName">
+                  <div class="move cursor-move">
+                    <span class="label">
+                      <span *ngIf="list.readonly" class="read-only">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                      <span *ngIf="list.required" class="required">*</span>
+                      {{list.label}}
+                    </span>
+                    <span class="content">
+                      <span>{{list.value}}</span>
+                    </span>
+                  </div>
+                  <span class="setting">
+                    <span class="delete">
+                      <i class="fa fa-trash-alt"></i>
+                    </span>
+                    <span class="edit text-green" (click)="fieldSetting(list)">
+                      <i class="fa fa-wrench"></i>
+                    </span>
+                  </span>
+                </li>
+              </span>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel-body">
@@ -29,8 +66,8 @@
       <div class="clearfix pb-5"></div>
     </div>
   </div>
-
-  <div *ngIf="object ==='module'||object ==='preview'" (mouseup)="addQuickAction('showbox')" [class.availablearea]="availableArea === 'quickActions'"
+  <!-- Module -->
+  <div *ngIf="object ==='module'" (mouseup)="addQuickAction('showbox')" [class.availablearea]="availableArea === 'quickActions'"
     class="row">
     <div class="p-15">
       <div class="panel border-green" *ngFor="let action of quickActionSelected; index as i;" (mousedown)="chooseQuickAction(action,'showbox',i)"
@@ -43,40 +80,94 @@
       <div class="clearfix p-30"></div>
     </div>
   </div>
+  <!-- Preview -->
+  <div *ngIf="object ==='preview'">
+    <div class="panel border-green">
+      <div class="panel-header">
+        <h2>Tools</h2>
+      </div>
+      <div class="panel-body">
+        <div class="mtb-15">
+          <span class="box" *ngFor="let tool of toolSelected">
+            <button class="btn">
+              {{tool.text}}
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="panel border-green">
+      <div class="panel-header">
+        <h2>Leads Detail</h2>
+      </div>
+      <div class="panel-body">
+        <div class="panel-section" *ngFor="let section of sections">
+          <div class="section-header">{{section.text}}</div>
+          <div class="section-body">
+            <span *ngFor="let list of lists">
+              <div *ngIf="list.sectionName==section.sectionName" class="section-li">
+                <label>
+                  <span class="text-red" *ngIf="list.required">*</span>
+                  {{list.label}}
+                  <span class="help">
+                    <i class="fa fa-question-circle"></i>
+                  </span>
+                </label>
+                <span class="content">
+                  <span class="text">{{list.value}}</span>
+                  <span class="icon text-red">
+                    <i class="fa fa-lock" *ngIf="list.readonly"></i>
+                  </span>
+                </span>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel border-green" *ngFor="let module of moduleSelected">
+      <div class="panel-header">
+        <h2>{{module.text}}</h2>
+      </div>
+      <div class="panel-body">
+
+      </div>
+    </div>
+  </div>
+
   <div id="drag-item" *ngIf="movingQuickAction">
     <i class="fa fa-arrows-alt pr-5" style="color:#43A047"></i>
     <span id="drag-item-text">{{movingQuickAction.text}}</span>
   </div>
 
   <div class="sidebar-right">
-    <h2>Map</h2>
     <div class="option">
-      <div class="mb-5">
-        <div class="radio radio-green">
-          <input type="radio" value="action" [(ngModel)]="object">
-          <label for=""> Tools</label>
-        </div>
-      </div>
-      <div class="mb-5">
-        <div class="radio radio-green">
-          <input type="radio" value="field" [(ngModel)]="object">
-          <label for=""> Fields/Sections</label>
-        </div>
-      </div>
-      <div class="mb-5">
-        <div class="radio radio-green">
-          <input type="radio" value="module" [(ngModel)]="object">
-          <label for=""> Modules</label>
-        </div>
-      </div>
-      <div class="mb-5">
+      <div class="mb-10">
         <div class="radio radio-green">
           <input type="radio" value="preview" [(ngModel)]="object">
           <label for=""> Preview</label>
         </div>
       </div>
-
+      <div class="mb-10">
+        <div class="radio radio-green">
+          <input type="radio" value="action" [(ngModel)]="object">
+          <label for=""> Tools</label>
+        </div>
+      </div>
+      <div class="mb-10">
+        <div class="radio radio-green">
+          <input type="radio" value="field" [(ngModel)]="object">
+          <label for=""> Fields/Sections</label>
+        </div>
+      </div>
+      <div class="mb-10">
+        <div class="radio radio-green">
+          <input type="radio" value="module" [(ngModel)]="object">
+          <label for=""> Modules</label>
+        </div>
+      </div>
     </div>
+    <!-- List to Choose -->
     <div class="list" *ngIf="object ==='action'" (mouseup)="addQuickAction('list')" [class.availablearea]="availableArea === 'quickActions'">
       <div class="list-item" *ngFor="let action of quickActions; index as i;">
         <button class="btn btn-xs btn-block" [disabled]="action.selected" (mousedown)="chooseQuickAction(action,'list',i)">
@@ -86,12 +177,10 @@
     </div>
     <div class="list" *ngIf="object ==='field'">
       <div class="list-item">
-        <button class="btn btn-xs btn-block btn-green">Section</button>
-        <button class="btn btn-xs btn-block">Fields</button>
+        <button class="btn btn-xs btn-block btn-green" (mousedown)="chooseSection()">Section</button>
+        <button class="btn btn-xs btn-block" *ngFor="let field of lists">{{field.label}}</button>
       </div>
-      
     </div>
-
     <div class="list" *ngIf="object ==='module'" (mouseup)="addQuickAction('list')" [class.availablearea]="availableArea === 'quickActions'">
       <div class="list-item" *ngFor="let action of quickActions; index as i;">
         <button class="btn btn-xs btn-block" [disabled]="action.selected" (mousedown)="chooseQuickAction(action,'list',i)">
@@ -101,6 +190,35 @@
     </div>
   </div>
 
-
-
+  <div class="popup popup-transparent" *ngIf="fieldSettingPopup">
+    <div class="popup-content">
+      <div class="popup-box">
+        <div class="popup-header">
+          <h2 class="title">Field Setting</h2>
+          <span class="action">
+            <a class="btn btn-icon">
+              <i class="icon fa fa-times" (click)="fieldSettingPopup= false"></i>
+            </a>
+          </span>
+        </div>
+        <div class="popup-body">
+          <div class="row">
+            <div class="col-4 text-right text-b">{{settingField.label}}</div>
+            <div class="col-4">
+              <span class="checkbox checkbox-yellow">
+                <input type="checkbox" [(ngModel)]="settingField.readonly">
+                <label>Readonly</label>
+              </span>
+            </div>
+            <div class="col-4">
+              <span class="checkbox checkbox-red">
+                <input type="checkbox" [(ngModel)]="settingField.required">
+                <label>Required</label>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

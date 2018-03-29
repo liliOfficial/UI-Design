@@ -1,0 +1,168 @@
+<setup-nav></setup-nav>
+<div class="with-sidebar-left">
+  <div class="panel border-brown">
+    <div class="panel-header">
+      <h2>Company Files</h2>
+      <div class="action" *ngIf="!search">
+        <button class="btn btn-brown btn-circle btn-xs" (click)="search=true">
+          <i class="fa fa-search"></i> Search File
+        </button>
+        <button class="btn btn-brown btn-circle btn-xs" routerLink="/setup/files/folder-edit">
+          <i class="fa fa-plus"></i> Create Folder
+        </button>
+      </div>
+      <div class="action" *ngIf="search">
+        <button class="btn btn-brown pull-right btn-circle btn-xs" (click)="search=false">
+          <i class="fa fa-search"></i> Search by Folder
+        </button>
+      </div>
+    </div>
+    <div class="panel-body" *ngIf="search">
+      <div class="input-line-group w-100p mb-15">
+        <span class="input-icon" (click)="searchResult=true">
+          <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="" (keyup.enter)="searchResult=true">
+        <span class="underline">File Name</span>
+      </div>
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th width=50></th>
+            <th>Folder</th>
+            <th>File Name</th>
+            <th>Type</th>
+            <th>Uploaded Date</th>
+            <th>Created By</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="searchResult">
+          <tr *ngFor="let file of files">
+            <td>
+              <i class="fa fa-eye text-brown"></i>
+              <i class="fa fa-trash-alt"></i>
+            </td>
+            <td>Company Folder</td>
+            <td class="text-brown cursor-pointer">{{file.name}}</td>
+            <td>{{file.type}}</td>
+            <td>{{file.uploadedDate}}</td>
+            <td>{{file.createdBy}}</td>
+            <td>{{file.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-body" *ngIf="!search">
+      <div class="mtb-15">
+        <div class="mb-5 text-b">
+          <label for="">Choose Folder</label>
+        </div>
+        <div class="input-line-group w-100p">
+          <select name="" id="" class="select input-block">
+            <option value="">Company Folder</option>
+            <option value="">Company Folder2</option>
+            <option value="">Company Folder3</option>
+          </select>
+          <span class="underline"></span>
+        </div>
+      </div>
+      <div class="mb-10">
+        <div class="pull-right">
+          <button class="btn btn-circle btn-brown btn-sm" routerLink="/setup/files/folder-edit">
+            <i class="fa fa-edit"></i> Edit Folder
+          </button>
+          <button class="btn btn-circle btn-brown btn-sm" (click)="attachPopup = true">
+            <i class="fa fa-paperclip"></i> Attach File
+          </button>
+        </div>
+      </div>
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th width=50></th>
+            <th>File Name</th>
+            <th>Type</th>
+            <th>Uploaded Date</th>
+            <th>Created By</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let file of files">
+            <td>
+              <i class="fa fa-eye text-brown"></i>
+              <i class="fa fa-trash-alt"></i>
+            </td>
+            <td class="text-brown cursor-pointer">{{file.name}}</td>
+            <td>{{file.type}}</td>
+            <td>{{file.uploadedDate}}</td>
+            <td>{{file.createdBy}}</td>
+            <td>{{file.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <div class="pagination pagination-brown" *ngIf="!search">
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Attach File Popup -->
+<div class="popup popup-transparent" *ngIf="attachPopup">
+  <div class="popup-content">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h2 class="title">Attach File</h2>
+        <span class="action">
+          <a class="btn btn-icon btn-brown">
+            <i class="icon fa fa-save"></i>
+          </a>
+          <a class="btn btn-icon">
+            <i class="icon fa fa-times" (click)="attachPopup = false"></i>
+          </a>
+        </span>
+      </div>
+      <div class="popup-body">
+        <div class="row">
+          <div class="col-3">
+            Folder
+            <span class="text-red">*</span>
+          </div>
+          <div class="col-9">
+            <select name="" id="" class="select input-block">
+              <option value="">Company Folder1</option>
+              <option value="">Company Folder2</option>
+              <option value="">Company Folder3</option>
+            </select>
+          </div>
+          <div class="clearfix mb-10"></div>
+          <div class="col-3">
+            File Name
+            <span class="text-red">*</span>
+          </div>
+          <div class="col-9">
+            <input type="text" class="input input-block">
+          </div>
+          <div class="clearfix mb-10"></div>
+          <div class="col-3">
+            Choose File
+            <span class="text-red">*</span>
+          </div>
+          <div class="col-9">
+            <input type="file" class="input input-block">
+          </div>
+          <div class="clearfix mb-10"></div>
+          <div class="col-3">
+            Description
+          </div>
+          <div class="col-9">
+            <textarea class="textarea input-block" cols="30" rows="8"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
