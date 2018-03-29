@@ -7,6 +7,7 @@ import { FilterService } from '../../../service/filter.service';
   styleUrls: ['./new-report.component.css']
 })
 export class NewReportComponent implements OnInit {
+  reportType: string;
   // For Filters
   sidebarShow = false;
   filterLogix: string;
