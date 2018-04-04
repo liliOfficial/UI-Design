@@ -1,27 +1,121 @@
-<div>
-  <div class="panel border-red">
+<div class="sidebar-left">
+  <span class="input-line-group w-100p mtb-15">
+    <span class="input-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+    <span class="underline">Search Folder Name</span>
+  </span>
+  <div class="tab tab-red">
+    <ul>
+      <li [class.active]="sideNav==='Report'" (click)="sideNav='Report';activeFolder='My Report'">Reports</li>
+      <li [class.active]="sideNav==='Dashboard'" (click)="sideNav='Dashboard';activeFolder='My Dashboard'">dashboard</li>
+    </ul>
+  </div>
+
+  <div *ngIf="sideNav==='Report'">
+    <button class="btn btn-xs btn-red btn-circle mt-10" (click)="addReportInput=true" *ngIf="!addReportInput">New Folder</button>
+    <div class="folders">
+      <div class="folder" (click)="activeFolder='My Report'" [class.active]="activeFolder==='My Report'">
+        <i class="fa fa-folder" *ngIf="activeFolder!=='My Report'"></i>
+        <i class="fa fa-folder-open" *ngIf="activeFolder==='My Report'"></i>
+        My Report
+      </div>
+      <!-- Add New Report Folder -->
+      <div class="folder" *ngIf="addReportInput">
+        <i class="fa fa-folder"></i>
+        <input type="text" [(ngModel)]="newReportFolderName" class="input input-xs">
+        <span class="action">
+          <i class="fa fa-save text-red" (click)="newReportFolder()"></i>
+          <i class="fa fa-times" (click)="addReportInput=false"></i>
+        </span>
+      </div>
+      <!--Report Folders -->
+      <div class="folder" *ngFor="let folder of reportFolders;index as i" (click)="activeFolder=folder.name" [class.active]="activeFolder===folder.name">
+        <i class="fa fa-folder" *ngIf="activeFolder!==folder.name"></i>
+        <i class="fa fa-folder-open" *ngIf="activeFolder===folder.name"></i>
+        <span class="share-out">
+          <i class="fa fa-share-square" *ngIf="folder.shared"></i>
+        </span>
+        <span *ngIf="!folder.change">
+          {{folder.name}}
+          <span class="shared-by" *ngIf="folder.sharedBy"> ({{folder.sharedBy}})</span>
+        </span>
+        <span>
+          <input type="text" [(ngModel)]="folder.name" class="input input-xs" *ngIf="folder.change">
+        </span>
+        <span class="action" *ngIf="!folder.sharedBy">
+          <span *ngIf="!folder.change">
+            <i class="fa fa-edit" (click)="folder.change=true"></i>
+            <i class="fa fa-trash-alt" (click)="deleteReportFolder(i)"></i>
+          </span>
+          <span *ngIf="folder.change">
+            <i class="fa fa-save text-red" (click)="folder.change=false"></i>
+            <i class="fa fa-times" (click)="folder.change=false"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="sideNav==='Dashboard'">
+    <button class="btn btn-xs btn-red btn-circle mt-10" (click)="addDashboardInput=true" *ngIf="!addDashboardInput">New Folder</button>
+    <div class="folders">
+      <div class="folder" (click)="activeFolder='My Dashboard'" [class.active]="activeFolder==='My Dashboard'">
+        <i class="fa fa-folder" *ngIf="activeFolder!=='My Dashboard'"></i>
+        <i class="fa fa-folder-open" *ngIf="activeFolder==='My Dashboard'"></i>
+        My Dashboard
+      </div>
+      <!-- Add New Dashboard Folder -->
+      <div class="folder" *ngIf="addDashboardInput">
+        <i class="fa fa-folder"></i>
+        <input type="text" [(ngModel)]="newDashboardFolderName" class="input input-xs">
+        <span class="action">
+          <i class="fa fa-save text-red" (click)="newDashboardFolder()"></i>
+          <i class="fa fa-times" (click)="addDashboardInput=false"></i>
+        </span>
+      </div>
+      <!--Dashboard Folders -->
+      <div class="folder" *ngFor="let folder of dashboardFolders;index as i" (click)="activeFolder=folder.name" [class.active]="activeFolder===folder.name">
+        <i class="fa fa-folder" *ngIf="activeFolder!==folder.name"></i>
+        <i class="fa fa-folder-open" *ngIf="activeFolder===folder.name"></i>
+        <span class="share-out">
+          <i class="fa fa-share-square" *ngIf="folder.shared"></i>
+        </span>
+        <span *ngIf="!folder.change">
+          {{folder.name}}
+          <span class="shared-by" *ngIf="folder.sharedBy"> ({{folder.sharedBy}})</span>
+        </span>
+        <span>
+          <input type="text" [(ngModel)]="folder.name" class="input input-xs" *ngIf="folder.change">
+        </span>
+        <span class="action" *ngIf="!folder.sharedBy">
+          <span *ngIf="!folder.change">
+            <i class="fa fa-edit" (click)="folder.change=true"></i>
+            <i class="fa fa-trash-alt" (click)="deleteReportFolder(i)"></i>
+          </span>
+          <span *ngIf="folder.change">
+            <i class="fa fa-save text-red" (click)="folder.change=false"></i>
+            <i class="fa fa-times" (click)="folder.change=false"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tables -->
+<div class="with-sidebar-left">
+  <!-- Report Table -->
+  <div class="panel border-red" *ngIf="sideNav==='Report'">
     <div class="panel-header">
-      <h2>Reports</h2>
+      <h2>{{activeFolder}}</h2>
       <div class="action">
         <button class="btn btn-xs btn-red btn-circle" (click)="newReportPopup=true">
           <i class="fa fa-plus"></i> New Report
         </button>
-        <button class="btn btn-xs btn-red btn-circle" routerLink="/reports/new-dashboard">
-          <i class="fa fa-plus"></i> New Dashboard
-        </button>
       </div>
     </div>
     <div class="panel-body">
-      <h3 class="mtb-15">
-        <span class="radio radio-red">
-          <input type="radio" [(ngModel)]="reportOwner" value='my'>
-          <label for="" class="mr-30"> My Reports</label>
-        </span>
-        <span class="radio radio-red">
-          <input type="radio" [(ngModel)]="reportOwner" value='company'>
-          <label for=""> Company Reports</label>
-        </span>
-      </h3>
       <table class="table-full table-striped table-hover">
         <thead>
           <tr>
@@ -39,7 +133,7 @@
               <i class="fa fa-edit text-red" [routerLink]="['/reports/new-reports',report.type]"></i>
               <i class="fa fa-trash-alt"></i>
             </td>
-            <td class="text-red cursor-pointer">{{report.name}}</td>
+            <td>{{report.name}}</td>
             <td>{{report.type}}</td>
             <td>{{report.createdDate}}</td>
             <td>{{report.createdBy}}</td>
@@ -47,10 +141,51 @@
           </tr>
         </tbody>
       </table>
+      <app-reports-share></app-reports-share>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+  <!-- DashBoard Table -->
+  <div class="panel border-red" *ngIf="sideNav==='Dashboard'">
+    <div class="panel-header">
+      <h2>{{activeFolder}}</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-red btn-circle" routerLink="/reports/new-dashboard">
+          <i class="fa fa-plus"></i> New Dashboard
+        </button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table-full table-striped table-hover">
+        <thead>
+          <tr>
+            <th width=50></th>
+            <th>Dashboard Name</th>
+            <th>Date Created</th>
+            <th>Created By</th>
+            <th>Last Modified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dashboard of dashboards">
+            <td>
+              <i class="fa fa-edit text-red" routerLink="/reports/new-dashboard"></i>
+              <i class="fa fa-trash-alt"></i>
+            </td>
+            <td>{{dashboard.name}}</td>
+            <td>{{dashboard.createdDate}}</td>
+            <td>{{dashboard.createdBy}}</td>
+            <td>{{dashboard.lastModifiedBy}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <app-reports-share></app-reports-share>
     </div>
     <div class="panel-footer"></div>
   </div>
 </div>
+
+<!-- New Report Popup -->
 <div class="popup popup-transparent" *ngIf="newReportPopup">
   <div class="popup-content">
     <div class="popup-box">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService } from '../../../service/filter.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-report',
@@ -8,6 +8,7 @@ import { FilterService } from '../../../service/filter.service';
 })
 export class NewReportComponent implements OnInit {
   reportType: string;
+  private sub: any;
   // For Filters
   sidebarShow = false;
   filterLogix: string;
@@ -138,8 +139,11 @@ export class NewReportComponent implements OnInit {
     this.pickList = [];
   }
 
-  constructor(private filter: FilterService) { }
+  constructor(private route: ActivatedRoute) { }
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.reportType = params['type'];
+    });
   }
 
 }

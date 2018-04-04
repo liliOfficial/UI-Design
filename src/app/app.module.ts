@@ -87,6 +87,7 @@ import { FileFolderEditComponent } from './view/setup/files/file-folder-edit/fil
 import { UserFilesComponent } from './view/setup/files/user-files/user-files.component';
 import { NewDashboardComponent } from './view/reports/new-dashboard/new-dashboard.component';
 import { GenerateReportComponent } from './view/reports/generate-report/generate-report.component';
+import { ReportsShareComponent } from './view/reports/reports-share/reports-share.component';
 
 
 @NgModule({
@@ -172,6 +173,7 @@ import { GenerateReportComponent } from './view/reports/generate-report/generate
     UserFilesComponent,
     NewDashboardComponent,
     GenerateReportComponent,
+    ReportsShareComponent,
   ],
   imports: [
     BrowserModule,

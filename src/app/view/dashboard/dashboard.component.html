@@ -1,4 +1,76 @@
 <div>
+    <div class="pt-15">
+        <div class="col-4">
+            <div>
+                New Leads
+
+            </div>
+        </div>
+        <div class="col-4">
+            New Accounts
+        </div>
+        <div class="col-4">
+            Last View
+        </div>
+        <div class="clearfix mb-15"></div>
+    </div>
+    <div class="panel">
+        <div class="panel-header">
+            <h2>
+                My Open Activity
+            </h2>
+
+        </div>
+        <div class="panel-body">
+            <div class="mt-10 mb-10">
+                <select class="select select-sm">
+                    <option value="">Overdue + Today</option>
+                    <option value="">Overdue</option>
+                    <option value="">Today</option>
+                    <option value="">Tomorrow</option>
+                    <option value="">This Month</option>
+                </select>
+                <button class="btn btn-sm pull-right">Expand</button>
+            </div>
+            <div class="row">
+
+                <table class="table-full table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th width=100>Quick Complete</th>
+                            <th>Subject</th>
+                            <th>Due</th>
+                            <th>Lead Name</th>
+                            <th>Account Name</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Last Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let activity of activities">
+                            <td>
+                                <i class="fa fa-times"></i>
+                            </td>
+                            <td class="text-red cursor-pointer" routerLink="/task">{{activity.subject}}</td>
+                            <td>{{activity.due}}</td>
+                            <td>{{activity.leadName}}</td>
+                            <td>{{activity.accountName}}</td>
+                            <td>{{activity.status}}</td>
+                            <td>{{activity.createdDate}}</td>
+                            <td>{{activity.lastActivity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="pagination">
+                <app-pagination></app-pagination>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix mb-80"></div>
     <app-tab></app-tab>
     <app-checkbox-radio></app-checkbox-radio>
     <app-button></app-button>

@@ -1,9 +1,63 @@
-<div class="sidebar-left"></div>
+<div class="sidebar-left">
+  <div class="tab tab-red">
+    <ul>
+      <li [class.active]="sideNav==='type'" (click)="sideNav='type'">Data Type</li>
+      <li [class.active]="sideNav==='report'" (click)="sideNav='report'">Report Data</li>
+    </ul>
+  </div>
+  <div class="data-type" *ngIf="sideNav==='type'">
+    <span class="active">
+      <i class="fa fa-table"></i>
+    </span>
+    <span>
+      <i class="fa fa-chart-pie"></i>
+    </span>
+    <span>
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span>
+      <i class="fa fa-chart-bar"></i>
+    </span>
+    <span>
+      <i class="fa fa-chart-area"></i>
+    </span>
+  </div>
+  <div class="report-data ptb-15" *ngIf="sideNav==='report'">
+    <div class="">
+      <h3 class="cursor-pointer" (click)="reportType='my'">
+        <i class="fa fa-folder" *ngIf="reportType!=='my'"></i>
+        <i class="fa fa-folder-open" *ngIf="reportType==='my'"></i>
+        <span> My Report</span>
+      </h3>
+      <div class="reports" *ngIf="sideNav==='report'">Sales Total</div>
+    </div>
+    <div>
+      <h3 class="cursor-pointer" (click)="reportType='company'">
+        <i class="fa fa-folder" *ngIf="reportType!=='company'"></i>
+        <i class="fa fa-folder-open" *ngIf="reportType==='company'"></i>
+        <span> Company Report</span>
+      </h3>
+      <div class="reports" *ngIf="reportType!=='company'">
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
 <div class="with-sidebar-left">
   <div class="col-4">
-    <div class="panel">
+    <div class="panel report-table">
       <div class="panel-header">
-        <h2>Click to Edit Name</h2>        
+        <h2>
+          <input type="text" [(ngModel)]="table1Header">
+          <span class="underline"></span>
+        </h2>
+        <div class="action">
+          <button class="btn btn-xs">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
       </div>
       <div class="panel-body">
         <table>
@@ -15,13 +69,20 @@
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td>May 2017</td>
+              <td>11</td>
             </tr>
           </tbody>
         </table>
+        <div>
+          Data Report: Total Revenue
+        </div>
       </div>
       <div class="panel-footer">
-          Click to Edit Footer
+        <div class="content">
+          <input type="text" [(ngModel)]="table1Footer">
+          <span class="underline"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -31,4 +92,5 @@
   <div class="col-4">
     <div class="panel"></div>
   </div>
+  <div class="clearfix"></div>
 </div>

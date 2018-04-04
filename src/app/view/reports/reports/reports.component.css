@@ -1,0 +1,45 @@
+.sidebar-left {
+    width:350px;
+}
+.with-sidebar-left {
+    margin-left:350px;
+}
+.sidebar-left .folders {
+    margin:10px -10px;
+}
+.sidebar-left .folder {
+    font-size: 13px;
+    padding: 3px 15px;
+    position: relative;
+} 
+
+.sidebar-left .folder.active {
+    font-weight: 700;
+}
+
+.sidebar-left .folder:hover {
+    background:#f2f5f8;
+}
+
+.sidebar-left .folder .shared-by {
+    font-size: 11px;
+    color:#E53935;
+}
+
+.sidebar-left .folder .share-out {
+    width:6px;
+    display:inline-block;
+    font-size: 6px;
+    color:#E53935;
+}
+
+.sidebar-left .folder .action {
+    font-size: 12px;
+    position: absolute;
+    right:15px;
+    bottom:4px;
+}
+
+.sidebar-left .folder .input {
+    width:250px;
+}

@@ -1,0 +1,57 @@
+<h2 class="mt-15 mb-5">Shared to</h2>
+<div class="dropbox" style="height:auto">
+  <h2 class="m-10" *ngIf="!sharedUser.length && !sharedTeam.length">Please choose user to share.</h2>
+  <button class="btn btn-circle btn-red btn-xs ml-5 mb-5" *ngFor="let user of sharedUser" (click)="removeUser(user.id)">
+    <i class="fa fa-user"></i>
+    {{user.name}}
+    <i class="fa fa-times ml-5"></i>
+  </button>
+  <div class="clearfix"></div>
+  <button class="btn btn-circle btn-xs ml-5 mb-5" *ngFor="let team of sharedTeam" (click)="removeTeam(index)">
+    <i class="fa fa-users"></i>
+    {{team}}
+    <i class="fa fa-times ml-5"></i>
+  </button>
+</div>
+<div>
+  <button class="btn btn-red btn-sm mt-10" (click)="chartShow=true" *ngIf="!chartShow">
+    <i class="fa fa-user-plus"></i> Add New User
+  </button>
+  <button *ngIf="chartShow" class="btn btn-red btn-sm mt-10">
+    <i class="fa fa-save"></i> Save Changes
+  </button>
+  <button *ngIf="chartShow" class="btn btn-sm mt-10" (click)="chartShow=false">
+    <i class="fa fa-undo"></i> Cancel
+  </button>
+</div>
+
+<div *ngIf="chartShow">
+  <div class="row">
+    <div class="col-12 text-red mb-5 mt-15">
+      Single click to show departments and users. Double click to add user or department to share.
+    </div>
+    <div class="col-3">
+      <app-departments (output)="chooseDepartment($event)" (clickValue)="showTeamUser($event)"></app-departments>
+    </div>
+    <div class="col-9">
+      <div class="dropbox dropbox-edit">
+        <div class="dropbox-heading">
+          <span>{{userDepartment}}</span>
+          <div class="action">
+            <span class="input-line-group pull-right">
+              <span class="search-icon">
+                <i class="fa fa-search"></i>
+              </span>
+              <input type="text" class="search-line" placeholder="search users" (keyup)="userFilter()" [(ngModel)]="userKeyword">
+              <span class="searchline"></span>
+            </span>
+          </div>
+        </div>
+        <span class="btn btn-circle btn-sm user btn-red" *ngFor="let user of filteredUsers" (dblclick)="addUser(user)">
+          <i class="fa fa-user"></i> {{user}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix mb-20"></div>
