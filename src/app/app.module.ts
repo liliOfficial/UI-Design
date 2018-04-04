@@ -88,6 +88,7 @@ import { UserFilesComponent } from './view/setup/files/user-files/user-files.com
 import { NewDashboardComponent } from './view/reports/new-dashboard/new-dashboard.component';
 import { GenerateReportComponent } from './view/reports/generate-report/generate-report.component';
 import { ReportsShareComponent } from './view/reports/reports-share/reports-share.component';
+import { TasksComponent } from './view/common/tasks/tasks.component';
 
 
 @NgModule({
@@ -174,6 +175,7 @@ import { ReportsShareComponent } from './view/reports/reports-share/reports-shar
     NewDashboardComponent,
     GenerateReportComponent,
     ReportsShareComponent,
+    TasksComponent,
   ],
   imports: [
     BrowserModule,
@@ -202,6 +204,7 @@ import { ReportsShareComponent } from './view/reports/reports-share/reports-shar
       { path: 'reports/new-reports/:type', component: NewReportComponent },
       { path: 'reports/new-dashboard', component: NewDashboardComponent },
       { path: 'task', component: TaskEditComponent },
+      { path: 'tasks', component: TasksComponent },
       { path: 'search', component: SearchComponent },
       { path: 'attachment', component: AttachmentDetailComponent },
       { path: 'setup/company', component: CompanyInformationComponent },
