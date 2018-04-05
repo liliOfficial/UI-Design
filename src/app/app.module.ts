@@ -89,6 +89,7 @@ import { NewDashboardComponent } from './view/reports/new-dashboard/new-dashboar
 import { GenerateReportComponent } from './view/reports/generate-report/generate-report.component';
 import { ReportsShareComponent } from './view/reports/reports-share/reports-share.component';
 import { TasksComponent } from './view/common/tasks/tasks.component';
+import { UiComponent } from './view/user/ui/ui.component';
 
 
 @NgModule({
@@ -176,6 +177,7 @@ import { TasksComponent } from './view/common/tasks/tasks.component';
     GenerateReportComponent,
     ReportsShareComponent,
     TasksComponent,
+    UiComponent,
   ],
   imports: [
     BrowserModule,
@@ -184,6 +186,7 @@ import { TasksComponent } from './view/common/tasks/tasks.component';
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'UI', component: UiComponent },
       { path: 'user/setting', component: SettingComponent },
       { path: 'user/folder', component: FolderComponent },
       { path: 'user/email-template', component: MyEmailTemplateComponent },

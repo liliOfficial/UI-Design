@@ -1,4 +1,26 @@
-<div div class="with-sidebar-right" [class.hide-right]="!sidebarShow">
+<div class="sidebar-left">
+  <div class="format mtb-15">
+    <label for="">Format</label>
+    <select name="" id="" class="select select-red input-block select-sm">
+      <option value="">Summury</option>
+      <option value="">Matrix</option>
+    </select>
+  </div>
+  <div class="fields">
+    <label>Fields</label>
+    <div class="input-line-group w-100p mb-10">
+      <span class="input-icon">
+        <i class="fa fa-search"></i>
+      </span>
+      <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+      <span class="underline">Quick Find Field</span>
+    </div>
+    <button class="btn btn-xs input-block btn-circle" *ngFor="let field of fieldOption">{{field}}</button>
+  </div>
+
+
+</div>
+<div div class="with-sidebar-left with-sidebar-right" [class.hide-right]="!sidebarShow">
   <div class="panel border-red">
     <div class="panel-header">
       <h2>{{reportType}} Report</h2>

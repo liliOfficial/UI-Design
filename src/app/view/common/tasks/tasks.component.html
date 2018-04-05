@@ -22,8 +22,7 @@
                         <th width=100>Quick Complete</th>
                         <th>Subject</th>
                         <th>Due</th>
-                        <th>Lead Name</th>
-                        <th>Account Name</th>
+                        <th>Name</th>
                         <th>Status</th>
                         <th>Created Date</th>
                         <th>Last Activity</th>
@@ -36,8 +35,9 @@
                         </td>
                         <td class="text-red cursor-pointer" routerLink="/task">{{activity.subject}}</td>
                         <td>{{activity.due}}</td>
-                        <td>{{activity.leadName}}</td>
-                        <td>{{activity.accountName}}</td>
+                        <td>
+                          {{activity.leadName}}{{activity.accountName}}
+                        </td>
                         <td>{{activity.status}}</td>
                         <td>{{activity.createdDate}}</td>
                         <td>{{activity.lastActivity}}</td>

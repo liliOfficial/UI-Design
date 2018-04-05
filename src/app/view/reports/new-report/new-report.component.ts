@@ -40,6 +40,12 @@ export class NewReportComponent implements OnInit {
 
   filters = [{ index: 0, field: 2, condition: 'equals', value: 'Mr.,Ms.,aaaaa' }];
 
+  // Fields
+  fieldOption = ['Account Manager', 'Team', 'Source Type', 'Lead Type', 'Lead Status',
+    'Gauge', 'First Name', 'Last Name', 'Phone', 'Email', 'Lead Address Information', 'Last Modified By',
+    'Created By', 'Created Date', 'Last Email Sent', 'Company Name', 'Business Registration Number',
+    'Company Type', 'Company Phone', 'Date of Incorporation', 'Company Address Information', 'Description'];
+
   // For Filters
   addFilter() {
     const newFilter = { index: 0, field: -1, condition: '', value: '' };

@@ -1,0 +1,10 @@
+.sidebar-left label {
+    display: block;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.input-block + .input-block {
+    margin-top: 3px;
+}

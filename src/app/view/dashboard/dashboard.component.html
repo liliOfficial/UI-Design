@@ -1,97 +1,332 @@
-<div>
-    <div class="pt-15">
-        <div class="col-4">
-            <div class="user-box">
-                <div class="panel border-white">
+<div class="dashboard">
+    <div class="clearfix m-10"></div>
+    <div class="dashboard-left">
+        <!-- Clients -->
+        <div>
+            <div class="client-box">
+                <div class="panel">
                     <div class="panel-header">
                         <h2>New Leads</h2>
                     </div>
                     <div class="panel-body">
+                        <div class="clients">
+                            <div class="client" *ngFor="let client of clients" [routerLink]="['/leads/lead-detail',client.id]">{{client.name}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="user-box">
-                <div class="panel border-white">
+            <div class="client-box">
+                <div class="panel">
                     <div class="panel-header">
                         <h2>New Accounts</h2>
                     </div>
                     <div class="panel-body">
-
+                        <div class="clients">
+                            <div class="client" *ngFor="let client of clients" routerLink="/accounts/account-detail">{{client.name}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="user-box">
-                <div class="panel border-white">
+            <div class="client-box">
+                <div class="panel">
                     <div class="panel-header">
                         <h2>Last View</h2>
                     </div>
                     <div class="panel-body">
-
+                        <div class="clients">
+                            <div class="client" *ngFor="let client of clients">{{client.name}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="task">
-                <div class="panel border-white">
-                    <div class="panel-header">
-                        <h2>Open Activity</h2>
-                        <div class="action">
-                            <button class="btn btn-xs btn-circle" routerLink="/tasks">View All</button>
-                        </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Task -->
+        <div class="task">
+            <div class="panel">
+                <div class="panel-header bg-grey">
+                    <h2>Open Activity</h2>
+                    <div class="action">
+                        <button class="btn btn-xs btn-circle btn-white btn-shadow" routerLink="/tasks">View All</button>
                     </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <table class="table-full table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Due</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let activity of activities">
-                                        <td class="text-red cursor-pointer" routerLink="/task">{{activity.subject}}</td>
-                                        <td>{{activity.due}}</td>
-                                        <td>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <table class="table-full table-striped table-hover">
+                            <tbody>
+                                <tr *ngFor="let activity of activities">
+                                    <td>
+                                        <div class="mb-3">
+                                            <span class="text-b cursor-pointer font-14">{{activity.subject}}</span>
+                                            <span class="pull-right text-color">
+                                                {{activity.status}}
+                                            </span>
+                                        </div>
+                                        <div>
                                             <span class="text-green">{{activity.leadName}}</span>
                                             <span class="text-blue">{{activity.accountName}}</span>
-                                        </td>
-                                        <td>{{activity.status}}</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                            <span class="pull-right text-color">
+                                                <i class="fa fa-stopwatch"></i> {{activity.due}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+    </div>
+    <div class="dashboard-right">
+        <div class="panel bg-grey text-white">
+            <div class="panel-header">
+                <h2>{{dashboardName}}</h2>
+                <small>Click to get the full report</small>
+                <div class="action">
+                    <span class="dropdown-box ml-15">
+                        Change Dashboard
+                        <a class="btn btn-icon">
+                            <i class="icon fa fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown dropdown-left">
+                            <div class="dropdown-item cursor-pointer" *ngFor="let item of dashboards" (click)="dashboardName=item">{{item}}</div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report1</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Created Date</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>May 2017</td>
+                                    <td class="text-right">11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report2</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Total Deposit</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report2</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Total Deposit</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report1</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Created Date</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>May 2017</td>
+                                    <td class="text-right">11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report1</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Created Date</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>May 2017</td>
+                                    <td class="text-right">11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Report2</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Total Deposit</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table-full table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th class="text-right">Sum of Total deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of report">
+                                    <td>{{item.month}}</td>
+                                    <td class="text-right">{{item.no}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        Report Footer
+                    </div>
+                </div>
+            </div>
 
         </div>
 
-        <div class="clearfix"></div>
     </div>
 
-    <div class="clearfix mb-80"></div>
-    <app-tab></app-tab>
-    <app-checkbox-radio></app-checkbox-radio>
-    <app-button></app-button>
-    <app-input></app-input>
-    <app-input-line></app-input-line>
-    <app-select></app-select>
-    <app-select-line></app-select-line>
-    <app-dropdown></app-dropdown>
-    <app-panel></app-panel>
-    <div class="panel border-red">
-        <div class="panel-header">
-        </div>
-        <div class="panel-body">
-            <app-drag-drop></app-drag-drop>
-        </div>
-        <div class="panel-footer">
-        </div>
-    </div>
+    <div class="clearfix"></div>
+
+
+    <div class="clearfix mb-30"></div>
+
 </div>
