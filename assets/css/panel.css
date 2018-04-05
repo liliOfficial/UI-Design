@@ -40,6 +40,10 @@
     border-top:3px solid #7E57C2;
 }
 
+.panel.border-brown {
+    border-top:3px solid #795548;
+}
+
 .panel.border-white {
     border-top:3px solid #fff;
 }

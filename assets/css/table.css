@@ -176,6 +176,10 @@ tr:not(:last-child) {
     color:#fff;
     background:#7E57C2;
 }
+.pagination.pagination-brown ul li:hover,.pagination.pagination-brown ul li.active,.pagination-side.pagination-side-brown ul li:hover,.pagination-side.pagination-side-brown ul li.active {
+    color:#fff;
+    background:#795548;
+}
 
 ul.list {
     list-style: none;
@@ -229,19 +233,17 @@ ul.list li .content .select, ul.list li .content .input {
 ul.list li .setting {
     position: absolute;
     right:8px;
-    top:2px;
+    top:5px;
     display: none;
 }
 ul.list li:hover .setting {
     display: block;
 }
 ul.list li .setting .delete {
-    color:#E53935;
     cursor: pointer;
     padding-right: 3px;
 }
 ul.list li .setting .edit {
-    color:#4e4e4e;
     cursor: pointer;
 }
 ul.list.list-setting {
