@@ -43,7 +43,7 @@
         <div class="clearfix"></div>
         <!-- Task -->
         <div class="task">
-            <div class="panel">
+            <div class="panel border-grey">
                 <div class="panel-header bg-grey">
                     <h2>Open Activity</h2>
                     <div class="action">
@@ -57,7 +57,7 @@
                                 <tr *ngFor="let activity of activities">
                                     <td>
                                         <div class="mb-3">
-                                            <span class="text-b cursor-pointer font-14">{{activity.subject}}</span>
+                                            <span class="text-b cursor-pointer" routerLink="/task">{{activity.subject}}</span>
                                             <span class="pull-right text-color">
                                                 {{activity.status}}
                                             </span>
@@ -79,14 +79,14 @@
         </div>
     </div>
     <div class="dashboard-right">
-        <div class="panel bg-grey text-white">
+        <div class="panel border-grey bg-grey text-white">
             <div class="panel-header">
                 <h2>{{dashboardName}}</h2>
                 <small>Click to get the full report</small>
                 <div class="action">
                     <span class="dropdown-box ml-15">
-                        Change Dashboard
-                        <a class="btn btn-icon">
+                        <span class="pr-5">Change Dashboard</span>                        
+                        <a class="btn btn-icon btn-white btn-shadow">
                             <i class="icon fa fa-caret-down"></i>
                         </a>
                         <div class="dropdown dropdown-left">
@@ -98,12 +98,12 @@
         </div>
         <div class="row">
             <div class="col-4">
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Created Date</th>
@@ -122,12 +122,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -146,12 +146,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -172,12 +172,12 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -196,12 +196,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -220,12 +220,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Created Date</th>
@@ -246,12 +246,12 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Created Date</th>
@@ -270,12 +270,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -294,12 +294,12 @@
                         Report Footer
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table-full table-striped table-hover">
+                        <table class="table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Month</th>

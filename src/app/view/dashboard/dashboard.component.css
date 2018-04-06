@@ -12,6 +12,10 @@
     min-height: 80vh;
 }
 
+.panel.border-grey {
+    /* border-top:3px solid #8e8e8e; */
+}
+
 .bg-grey {
     color:#f2f5f8;
 }
@@ -20,15 +24,6 @@
     display:inline-block;
     width:140px;
     margin-right: 8px;    
-}
-
-.client-box .panel {
-    background:#4e4e4e;
-    color:#f2f5f8;
-}
-
-.client-box .panel .panel-header {    
-    border-bottom: 1px solid #8e8e8e;
 }
 
 .client-box .panel .panel-header h2 {
@@ -46,7 +41,7 @@
 }
 
 .client-box .clients .client:hover {
-    background:#1b1e24;
+    background:#f2f5f8;
 }
 
 .task {

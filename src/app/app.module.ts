@@ -206,6 +206,7 @@ import { UiComponent } from './view/user/ui/ui.component';
       { path: 'reports', component: ReportsComponent },
       { path: 'reports/new-reports/:type', component: NewReportComponent },
       { path: 'reports/new-dashboard', component: NewDashboardComponent },
+      { path: 'reports/generate', component: GenerateReportComponent },
       { path: 'task', component: TaskEditComponent },
       { path: 'tasks', component: TasksComponent },
       { path: 'search', component: SearchComponent },

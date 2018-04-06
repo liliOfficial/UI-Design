@@ -19,26 +19,29 @@
             <table class="table-full table-striped table-hover">
                 <thead>
                     <tr>
-                        <th width=100>Quick Complete</th>
+                        <th width=50>Complete</th>
                         <th>Subject</th>
                         <th>Due</th>
                         <th>Name</th>
                         <th>Status</th>
+                        <th>Priority</th>
                         <th>Created Date</th>
                         <th>Last Activity</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let activity of activities">
-                        <td>
-                            <i class="fa fa-times"></i>
+                        <td class="text-center">
+                            <i class="fa fa-times" routerLink="/task"></i>
                         </td>
-                        <td class="text-red cursor-pointer" routerLink="/task">{{activity.subject}}</td>
-                        <td>{{activity.due}}</td>
+                        <td class="cursor-pointer" routerLink="/task">{{activity.subject}}</td>
+                        <td class="text-red">{{activity.due}}</td>
                         <td>
-                          {{activity.leadName}}{{activity.accountName}}
+                          <span [class.text-green]="activity.leadName">{{activity.leadName}}</span>
+                          <span [class.text-blue]="activity.accountName">{{activity.accountName}}</span>
                         </td>
                         <td>{{activity.status}}</td>
+                        <td>Nomal</td>
                         <td>{{activity.createdDate}}</td>
                         <td>{{activity.lastActivity}}</td>
                     </tr>

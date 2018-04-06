@@ -23,76 +23,123 @@
 <div div class="with-sidebar-left with-sidebar-right" [class.hide-right]="!sidebarShow">
   <div class="panel border-red">
     <div class="panel-header">
-      <h2>{{reportType}} Report</h2>
+      <h2>Conditions</h2>
     </div>
     <div class="panel-body">
-      <div class="panel-section">
-        <div class="section-header">
-          Conditions
-        </div>
-        <div class="section-body">
-          <table class="table-full no-line mb-10">
-            <thead>
-              <tr>
-                <td width=50></td>
-                <td>Fields</td>
-                <td>Condition</td>
-                <td>Value</td>
-                <td width=50></td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let filter of filters; index as i">
-                <td>{{filter.index}}</td>
-                <td>
-                  <select class="select select-sm input-block" [(ngModel)]="filter.field" (change)="clearFilterValue(filter.index)">
-                    <option *ngFor="let field of allFields" [ngValue]="field.id">{{field.text}}</option>
-                  </select>
-                </td>
-                <td>
-                  <select class="select select-sm input-block" [(ngModel)]="filter.condition">
-                    <option *ngFor="let condition of conditions" [ngValue]="condition">{{condition}}</option>
-                  </select>
-                </td>
-                <td>
-                  <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
-                  <span *ngIf="valueType(filter.field)=='pickList'">
-                    <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
-                      <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value"
-                        (change)="changeSelected(filter)">
-                      <span class="input-icon" (click)="showPickList()">
-                        <i class="fa fa-search"></i>
-                      </span>
-                    </span>
+      <div class="clearfix m-10"></div>
+      <table class="table-full no-line mb-10">
+        <thead>
+          <tr>
+            <td width=50></td>
+            <td>Fields</td>
+            <td>Condition</td>
+            <td>Value</td>
+            <td width=50></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let filter of filters; index as i">
+            <td>{{filter.index}}</td>
+            <td>
+              <select class="select select-sm input-block" [(ngModel)]="filter.field" (change)="clearFilterValue(filter.index)">
+                <option *ngFor="let field of allFields" [ngValue]="field.id">{{field.text}}</option>
+              </select>
+            </td>
+            <td>
+              <select class="select select-sm input-block" [(ngModel)]="filter.condition">
+                <option *ngFor="let condition of conditions" [ngValue]="condition">{{condition}}</option>
+              </select>
+            </td>
+            <td>
+              <input *ngIf="valueType(filter.field)=='text'" type="text" class="input input-sm input-block" [(ngModel)]="filter.value">
+              <span *ngIf="valueType(filter.field)=='pickList'">
+                <span class="input-group" style="width:100%" (click)="openPickList(filter.index,filter.field,filter.value)">
+                  <input class="input input-sm input-block" type="text" placeholder="Input or insert value from the pick list" [(ngModel)]="filter.value"
+                    (change)="changeSelected(filter)">
+                  <span class="input-icon" (click)="showPickList()">
+                    <i class="fa fa-search"></i>
                   </span>
-                </td>
-                <td>
-                  <button class="btn btn-sm btn-red" (click)="deleteFilter(i)">
-                    <i class="fa fa-trash-alt"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="text-center">
-            <button class="btn btn-red btn-sm" (click)="addFilter()">
-              <i class="fa fa-plus"></i> Add New Filter
-            </button>
-          </div>
-          <div class="input-line-group mtb-15" style="width:100%">
-            <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
-            <span class="underline">Add Filter Logix</span>
-          </div>
-        </div>
+                </span>
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-red" (click)="deleteFilter(i)">
+                <i class="fa fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-red btn-sm" (click)="addFilter()">
+          <i class="fa fa-plus"></i> Add New Filter
+        </button>
       </div>
-      <div class="panel-section">
-        <div class="section-header">
-          Values
-        </div>
-        <div class="section-body">
-        </div>
+      <div class="input-line-group mtb-15" style="width:100%">
+        <input type="text" class="input-line input-block" onkeyup="this.setAttribute('value', this.value);" value="">
+        <span class="underline">Add Filter Logix</span>
       </div>
     </div>
+  </div>
+  <div class="panel border-red">
+    <div class="panel-header">
+      <h2>{{reportType}} Report</h2>
+      <div class="action">
+        <button class="btn btn-xs btn-circle btn-red" routerLink="/reports/generate">
+          <i class="fa fa-paper-plane"></i> Generate Report</button>
+        <button class="btn btn-xs btn-circle btn-red">
+          <i class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table-striped table-hover mt-15 report">
+        <thead>
+          <tr>
+            <th *ngFor="let theader of theaders; index as i">
+              <span class="text">{{theader.text}}</span>
+              <span class="dropdown-box ml-15 pull-right" *ngIf="theader.type==='date'&&i===0">
+                <a class="btn btn btn-icon btn-white">
+                  <i class="icon fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown dropdown-left pull">
+                  <div class="dropdown-item">Group By Day</div>
+                  <div class="dropdown-item">Group By Calendar Week</div>
+                  <div class="dropdown-item">Group By Calendar Month</div>
+                  <div class="dropdown-item">Group By Calendar Quarter</div>
+                  <div class="dropdown-item">Group By Calendar Year</div>
+                </div>
+              </span>
+              <span class="dropdown-box ml-15 pull-right" *ngIf="theader.type==='number'">
+                <a class="btn btn btn-icon btn-white">
+                  <i class="icon fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown dropdown-left pull">
+                  <div class="dropdown-item">Summury</div>
+                  <div class="dropdown-item">Average</div>
+                  <div class="dropdown-item">Summury & Average</div>
+                </div>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='sum'>
+            <td>03/09/2017 - 09/09/2017</td>
+            <td colspan=4>
+              <div>Sum of Total Deposits 33,100</div>
+              <div>Average of Total Deposits 4,137.50</div>
+              <div>Count {{data.length}}</div>
+            </td>
+          </tr>
+          <tr *ngFor="let data of data">
+            <td *ngFor="let theader of theaders">{{data[theader.key]}}</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer"></div>
   </div>
 </div>
 

@@ -93,4 +93,12 @@
     background:#4e4e4e;
     width:100%;    
 }
+.with-sidebar-left .col-4 {
+    padding:3px;
+}
+.with-sidebar-left .report-col {
+    padding:10px 5px 50px 5px;
+    min-height: 80vh;
+    border:2px dashed #cad6e2;
+}
 

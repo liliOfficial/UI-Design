@@ -8,3 +8,19 @@
 .input-block + .input-block {
     margin-top: 3px;
 }
+
+.dropdown {
+    width:200px;
+}
+
+.dropdown-left {
+    top:15px;
+}
+
+.dropdown .dropdown-item {
+    padding:5px 15px;
+}
+
+.sum {
+    background:#cad6e2;
+}

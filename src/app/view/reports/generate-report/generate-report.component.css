@@ -1,0 +1,11 @@
+table {
+    width:auto;
+}
+
+h4 {
+    margin: 5px 0;
+}
+
+.filter>div, .title>div {
+    margin-bottom: 3px;
+}

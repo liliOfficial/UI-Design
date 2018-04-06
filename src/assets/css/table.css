@@ -54,6 +54,31 @@ tr:not(:last-child) {
     background-color:#f2f5f8; 
 }
 
+.report th {
+    border-top: 2px solid #cad6e2;
+}
+
+.report th .btn-icon {
+    width:18px;
+    height: 18px;
+}
+
+.report th .btn-icon.btn-white {
+    border:1px solid transparent;
+}
+
+.report td,.report th {
+    border-right: 1px solid #cad6e2;
+}
+
+.report td:first-child,.report th:first-child {
+    border-left: 1px solid #cad6e2;
+}
+
+.report tr:last-child {
+    border-bottom: 1px solid #cad6e2;
+}
+
 /* pagination style */
 .pagination {
     padding: 10px 0;

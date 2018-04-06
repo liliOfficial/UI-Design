@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
   activities = [
     {
       subject: 'Ask For Photo ID',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: 'Will Bai',
       accountName: '',
       status: 'Not Started',
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: 'Create New Account',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: 'Li Li',
       accountName: '',
       status: 'Not Started',
@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: 'Check Deposit Ammount',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: '',
       accountName: 'Jimmy Ye',
       status: 'Not Started',
@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: '新建模拟账户',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: 'Ginney',
       accountName: '',
       status: 'Not Started',
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: 'Convert Lead To Account',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: 'bibibibi',
       accountName: '',
       status: 'Not Started',
@@ -96,7 +96,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: 'Create New Opportunites',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: '',
       accountName: 'Jimmy Ye',
       status: 'Not Started',
@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       subject: 'Check MT4 Status',
-      due: '18/01/2018',
+      due: '18/01/2018 8:30AM',
       leadName: 'Li Li',
       accountName: '',
       status: 'Not Started',
