@@ -97,8 +97,8 @@
     padding:3px;
 }
 .with-sidebar-left .report-col {
-    padding:10px 5px 50px 5px;
-    min-height: 80vh;
+    padding:10px 8px 50px 8px;
+    min-height: 70vh;
     border:2px dashed #cad6e2;
 }
 

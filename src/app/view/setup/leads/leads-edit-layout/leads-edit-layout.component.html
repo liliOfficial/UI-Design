@@ -1,5 +1,7 @@
 <setup-nav></setup-nav>
 <div class="with-sidebar-left with-sidebar-right" (mousemove)="mouseMove($event)">
+  <h2>Lead Page Layout Name</h2>
+  <input type="text" class="input input-lg input-block mb-10">
   <!-- Tools -->
   <div class="panel border-green" *ngIf="object ==='action'">
     <div class="panel-header">
@@ -144,6 +146,13 @@
   </div>
 
   <div class="sidebar-right">
+    <div class="mb-5">
+      <button class="btn btn-green">
+        <i class="fa fa-save"></i> Save</button>
+      <button class="btn">
+        <i class="fa fa-times"></i> Cancel</button>
+    </div>
+
     <div class="option">
       <div class="mb-10">
         <div class="radio radio-green">

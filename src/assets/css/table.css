@@ -75,8 +75,15 @@ tr:not(:last-child) {
     border-left: 1px solid #cad6e2;
 }
 
-.report tr:last-child {
-    border-bottom: 1px solid #cad6e2;
+.report tfoot tr {
+    font-weight: 700;
+    background-color:#f2f5f8;
+    border-top: 2px solid #cad6e2;
+    border-bottom: 2px solid #cad6e2;
+}
+
+.report tr.sum {
+    background:#f2f5f8;
 }
 
 /* pagination style */

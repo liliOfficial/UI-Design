@@ -71,6 +71,27 @@ export class GenerateReportComponent implements OnInit {
     },
   ];
 
+  data2 = [
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 10000
+    },
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 5000
+    },
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 2000
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {

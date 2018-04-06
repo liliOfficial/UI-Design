@@ -74,6 +74,26 @@ export class NewReportComponent implements OnInit {
       totalDeposit: 11000
     },
   ];
+  data2 = [
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 10000
+    },
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 5000
+    },
+    {
+      accountManager: 'Jimmy',
+      accountName: 'Will',
+      createdDate: '28-02-2017',
+      totalDeposit: 2000
+    }
+  ];
 
   // For Filters
   sidebarShow = false;

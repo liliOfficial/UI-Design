@@ -31,8 +31,7 @@
 }
 
 .client-box .clients {
-    margin:10px -15px;
-    
+    margin:10px -15px;    
 }
 
 .client-box .clients .client {
@@ -40,8 +39,16 @@
     cursor: pointer;
 }
 
-.client-box .clients .client:hover {
+/* .client-box .clients .client:hover {
     background:#f2f5f8;
+} */
+
+.hover-green:hover {
+    background:#E8F5E9;
+}
+
+.hover-blue:hover {
+    background:#E3F2FD;
 }
 
 .task {
@@ -65,4 +72,20 @@
 
 .mb-3 {
     margin-bottom: 3px;
+}
+
+.dropdown .folder {
+    padding:5px 15px 3px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dropdown .dashboard {
+    padding:3px 15px 3px 26px;
+    cursor: pointer;
+}
+
+.dropdown .dashboard:hover {
+    background:#4e4e4e;
+    color:#f2f5f8;
 }

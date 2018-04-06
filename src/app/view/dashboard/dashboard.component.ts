@@ -10,42 +10,52 @@ export class DashboardComponent implements OnInit {
     {
       id: 8956,
       name: 'Will Bai',
+      type: 'lead'
     },
     {
       id: 8888,
       name: 'Li Li',
+      type: 'lead'
     },
     {
       id: 9999,
       name: 'Jimmy Ye',
+      type: 'account'
     },
     {
       id: 7878,
       name: 'Sharon',
+      type: 'lead'
     },
     {
       id: 6666,
       name: 'Ronan',
+      type: 'account'
     },
     {
       id: 1234,
       name: 'Ginny',
+      type: 'account'
     },
     {
       id: 9999,
       name: 'Jimmy Ye',
+      type: 'lead'
     },
     {
       id: 7878,
       name: 'Sharon',
+      type: 'lead'
     },
     {
       id: 6666,
       name: 'Ronan',
+      type: 'account'
     },
     {
       id: 1234,
       name: 'Ginny',
+      type: 'lead'
     }
   ];
   activities = [
@@ -137,8 +147,21 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  dashboards = ['Sales Dashboard', 'Admin Dashboard', 'Marketing Dashboard', 'Default Dashboard'];
-  dashboardName = this.dashboards[0];
+  dashboards = [
+    {
+      name: 'Sales Folder',
+      dashboards: ['Sales Dashboard 1', 'Sales Dashboard 2', 'Sales Dashboard 3']
+    },
+    {
+      name: 'Market Folder',
+      dashboards: ['Market Dashboard 1', 'Market Dashboard 2', 'Market Dashboard 3']
+    },
+    {
+      name: 'Admin Folder',
+      dashboards: ['Admin Dashboard 1', 'Admin Dashboard 2', 'Admin Dashboard 3']
+    },
+  ];
+  dashboardName = this.dashboards[0].dashboards[0];
 
   constructor() { }
 

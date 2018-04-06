@@ -10,7 +10,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="clients">
-                            <div class="client" *ngFor="let client of clients" [routerLink]="['/leads/lead-detail',client.id]">{{client.name}}</div>
+                            <div class="client hover-green" *ngFor="let client of clients" [routerLink]="['/leads/lead-detail',client.id]">{{client.name}}</div>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="clients">
-                            <div class="client" *ngFor="let client of clients" routerLink="/accounts/account-detail">{{client.name}}</div>
+                            <div class="client hover-blue" *ngFor="let client of clients" routerLink="/accounts/account-detail">{{client.name}}</div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,10 @@
                     </div>
                     <div class="panel-body">
                         <div class="clients">
-                            <div class="client" *ngFor="let client of clients">{{client.name}}</div>
+                            <div *ngFor="let client of clients">
+                                <div class="client hover-green" *ngIf="client.type==='lead'">{{client.name}}</div>
+                                <div class="client hover-blue" *ngIf="client.type==='account'">{{client.name}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,12 +88,23 @@
                 <small>Click to get the full report</small>
                 <div class="action">
                     <span class="dropdown-box ml-15">
-                        <span class="pr-5">Change Dashboard</span>                        
+                        <span class="pr-5">Change Dashboard</span>
                         <a class="btn btn-icon btn-white btn-shadow">
                             <i class="icon fa fa-caret-down"></i>
                         </a>
                         <div class="dropdown dropdown-left">
-                            <div class="dropdown-item cursor-pointer" *ngFor="let item of dashboards" (click)="dashboardName=item">{{item}}</div>
+                            <div class="clearfix m-5"></div>
+                            <div *ngFor="let folder of dashboards">
+                                <div class="folder" (click)="folder.show=!folder.show">
+                                    <i class="fa fa-folder" *ngIf="!folder.show"></i>
+                                    <i class="fa fa-folder-open" *ngIf="folder.show"></i>
+                                    {{folder.name}}
+                                </div>
+                                <div *ngIf="folder.show">
+                                    <div class="dashboard" *ngFor="let dashboard of folder.dashboards" (click)="dashboardName=dashboard">{{dashboard}}</div>
+                                </div>
+                            </div>
+                            <div class="clearfix m-5"></div>
                         </div>
                     </span>
                 </div>
@@ -101,6 +115,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -125,6 +145,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -149,6 +175,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -175,6 +207,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -199,6 +237,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -223,6 +267,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -249,6 +299,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report1</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -273,6 +329,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Report2</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
@@ -297,6 +359,12 @@
                 <div class="panel" routerLink="/reports/generate">
                     <div class="panel-header">
                         <h2>Total Deposit</h2>
+                        <small>Last updated 06/04/2018 18:00</small>
+                        <div class="action">
+                            <button class="btn btn-icon btn-white">
+                                <i class="fa fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table-striped table-hover">
